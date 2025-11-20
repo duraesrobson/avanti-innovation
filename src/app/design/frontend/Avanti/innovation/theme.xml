@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<theme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/theme.xsd">
+  <title>Innovation Class</title> <!-- nome do tema -->
+  <parent>Magento/luma</parent> <!-- tema pai que será herdado -->
+  <media>
+     <preview_image>media/theme-preview.jpg</preview_image> <!-- caminho da imagem preview do tema -->
+  </media>
+</theme>
