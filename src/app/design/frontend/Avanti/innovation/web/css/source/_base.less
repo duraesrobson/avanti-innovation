@@ -1,17 +1,117 @@
-//
-//  Common (styles-m.css)
-//  _____________________________________________
-& when (@media-common =true) {}
+@font-family-name__base: 'Nunito Sans';
+@layout__max-width: 1300px;
+
+
+@font-family-iconmoon: 'icomoon';
+
+
+@form-element-input__input-width: 594px;
+
+
+// Colors
+
+
+@theme__color__primary: #005CFF;
+@theme__color__primary-alt: @theme__color__primary;
+@theme__color__light-gray: #F5F5F5;
+@color-red9: @theme__color__primary;
+@color-red11: @theme__color__primary;
+@color-red12: @theme__color__primary;
+@color-orange-red1: @theme__color__primary;
+@color-orange-red2: @theme__color__primary;
+@color-orange-red3: @theme__color__primary;
+@color-orange-red4: @theme__color__primary;
+
+
+@color-form-border:#DDDDDD;
+
+
+.slider-title() {
+   font-size: 2rem;
+   text-transform: uppercase;
+   text-align: center;
+   color: black;
+   font-weight: 700;
+   margin-bottom: 20px;
+   display: block;
+}
 
 
 //
-//  Mobile
+//  Common
 //  _____________________________________________
-.media-width(@extremum, @break) when (@extremum ='max') and (@break =@screen__m) {
-   .page-header .panel.wrapper {
-       .lib-css(background-color, @theme__color__primary);
+& when (@media-common = true) {
+   body {
+       overflow-x: hidden;
+       .lib-typography(
+           @_color: @theme__color__primary
+       );
+   }
 
 
+   input,
+   ._keyfocus *:focus,
+   input:not([disabled]):focus,
+   textarea:not([disabled]):focus,
+   select:not([disabled]):focus{
+       box-shadow: none;
+   }
+
+
+   button, a.action.primary {
+       border-radius: 0;
+   }
+
+
+   button {
+       .lib-button(
+           @_button-font-weight: 700,
+           @_button-font-size: 1rem,
+           @_button-padding: 10px,
+           @_button-border: 0,
+           @_button-border-hover: 0
+       );
+       letter-spacing: 5px;
+       text-transform: uppercase;
+
+
+       &:not(.primary) {
+           .lib-css(box-shadow, none);
+
+
+           &:active {
+               .lib-css(box-shadow, none);
+           }
+       }
+   }
+
+
+   input[type="text"],
+   input[type="password"],
+   input[type="url"],
+   input[type="tel"],
+   input[type="search"],
+   input[type="number"],
+   input[type="datetime"],
+   input[type="email"],
+   select {
+       border-color: @theme__color__primary;
+   }
+
+
+   .action.primary,
+   .action-apply {
+       .lib-button(
+           @_button-width: 100%,
+           @_button-margin: 0,
+           @_button-background: @theme__color__primary,
+           @_button-color: #fff,
+           @_button-font-size: 1rem,
+           @_button-border: 0
+       );
+       text-align: center;
+       text-transform: uppercase;
+       letter-spacing: 5px;
    }
 }
 
@@ -19,90 +119,12 @@
 //
 //  Desktop
 //  _____________________________________________
-.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
-   .page-header .panel.wrapper {
-       .lib-css(background-color, @theme__color__primary);
 
 
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+
+   .column.main {
+       .lib-css(min-height, inherit);
    }
-
-
-   .page-header .header.panel .promo-header-message {
-       .lib-css(text-align, center)
-
-
-   }
-
-
-   .logo {
-       margin: 0 50px 0 0;
-   }
-
-
-   .navigation ul {
-       .lib-css(display, flex);
-       .lib-css(justify-content, space-between);
-   }
-
-
-
-
-   .custom-featured-section {
-       .lib-css(text-align, center);
-       .lib-css(padding, 30px 0);
-
-
-       h1 {
-           .lib-css(font-size, 28px);
-           .lib-css(margin-bottom, 20px);
-           .lib-css(color, #000);
-           .lib-css(font-weight, bold);
-       }
-
-
-       .featured-items {
-           .lib-css(display, flex);
-           .lib-css(justify-content, space-between);
-           // .lib-css(gap, 40px);
-           .lib-css(flex-wrap, wrap);
-
-
-
-
-           .featured-item {
-               .lib-css(text-align, center);
-
-
-               img {
-                   .lib-css(margin-bottom, 10px);
-               }
-
-
-               a {
-                   .lib-css(display, block);
-                   .lib-css(font-size, 14px);
-                   .lib-css(color, #000);
-                   .lib-css(text-decoration, none);
-                   .lib-css(text-decoration, none);
-
-
-                   &:hover {
-                       .lib-css(text-decoration, underline);
-                   }
-               }
-           }
-       }
-   }
-
-
-
-
-   .page-footer{
-       .lib-css(background-color,#F5F5F5);
-       .lib-css(padding,64px 0)
-   }
-
-
-
-
 }
