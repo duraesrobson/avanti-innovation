@@ -1,0 +1,108 @@
+//
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common =true) {}
+
+
+//
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum ='max') and (@break =@screen__m) {
+   .page-header .panel.wrapper {
+       .lib-css(background-color, @theme__color__primary);
+
+
+   }
+}
+
+
+//
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
+   .page-header .panel.wrapper {
+       .lib-css(background-color, @theme__color__primary);
+
+
+   }
+
+
+   .page-header .header.panel .promo-header-message {
+       .lib-css(text-align, center)
+
+
+   }
+
+
+   .logo {
+       margin: 0 50px 0 0;
+   }
+
+
+   .navigation ul {
+       .lib-css(display, flex);
+       .lib-css(justify-content, space-between);
+   }
+
+
+
+
+   .custom-featured-section {
+       .lib-css(text-align, center);
+       .lib-css(padding, 30px 0);
+
+
+       h1 {
+           .lib-css(font-size, 28px);
+           .lib-css(margin-bottom, 20px);
+           .lib-css(color, #000);
+           .lib-css(font-weight, bold);
+       }
+
+
+       .featured-items {
+           .lib-css(display, flex);
+           .lib-css(justify-content, space-between);
+           // .lib-css(gap, 40px);
+           .lib-css(flex-wrap, wrap);
+
+
+
+
+           .featured-item {
+               .lib-css(text-align, center);
+
+
+               img {
+                   .lib-css(margin-bottom, 10px);
+               }
+
+
+               a {
+                   .lib-css(display, block);
+                   .lib-css(font-size, 14px);
+                   .lib-css(color, #000);
+                   .lib-css(text-decoration, none);
+                   .lib-css(text-decoration, none);
+
+
+                   &:hover {
+                       .lib-css(text-decoration, underline);
+                   }
+               }
+           }
+       }
+   }
+
+
+
+
+   .page-footer{
+       .lib-css(background-color,#F5F5F5);
+       .lib-css(padding,64px 0)
+   }
+
+
+
+
+}
