@@ -6,10 +6,16 @@
             </container>
         </referenceContainer>
         
+        <!-- move o headerlinks para dentro do header content -->
+        <move element="header.links" destination="header-wrapper" before="minicart"/>
+
+        <move element="minicart" destination="header-wrapper" after="-"/>
+
         <referenceBlock name="logo">
             <arguments>
                 <argument name="logo_file" xsi:type="string">images/avanti-logo.svg</argument>
-                <argument name="logo_width" xsi:type="number">300</argument>
+                <argument name="logo_width" xsi:type="number">152.58</argument>
+                <argument name="logo_height" xsi:type="number">27.08</argument>
                 <argument name="logo_alt" xsi:type="string">Avanti Logo</argument>
             </arguments>
         </referenceBlock>
