@@ -11,6 +11,10 @@
 
         <move element="minicart" destination="header-wrapper" after="-"/>
 
+        <referenceBlock name="header.links">
+                <block class="Magento\Framework\View\Element\Template" name="header.links.or" template="Magento_Theme::html/or.phtml" after="authorization-link"/>
+        </referenceBlock>
+
         <referenceBlock name="logo">
             <arguments>
                 <argument name="logo_file" xsi:type="string">images/avanti-logo.svg</argument>
