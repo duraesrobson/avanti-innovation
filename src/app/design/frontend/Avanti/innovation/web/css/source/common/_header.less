@@ -51,6 +51,17 @@
         .action.showcart {
             .lib-css(width, 24.74px);
             .lib-css(height, 24px);
+
+            .counter.qty {
+                position: absolute;
+                top: -14px;
+                right: -10px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 12px;
+            }
         }
 
         .action.showcart::before {
@@ -58,7 +69,6 @@
             background: none !important;
         }
 
-        
         .action.showcart::after {
             content: "";
             display: block;
@@ -164,7 +174,7 @@ and
             .minicart-wrapper {
                 display: flex;
                 left: 50%;
-                transform: translateX(-50%);
+                transform: translateX(-70%);
                 justify-content: center;
                 align-items: center;
                 margin: 0;
@@ -173,11 +183,12 @@ and
     }
 
     .header .block-search #search {
+        display: block;
         position: absolute !important;
         left: 90% !important;
         transform: translateX(-90%) !important;
         width: calc(100vw - 32px) !important;
-    max-width: 600px;
+        max-width: 600px;
         top: 27px;
     }
 }

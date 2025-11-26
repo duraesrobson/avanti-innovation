@@ -17,6 +17,13 @@
 
 ?>
 
-   <li class="header-links-or">
-       <?= __('or') ?>
+<?php
+/** @var \Magento\Customer\Model\Session $customerSession */
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->get(\Magento\Customer\Model\Session::class);
+
+if (!$customerSession->isLoggedIn()): ?>
+    <li class="header-links-or">
+        <?= __('ou') ?>
     </li>
+<?php endif; ?>
