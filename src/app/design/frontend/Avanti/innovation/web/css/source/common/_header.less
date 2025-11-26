@@ -29,9 +29,11 @@
             background-position: center;
         }
     }
+
     .page-header .header.panel .promo-header-message {
         .lib-css(text-align, center);
         .lib-css(font-weight, 700);
+        .lib-css(padding, 10px);
 
         strong:first-child {
             background-color: #6220c1;
@@ -49,7 +51,6 @@
         .action.showcart {
             .lib-css(width, 24.74px);
             .lib-css(height, 24px);
-            position: relative;
         }
 
         .action.showcart::before {
@@ -57,7 +58,7 @@
             background: none !important;
         }
 
-        // adiciona seu ícone como after
+        
         .action.showcart::after {
             content: "";
             display: block;
@@ -75,133 +76,112 @@
 //  Mobile
 //  _____________________________________________
 .media-width(@extremum, @break)
-    when
-    (@extremum ="max")
-    and
-    (@break =@screen__m) {
+when
+(@extremum = "max")
+and
+(@break = @screen__m) {
+
     .page-header .panel.wrapper {
         .lib-css(background-color, @theme__color__primary);
     }
 
-    .promo-header-message {
-        padding: 10px;
-    }
-   
-    .header.content,
-    .header-wrapper {
-        .lib-css(display, flex);
-        .lib-css(align-items, center);
-        .lib-css(justify-content, space-between);
-        padding-top: 20px;
-    }
-
     .page-header {
         border: none;
-
-        .panel.wrapper {
-            .lib-css(background-color, @theme__color__primary);
-            .lib-css(padding, 16x 8px);
-        }
-
-        .header.links {
-            .lib-css(display, none);
-        }
-
-        .action.nav-toggle {
-            .lib-css(display, flex);
-            align-items: center;
-            justify-content: center;
-        }
-
-        .action.nav-toggle::before {
-            content: "";
-            display: block;
-            width: 23.72px;
-            height: 21.38px;
-            background-image: url("@{baseDir}images/menu.svg");
-            background-repeat: no-repeat;
-            background-size: contain;
-            transform: translateY(50%);
-            background-position: center;
-        }
-
-        .logo {
-            .lib-css(margin-top, 0);
-            .lib-css(margin-bottom, 0);
-            width: 148.07px;
-            height: 26.28;
-            margin-left: 80px;
-        }
-
-        .minicart-wrapper {
-            .lib-css(margin, 0);
-            .lib-css(align-items, center);
-        }
+        height: 184px;
 
         .header.content {
-            .action.showcart {
-                .lib-css(display, flex);
-                .lib-css(align-items, center);
-                .lib-css(justify-content, center);
-                .lib-css(width, 25.04px);
-                .lib-css(height, 24.16px);
-                .lib-css(padding, 0);
-                .lib-css(margin, 0);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: none;
+            height: 20px;
+            padding-top: 22.36px;
+
+            .action.nav-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .lib-css(height, 100%);
+                .lib-css(width, 30px);
+                margin: 0;
+                top: 12px;
             }
-    
+
+            .action.nav-toggle::before {
+                content: "";
+                display: block;
+                width: 23.72px;
+                height: 21.38px;
+                background-image: url("@{baseDir}images/menu.svg");
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+            }
+
+            a.logo {
+                margin: 0;
+                display: flex;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                align-items: center;
+                justify-content: center;
+            }
+
             .header.links {
                 display: none;
             }
-    
-            .block.block-search {
-                .lib-css(display, block); 
-                .lib-css(position, relative);
 
-                .label {
-                    float: none;
+            .block.block-search {
+                margin: 0;
+                position: absolute;
+                left: 80%;
+                transform: translateX(60%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .label::before {
+                    margin: 0;
                 }
-    
+
                 .control {
-                    .lib-css(border, none);
-                    .lib-css(padding, 0);
-                    .lib-css(margin, 0);
+                    border: none;
                 }
-    
-                #search {
-                    .lib-css(border, 1px solid @color-form-border);
-                    .lib-css(border-radius, 10px);
-                    .lib-css(padding, 20px);
-                    .lib-css(top, 230%);
-                    .lib-css(position, absolute);
-                    .lib-css(transform, translateX(-58%));
-                    .lib-css(display, inline-block);
-                    .lib-css(width, 92vw);
-                    .lib-css(margin, 0);
-                }
-    
-                .form.minisearch .field.search .label {
-                    .lib-css(height, 20px);
-                    .lib-css(width, 20px);
-                    .lib-css(padding, 0);
-                    .lib-css(margin, 0);
-                }
-    
+
                 .form.minisearch .field.search .label::before {
                     content: "";
-                    display: block;
+                    display: flex;
                     width: 18.7px;
                     height: 18.7px;
                     background-image: url("@{baseDir}images/lupa.svg");
                     background-repeat: no-repeat;
                     background-size: contain;
                     background-position: center;
-                    margin-left: 30px;
                 }
+            }
+
+            .minicart-wrapper {
+                display: flex;
+                left: 50%;
+                transform: translateX(-50%);
+                justify-content: center;
+                align-items: center;
+                margin: 0;
             }
         }
     }
-    
+
+    .header .block-search #search {
+        position: absolute !important;
+        left: 90% !important;
+        transform: translateX(-90%) !important;
+        width: calc(100vw - 32px) !important;
+    max-width: 600px;
+        top: 27px;
+    }
 }
+
 
 //
 //  Desktop
