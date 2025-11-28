@@ -320,16 +320,18 @@
         margin: 0;
         padding: 0;
 
+        // cor dos links
         & a {
             color: #000000;
         }
 
+        // remove margens e padding de cada item da lista
         > li {
             margin: 0;
             padding: 0;
         }
 
-        // Ícone de avatar
+        // ícone de avatar antes do header.links
         &::before {
             content: "";
             display: inline-block;
@@ -341,19 +343,23 @@
             background-position: center;
         }
 
+        // muda a cor do texto quando logado
         .greet.welcome .logged-in {
             color: @theme__color__primary;
         }
 
+        // remove icone dentro do dropdown
         .customer-menu .header.links::before {
             content: none;
         }
+
+        // altera a cor do arrow do dropdown
         .customer-welcome .action.switch::after{
             color: #000;
         }
     }
 
-    // Logo desktop
+    // logo desktop
     .logo {
         margin: 0;
         margin-right: 66px;
@@ -364,6 +370,29 @@
     // coloca sombra como border do navigation
     .sections.nav-sections {
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+
+        // primeiro item do navigation
+        #ui-id-2 span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            gap: 8px;
+
+            // ícone antes desse primeiro item
+            &::before {
+                content: "";
+                display: block;
+                width: 14px;
+                height: 14px;
+                font-weight: 600;
+                background-image: url("@{baseDir}images/menu.svg");
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                filter: drop-shadow(0 0 1px #000);
+            }
+        }
     }
 
     // navegação desktop
