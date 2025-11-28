@@ -1,20 +1,32 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
+
+        <!-- referência ao container do header panel -->
         <referenceContainer name="header.panel">
+
+            <!-- cria um container dentro do header.panel para a mensagem promocional -->           
             <container name="promo.header.wrapper" htmlClass="promo-wrapper" htmlTag="div">
+
+            <!-- adiciona o bloco de template da promoção, usando o arquivo promo.phtml -->
+            <!-- o atributo before="-" força a renderização no início do container -->
                 <block class="Magento\Framework\View\Element\Template" name="promo.header.panel" template="Magento_Theme::html/promo.phtml" before="-" />
+
             </container>
+            
         </referenceContainer>
         
-        <!-- move o headerlinks para dentro do header content -->
+        <!-- move o bloco de links do header para dentro do header-wrapper, antes do minicart -->
         <move element="header.links" destination="header-wrapper" before="minicart"/>
 
+        <!-- move o bloco do minicart para dentro do header-wrapper, após todos os outros elementos -->
         <move element="minicart" destination="header-wrapper" after="-"/>
 
+        <!-- cria um bloco phtml dentro de header.links para exibir a string "ou" entre os links quando o usuário não está logado -->
         <referenceBlock name="header.links">
                 <block class="Magento\Framework\View\Element\Template" name="header.links.or" template="Magento_Theme::html/or.phtml" after="authorization-link"/>
         </referenceBlock>
 
+        <!-- configuração do logo -->
         <referenceBlock name="logo">
             <arguments>
                 <argument name="logo_file" xsi:type="string">images/avanti-logo.svg</argument>
@@ -23,5 +35,6 @@
                 <argument name="logo_alt" xsi:type="string">Avanti Logo</argument>
             </arguments>
         </referenceBlock>
+        
     </body>
 </page>

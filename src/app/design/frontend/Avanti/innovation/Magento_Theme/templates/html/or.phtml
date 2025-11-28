@@ -22,6 +22,7 @@
 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 $customerSession = $objectManager->get(\Magento\Customer\Model\Session::class);
 
+// se o usuário não estiver logado mostra a string "ou"
 if (!$customerSession->isLoggedIn()): ?>
     <li class="header-links-or">
         <?= __('ou') ?>
