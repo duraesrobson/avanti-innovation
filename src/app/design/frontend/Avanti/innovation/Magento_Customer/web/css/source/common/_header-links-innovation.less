@@ -1,0 +1,85 @@
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common =true) {
+    .header.links {
+        // links do header com cor e font config definida
+        color: #000;
+        font-size: 14px;
+        font-weight: 600;
+
+        // oculta os links para usuários que não estão logados
+        .not-logged-in {
+            .lib-css(display, none);
+        }
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    // Links do header escondidos
+    .header.links {
+        display: none;
+    }
+}
+
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum ="min")
+    and
+    (@break =@screen__m) {
+    // Links do header desktop
+    .header.links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        list-style: none;
+        gap: 5px;
+        margin: 0 34px 0 0;
+        padding: 0;
+
+        // cor dos links
+        & a {
+            color: #000000;
+        }
+
+        // remove margens e padding de cada item da lista
+        > li {
+            margin: 0;
+            padding: 0;
+        }
+
+        // ícone de avatar antes do header.links
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 21px;
+            height: 24px;
+            background-image: url("@{baseDir}images/user-avatar.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+
+        // muda a cor do texto quando logado
+        .greet.welcome .logged-in {
+            color: @theme__color__primary;
+        }
+
+        // remove icone dentro do dropdown
+        .customer-menu .header.links::before {
+            content: none;
+        }
+
+        // altera a cor do arrow do dropdown
+        .customer-welcome .action.switch::after {
+            color: #000;
+        }
+    }
+}

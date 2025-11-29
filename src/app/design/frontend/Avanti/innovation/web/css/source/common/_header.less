@@ -1,117 +1,6 @@
 //  Common (styles-m.css)
 //  _____________________________________________
 & when (@media-common =true) {
-    // oculta os links para usuários que não estão logados
-    .header.links .not-logged-in {
-        .lib-css(display, none);
-    }
-
-    // bloco de busca
-    .block.block-search {
-        // input de pesquisa padrão
-        #search {
-            .lib-css(border, 1px solid @color-form-border);
-            .lib-css(border-radius, 10px);
-            .lib-css(padding, 20px);
-        }
-
-        // placeholder e input-text com estilo padrão
-        #search::placeholder,
-        .input-text {
-            font-size: 14px;
-            color: #000;
-            font-weight: 600;
-        }
-
-        // Botão de busca
-        .action.search {
-            .lib-css(height, 100%);
-            .lib-css(width, 30px);
-        }
-
-        // Ícone da lupa dentro do botão
-        .action.search::before {
-            content: "";
-            display: block;
-            width: 18.7px;
-            height: 18.7px;
-            background-image: url("@{baseDir}images/lupa.svg");
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-        }
-
-        // Estado de busca desativada
-        .actions .action.search[disabled] {
-            opacity: 1;
-        }
-    }
-
-    // Mensagem promocional no topo do header
-    .page-header .header.panel .promo-header-message {
-        .lib-css(text-align, center);
-        .lib-css(font-weight, 700);
-        .lib-css(padding, 10px);
-
-        // strong's da mensagem de promo
-        strong:first-child {
-            background-color: #6220c1;
-            border-radius: 4px;
-            padding: 1px;
-        }
-
-        strong:last-child {
-            font-weight: 400;
-            font-style: italic;
-        }
-    }
-
-    // Header principal
-    .page-header .header.content {
-        // Links do header com cor definida
-        .header.links {
-            color: #000;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        // Carrinho de compras
-        .action.showcart {
-            .lib-css(width, 24.74px);
-            .lib-css(height, 24px);
-
-            // Bolinha de quantidade visível quando há itens
-            .counter.qty:not(.empty) {
-                position: absolute;
-                top: -14px;
-                right: -10px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 12px;
-            }
-        }
-
-        // Remove pseudo-elemento antes do carrinho
-        .action.showcart::before {
-            content: none !important;
-            background: none !important;
-        }
-
-        // Ícone do carrinho
-        .action.showcart::after {
-            content: "";
-            display: block;
-            width: 24.74px;
-            height: 24px;
-            background-image: url("@{baseDir}images/minicart.svg");
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-        }
-    }
-
     // Navegação principal
     .sections.nav-sections {
         background: white;
@@ -140,44 +29,33 @@
     (@break = @screen__m) {
     // Header mobile
     .page-header {
-        height: 100px;
+        height: 110px;
         border: none;
         padding-bottom: 15px;
         align-items: center;
         justify-content: center;
-        transition: height 0.2s ease;
+        // transition: height 0.2s ease; remoção temporaria de transição por conta de que o aria-expanded nao tem transição de saída
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 
-
-        // Expande altura se busca estiver ativa
+        // expande altura se busca estiver ativa
         &:has(.field.search input[aria-expanded="true"]) {
-            height: 182px;
+            height: 180px;
         }
 
-        // Painel do header mobile
+        // painel do header mobile
         .panel.wrapper {
             .lib-css(background-color, @theme__color__primary);
-
-            // Mensagem promocional dentro do painel
-            .promo-header-message {
-                .lib-css(padding, 4px);
-
-                strong:last-child {
-                    font-weight: 400;
-                    font-style: normal;
-                }
-            }
         }
 
-        // Conteúdo do header mobile
+        // conteúdo do header mobile
         .header.content {
             display: flex;
             justify-content: space-between;
             align-items: center;
             border: none;
-            padding-top: 22.36px;
+            padding-top: 22px;
 
-            // Toggle menu mobile
+            // toggle menu mobile
             .action.nav-toggle {
                 display: flex;
                 align-items: center;
@@ -188,19 +66,19 @@
                 top: 12px;
             }
 
-            // Ícone do toggle
+            // ícone do toggle
             .action.nav-toggle::before {
                 content: "";
                 display: block;
-                width: 23.72px;
-                height: 21.38px;
-                background-image: url("@{baseDir}images/menu.svg");
+                width: 24px;
+                height: 22px;
+                background-image: url("@{baseDir}images/menu-mobile.svg");
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-position: center;
             }
 
-            // Logo centralizada
+            // logo centralizada
             a.logo {
                 margin: 0;
                 display: flex;
@@ -211,58 +89,7 @@
                 justify-content: center;
             }
 
-            // Links do header escondidos
-            .header.links {
-                display: none;
-            }
-
-            // Bloco de busca mobile
-            .block.block-search {
-                margin: 0;
-                position: absolute;
-                .lib-css(right, calc(7.5% + 30px));
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                .label::before {
-                    margin: 0;
-                }
-
-                .control {
-                    border: none;
-                    .lib-css(top, 160%);
-                    position: absolute;
-                    .lib-css(transform, translateX(calc(-88.5vw + 48px)));
-                }
-
-                // Ícone lupa mobile
-                .form.minisearch .field.search .label::before {
-                    content: "";
-                    display: flex;
-                    width: 18.7px;
-                    height: 18.7px;
-                    background-image: url("@{baseDir}images/lupa.svg");
-                    background-repeat: no-repeat;
-                    background-size: contain;
-                    background-position: center;
-                }
-
-                // Label do campo de busca
-                .field.search .label {
-                    .lib-css(height, 18px);
-                    .lib-css(width, 18px);
-                    .lib-css(transform, translateX(50%));
-                }
-
-                // Input expandido quando ativo
-                .field.search input[aria-expanded="true"] {
-                    .lib-css(width, 92.5vw);
-                    .lib-css(margin-top, 27.36px);
-                }
-            }
-
-            // Mini carrinho mobile
+            // mini carrinho mobile
             .minicart-wrapper {
                 display: flex;
                 left: 50%;
@@ -282,15 +109,15 @@
     (@extremum ="min")
     and
     (@break =@screen__m) {
-    // Painel desktop
+    // painel desktop
     .page-header .panel.wrapper {
         .lib-css(background-color, @theme__color__primary);
     }
 
-    // Header desktop
+    // header desktop
     .page-header .header.content {
         margin: 0 auto;
-        padding: 22px 20px 31px;
+        padding: 22px 20px 24px;
         justify-content: space-between;
         align-items: center;
         display: flex;
@@ -301,62 +128,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-    }
-
-    // Bloco de busca desktop
-    .block.block-search {
-        width: auto;
-        flex: 1;
-        margin-right: calc(20% - 80px);
-    }
-
-    // Links do header desktop
-    .header.links {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        list-style: none;
-        gap: 5px;
-        margin: 0;
-        padding: 0;
-
-        // cor dos links
-        & a {
-            color: #000000;
-        }
-
-        // remove margens e padding de cada item da lista
-        > li {
-            margin: 0;
-            padding: 0;
-        }
-
-        // ícone de avatar antes do header.links
-        &::before {
-            content: "";
-            display: inline-block;
-            width: 21px;
-            height: 24px;
-            background-image: url("@{baseDir}images/user-avatar.svg");
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-        }
-
-        // muda a cor do texto quando logado
-        .greet.welcome .logged-in {
-            color: @theme__color__primary;
-        }
-
-        // remove icone dentro do dropdown
-        .customer-menu .header.links::before {
-            content: none;
-        }
-
-        // altera a cor do arrow do dropdown
-        .customer-welcome .action.switch::after{
-            color: #000;
-        }
     }
 
     // logo desktop
@@ -386,11 +157,10 @@
                 width: 14px;
                 height: 14px;
                 font-weight: 600;
-                background-image: url("@{baseDir}images/menu.svg");
+                background-image: url("@{baseDir}images/menu-desktop.svg");
                 background-repeat: no-repeat;
                 background-size: contain;
                 background-position: center;
-                filter: drop-shadow(0 0 1px #000);
             }
         }
     }
@@ -442,6 +212,6 @@
     // footer desktop
     .page-footer {
         background-color: #f5f5f5;
-        padding: 64px 0; 
+        padding: 64px 0;
     }
 }

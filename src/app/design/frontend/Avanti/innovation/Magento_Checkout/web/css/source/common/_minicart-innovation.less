@@ -1,0 +1,79 @@
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common =true) {
+    // Carrinho de compras
+    .action.showcart {
+        .lib-css(width, 24px);
+        .lib-css(height, 24px);
+
+        // Bolinha de quantidade visível quando há itens
+        .counter.qty:not(.empty) {
+            position: absolute;
+            top: -14px;
+            right: -10px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        // Remove pseudo-elemento antes do carrinho
+        &::before {
+            content: none !important;
+            background: none !important;
+        }
+
+        // Ícone do carrinho
+        &::after {
+            content: "";
+            display: block;
+            width: 24px;
+            height: 24px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    // Mini carrinho mobile
+    .minicart-wrapper {
+        display: flex;
+        left: 50%;
+        transform: translateX(-70%);
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+
+        .action.showcart {
+        // Ícone do carrinho
+        &::after {
+            background-image: url("@{baseDir}images/minicart-mobile.svg");
+        }
+    }
+    }
+}
+
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum ="min")
+    and
+    (@break =@screen__m) {
+
+        // Carrinho de compras
+    .action.showcart {
+        // Ícone do carrinho
+        &::after {
+            background-image: url("@{baseDir}images/minicart-desktop.svg");
+        }
+    }
+}
