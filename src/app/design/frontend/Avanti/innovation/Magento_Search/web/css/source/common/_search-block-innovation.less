@@ -1,8 +1,7 @@
 //  Common (styles-m.css)
 //  _____________________________________________
 & when (@media-common =true) {
-
-// bloco de busca
+    // bloco de busca
     .block.block-search {
         // input de pesquisa padrão
         #search {
@@ -42,8 +41,6 @@
             opacity: 1;
         }
     }
-
-
 }
 
 //  Mobile
@@ -53,53 +50,51 @@
     (@extremum = "max")
     and
     (@break = @screen__m) {
-
-
     // Bloco de busca mobile
-            .block.block-search {
-                margin: 0;
-                position: absolute;
-                .lib-css(right, calc(7.5% + 30px));
-                display: flex;
-                justify-content: center;
-                align-items: center;
+    .block.block-search {
+        margin: 0;
+        position: absolute;
+        .lib-css(right, calc(7.5% + 30px));
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-                .label::before {
-                    margin: 0;
-                }
+        .label::before {
+            margin: 0;
+        }
 
-                .control {
-                    border: none;
-                    .lib-css(top, 160%);
-                    position: absolute;
-                    .lib-css(transform, translateX(calc(-88.5vw + 48px)));
-                }
+        .control {
+            border: none;
+            .lib-css(top, 160%);
+            position: absolute;
+            .lib-css(transform, translateX(calc(-88.5vw + 48px)));
+        }
 
-                // Ícone lupa mobile
-                .form.minisearch .field.search .label::before {
-                    content: "";
-                    display: flex;
-                    width: 19px;
-                    height: 19px;
-                    background-image: url("@{baseDir}images/lupa.svg");
-                    background-repeat: no-repeat;
-                    background-size: contain;
-                    background-position: center;
-                }
+        // Ícone lupa mobile
+        .form.minisearch .field.search .label::before {
+            content: "";
+            display: flex;
+            width: 19px;
+            height: 19px;
+            background-image: url("@{baseDir}images/lupa.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
 
-                // Label do campo de busca
-                .field.search .label {
-                    .lib-css(height, 18px);
-                    .lib-css(width, 18px);
-                    .lib-css(transform, translateX(50%));
-                }
+        // Label do campo de busca
+        .field.search .label {
+            .lib-css(height, 18px);
+            .lib-css(width, 18px);
+            .lib-css(transform, translateX(50%));
+        }
 
-                // Input expandido quando ativo
-                .field.search input[aria-expanded="true"] {
-                    .lib-css(width, 92.5vw);
-                    .lib-css(margin-top, 27px);
-                }
-            }
+        // Input expandido quando ativo
+        .field.search input[aria-expanded="true"] {
+            .lib-css(width, 90vw);
+            .lib-css(margin-top, 27px);
+        }
+    }
 }
 
 //  Desktop
@@ -109,20 +104,15 @@
     (@extremum ="min")
     and
     (@break =@screen__m) {
-// Bloco de busca desktop
+    // Bloco de busca desktop
     .block.block-search {
         width: auto;
         flex: 1;
         margin-right: calc(20% - 80px);
 
-        // verificar para corrigir sobreposicao do placeholder sobre a lupa
-        // #search {
-        //     width: auto;
-        //     flex: 1;
-        //     padding-right: 40px;
-        // }
+        // ajusta padding-right para evitar colisão do placeholder com o ícone de busca/lupa (tablets)
+        #search {
+            .lib-css(padding-right, 60px);
+        }
     }
-
-    }
-
-    
+}
