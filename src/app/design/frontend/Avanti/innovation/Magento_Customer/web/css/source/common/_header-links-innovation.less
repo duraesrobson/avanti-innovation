@@ -69,6 +69,12 @@
 
         // muda a cor do texto quando logado
         .greet.welcome .logged-in {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            width: 190px;
+            flex-grow: 1;
             color: @theme__color__primary;
         }
 
@@ -80,6 +86,15 @@
         // altera a cor do arrow do dropdown
         .customer-welcome .action.switch::after {
             color: #000;
+        }
+
+        .customer-welcome.active ul {
+            width: 200px;
+            right: -30px;
+
+            &::after {
+                display: none;
+            }
         }
     }
 }

@@ -1,7 +1,7 @@
 //  Common (styles-m.css)
 //  _____________________________________________
 & when (@media-common =true) {
-    // Mensagem promocional no topo do header
+    // mensagem promocional no topo do header
     .page-header .header.panel .promo-header-message {
         .lib-css(text-align, center);
         .lib-css(font-weight, 700);
@@ -11,7 +11,7 @@
         strong:first-child {
             background-color: #6220c1;
             border-radius: 4px;
-            padding: 1px;
+            padding: 1px 5px;
         }
 
         strong:last-child {
@@ -28,8 +28,17 @@
     (@extremum = "max")
     and
     (@break = @screen__m) {
+    .page-header .header.panel {
+        padding: 0;
+    }
     .page-header .header.panel .promo-header-message {
-        .lib-css(padding, 4px);
+        .lib-css(font-size, 14px);
+        .lib-css(padding, 6px 20px);
+
+        // strong's da mensagem de promo
+        strong:first-child {
+            border-radius: 0;
+        }
 
         strong:last-child {
             font-weight: 400;

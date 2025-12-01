@@ -89,9 +89,9 @@
             .lib-css(transform, translateX(50%));
         }
 
-        // Input expandido quando ativo
+        // input expandido quando ativo
         .field.search input[aria-expanded="true"] {
-            .lib-css(width, 90vw);
+            .lib-css(width, 92vw);
             .lib-css(margin-top, 27px);
         }
     }
@@ -106,7 +106,8 @@
     (@break =@screen__m) {
     // Bloco de busca desktop
     .block.block-search {
-        width: auto;
+        // width: auto;
+        max-width: 592px;
         flex: 1;
         margin-right: calc(20% - 80px);
 

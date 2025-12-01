@@ -1,23 +1,6 @@
 //  Common (styles-m.css)
 //  _____________________________________________
 & when (@media-common =true) {
-    // Navegação principal
-    .sections.nav-sections {
-        background: white;
-
-        .navigation {
-            background: white;
-        }
-
-        // Links de menu dropdown
-        .ui-menu.ui-widget.ui-widget-content {
-            li a {
-                color: #000;
-                font-weight: 400;
-                font-size: 14px;
-            }
-        }
-    }
 }
 
 //  Mobile
@@ -88,16 +71,6 @@
                 align-items: center;
                 justify-content: center;
             }
-
-            // mini carrinho mobile
-            .minicart-wrapper {
-                display: flex;
-                left: 50%;
-                transform: translateX(-70%);
-                justify-content: center;
-                align-items: center;
-                margin: 0;
-            }
         }
     }
 }
@@ -136,39 +109,6 @@
         margin-right: 66px;
         display: flex;
         align-items: center;
-    }
-
-    // coloca sombra como border do navigation
-    .sections.nav-sections {
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-
-        // primeiro item do navigation
-        #ui-id-2 span {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 700;
-            gap: 8px;
-
-            // ícone antes desse primeiro item
-            &::before {
-                content: "";
-                display: block;
-                width: 14px;
-                height: 14px;
-                font-weight: 600;
-                background-image: url("@{baseDir}images/menu-desktop.svg");
-                background-repeat: no-repeat;
-                background-size: contain;
-                background-position: center;
-            }
-        }
-    }
-
-    // navegação desktop
-    .navigation ul {
-        display: flex;
-        justify-content: space-between;
     }
 
     // seção de destaques

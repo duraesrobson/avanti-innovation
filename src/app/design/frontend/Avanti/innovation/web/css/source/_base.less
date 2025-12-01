@@ -1,19 +1,16 @@
-@font-family-name__base: 'Nunito Sans';
+@font-family-name__base: "Nunito Sans";
 @layout__max-width: 1300px;
 
-
-@font-family-iconmoon: 'icomoon';
-
+@font-family-iconmoon: "icomoon";
 
 @form-element-input__input-width: 594px;
-
 
 // Colors
 @icon-font__color: #000;
 
-@theme__color__primary: #005CFF;
+@theme__color__primary: #005cff;
 @theme__color__primary-alt: @theme__color__primary;
-@theme__color__light-gray: #F5F5F5;
+@theme__color__light-gray: #f5f5f5;
 @color-red9: @theme__color__primary;
 @color-red11: @theme__color__primary;
 @color-red12: @theme__color__primary;
@@ -22,86 +19,77 @@
 @color-orange-red3: @theme__color__primary;
 @color-orange-red4: @theme__color__primary;
 
-
-@color-form-border:#DDDDDD;
-
+@color-form-border: #dddddd;
 
 .slider-title() {
-   font-size: 2rem;
-   text-transform: uppercase;
-   text-align: center;
-   color: black;
-   font-weight: 700;
-   margin-bottom: 20px;
-   display: block;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: black;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: block;
 }
-
 
 //
 //  Common
 //  _____________________________________________
 & when (@media-common = true) {
-   body {
-       overflow-x: hidden;
-       .lib-typography(
-           @_color: #005CFF
+    body {
+        overflow-x: hidden;
+        .lib-typography(
+           @_color: #005cff
        );
-   }
+    }
 
+    input,
+    ._keyfocus *:focus,
+    input:not([disabled]):focus,
+    textarea:not([disabled]):focus,
+    select:not([disabled]):focus {
+        box-shadow: none;
+    }
 
-   input,
-   ._keyfocus *:focus,
-   input:not([disabled]):focus,
-   textarea:not([disabled]):focus,
-   select:not([disabled]):focus{
-       box-shadow: none;
-   }
+    button,
+    a.action.primary {
+        border-radius: 0;
+    }
 
-
-   button, a.action.primary {
-       border-radius: 0;
-   }
-
-
-   button {
-       .lib-button(
+    button {
+        .lib-button(
            @_button-font-weight: 700,
            @_button-font-size: 1rem,
            @_button-padding: 10px,
            @_button-border: 0,
            @_button-border-hover: 0
        );
-       letter-spacing: 5px;
-       text-transform: uppercase;
+        letter-spacing: 5px;
+        text-transform: uppercase;
 
+        &:not(.primary) {
+            .lib-css(box-shadow, none);
 
-       &:not(.primary) {
-           .lib-css(box-shadow, none);
+            &:active {
+                .lib-css(box-shadow, none);
+            }
+        }
+    }
 
+    input[type="text"],
+    input[type="password"],
+    input[type="url"],
+    input[type="tel"],
+    input[type="search"],
+    input[type="number"],
+    input[type="datetime"],
+    input[type="email"],
+    select {
+        border-color: @theme__color__primary;
+    }
 
-           &:active {
-               .lib-css(box-shadow, none);
-           }
-       }
-   }
-
-
-   input[type="text"],
-   input[type="password"],
-   input[type="url"],
-   input[type="tel"],
-   input[type="search"],
-   input[type="number"],
-   input[type="datetime"],
-   input[type="email"],
-   select {
-       border-color: @theme__color__primary;
-   }
-
-
-   .action.primary,
-   .action-apply {
-       .lib-button(
+    .action.primary,
+    .action-apply {
+        .lib-button(
            @_button-width: 100%,
            @_button-margin: 0,
            @_button-background: @theme__color__primary,
@@ -109,22 +97,22 @@
            @_button-font-size: 1rem,
            @_button-border: 0
        );
-       text-align: center;
-       text-transform: uppercase;
-       letter-spacing: 5px;
-   }
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+    }
 }
-
 
 //
 //  Desktop
 //  _____________________________________________
 
-
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
-
-
-   .column.main {
-       .lib-css(min-height, inherit);
-   }
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__m) {
+    .column.main {
+        .lib-css(min-height, inherit);
+    }
 }
