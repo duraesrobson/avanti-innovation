@@ -10,9 +10,7 @@
             <!-- adiciona o bloco de template da promoção, usando o arquivo promo.phtml -->
             <!-- o atributo before="-" força a renderização no início do container -->
                 <block class="Magento\Framework\View\Element\Template" name="promo.header.panel" template="Magento_Theme::html/promo.phtml" before="-" />
-
             </container>
-            
         </referenceContainer>
         
         <!-- move o bloco de links do header para dentro do header-wrapper, antes do minicart -->
@@ -36,19 +34,6 @@
             </arguments>
         </referenceBlock>
 
-        <referenceContainer name="before.body.end">
-
-            <block class="Magento\Cms\Block\Block" name="text_copy">
-                <arguments>
-                    <argument name="block_id" xsi:type="string">text_copy</argument>
-                </arguments>
-            </block>
-
-            <block class="Magento\Framework\View\Element\Template" name="stamps-partners" 
-           template="Magento_Theme::html/stamps-partners-wrapper.phtml" 
-           after="-" />
-        </referenceContainer>
-
         <!-- cria um container dentro do main content para adicionar a newsletter  -->
         <referenceContainer name="main.content">
             <container name="footer.newsletter" 
@@ -62,16 +47,16 @@
 
         <!-- remove os links nativos do tema -->
         <referenceBlock name="footer_links" remove="true"/>
-
         <referenceBlock name="copyright" remove="true"/>
 
+        <!-- configuração do footer -->
         <referenceContainer name="footer">
             <container name="footer.rows.wrapper" 
                label="Footer rows Wrapper" 
                htmlTag="div" 
                htmlClass="footer-rows-wrapper">
                 
-                <!-- linha 1: bloco CMS -->
+                <!-- linha 1: adiciona bloco CMS (page builder) -->
                 <block class="Magento\Cms\Block\Block" name="footer_row_1">
                     <arguments>
                         <argument name="block_id" xsi:type="string">footer_row_1</argument>
@@ -83,5 +68,20 @@
             </container>
         </referenceContainer>
 
+        <!-- cria os blocos após footer -->
+        <referenceContainer name="before.body.end">
+
+            <!-- bloco de texto para editar no page builder -->
+            <block class="Magento\Cms\Block\Block" name="text_before_stamps_partners">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">text_before_stamps_partners</argument>
+                </arguments>
+            </block>
+
+            <!-- adiciona o arquivo phtml com a logo -->
+            <block class="Magento\Framework\View\Element\Template" name="stamps-partners" 
+           template="Magento_Theme::html/stamps-partners-wrapper.phtml" 
+           after="-" />
+        </referenceContainer>
     </body>
 </page>
