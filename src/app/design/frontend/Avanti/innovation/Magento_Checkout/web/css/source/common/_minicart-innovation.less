@@ -2,36 +2,47 @@
 //  _____________________________________________
 & when (@media-common =true) {
     // Carrinho de compras
+
+    // Remove pseudo-elemento antes do carrinho
+    .minicart-wrapper .action.showcart {
+        // Zera ::before em todos os estados
+        &::before,
+        &.active::before,
+        &:hover::before,
+        &.open::before {
+            .lib-css(content, "");
+            .lib-css(display, none);
+            .lib-css(background, none);
+            .lib-css(width, 0);
+            .lib-css(height, 0);
+        }
+    }
+
     .action.showcart {
         .lib-css(width, 24px);
         .lib-css(height, 24px);
 
         // Bolinha de quantidade visível quando há itens
         .counter.qty:not(.empty) {
-            position: absolute;
-            top: -14px;
-            right: -10px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-        }
-        // Remove pseudo-elemento antes do carrinho
-        &::before {
-            content: none !important;
-            background: none !important;
+            .lib-css(position, absolute);
+            .lib-css(top, -14px);
+            .lib-css(right, -10px);
+            .lib-css(border-radius, 50%);
+            .lib-css(display, flex);
+            .lib-css(align-items, center);
+            .lib-css(justify-content, center);
+            .lib-css(font-size, 12px);
         }
 
         // Ícone do carrinho
         &::after {
-            content: "";
-            display: block;
-            width: 24px;
-            height: 24px;
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
+            .lib-css(content, """");
+            .lib-css(display, block);
+            .lib-css(width, 24px);
+            .lib-css(height, 24px);
+            .lib-css(background-repeat, no-repeat);
+            .lib-css(background-size, contain);
+            .lib-css(background-position, center);
         }
     }
 }
@@ -45,19 +56,19 @@
     (@break = @screen__m) {
     // mini carrinho mobile
     .minicart-wrapper {
-        display: flex;
-        left: 50%;
-        transform: translateX(-70%);
-        justify-content: center;
-        align-items: center;
-        margin: 0;
+        .lib-css(display, flex);
+        .lib-css(left, 50%);
+        .lib-css(transform, translateX(-70%));
+        .lib-css(justify-content, center);
+        .lib-css(align-items, center);
+        .lib-css(margin, 0);
 
         .action.showcart {
-        // ícone do carrinho
-        &::after {
-            background-image: url("@{baseDir}images/minicart-mobile.svg");
+            // ícone do carrinho
+            &::after {
+                .lib-css(background-image, url("@{baseDir}images/minicart-mobile.svg"));
+            }
         }
-    }
     }
 }
 
@@ -68,12 +79,11 @@
     (@extremum ="min")
     and
     (@break =@screen__m) {
-
-        // Carrinho de compras
+    // Carrinho de compras
     .action.showcart {
         // Ícone do carrinho
         &::after {
-            background-image: url("@{baseDir}images/minicart-desktop.svg");
+            .lib-css(background-image, url("@{baseDir}images/minicart-desktop.svg"));
         }
     }
 }

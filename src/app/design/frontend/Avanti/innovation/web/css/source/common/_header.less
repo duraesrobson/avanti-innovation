@@ -12,16 +12,16 @@
     (@break = @screen__m) {
     // Header mobile
     .page-header {
-        height: 110px;
-        border: none;
-        padding-bottom: 15px;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+        .lib-css(height, 100px);
+        .lib-css(border, none);
+        .lib-css(padding-bottom, 15px);
+        .lib-css(align-items, center);
+        .lib-css(justify-content, center);
+        .lib-css(box-shadow, 0 3px 6px rgba(0, 0, 0, 0.15));
 
         // expande altura se busca estiver ativa
         &:has(.field.search input[aria-expanded="true"]) {
-            height: 180px;
+            .lib-css(height, 180px);
         }
 
         // painel do header mobile
@@ -31,44 +31,21 @@
 
         // conteúdo do header mobile
         .header.content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: none;
-            padding-top: 22px;
-
-            // toggle menu mobile
-            .action.nav-toggle {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                .lib-css(height, 100%);
-                .lib-css(width, 30px);
-                margin: 0;
-                top: 12px;
-            }
-
-            // ícone do toggle
-            .action.nav-toggle::before {
-                content: "";
-                display: block;
-                width: 24px;
-                height: 22px;
-                background-image: url("@{baseDir}images/menu-mobile.svg");
-                background-repeat: no-repeat;
-                background-size: contain;
-                background-position: center;
-            }
+            .lib-css(display, flex);
+            .lib-css(justify-content, space-between);
+            .lib-css(align-items, center);
+            .lib-css(border, none);
+            .lib-css(padding-top, 22px);
 
             // logo centralizada
             a.logo {
-                margin: 0;
-                display: flex;
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                align-items: center;
-                justify-content: center;
+                .lib-css(margin, 0);
+                .lib-css(display, flex);
+                .lib-css(position, absolute);
+                .lib-css(left, 50%);
+                .lib-css(transform, translateX(-50%));
+                .lib-css(align-items, center);
+                .lib-css(justify-content, center);
             }
         }
     }
@@ -88,60 +65,60 @@
 
     // header desktop
     .page-header .header.content {
-        margin: 0 auto;
-        padding: 22px 20px 24px;
-        justify-content: space-between;
-        align-items: center;
-        display: flex;
+        .lib-css(margin, 0 auto);
+        .lib-css(padding, 22px 20px 24px);
+        .lib-css(justify-content, space-between);
+        .lib-css(align-items, center);
+        .lib-css(display, flex);
     }
 
     .header.content,
     .header-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        .lib-css(display, flex);
+        .lib-css(align-items, center);
+        .lib-css(justify-content, space-between);
     }
 
     // logo desktop
     .logo {
-        margin: 0;
-        margin-right: 66px;
-        display: flex;
-        align-items: center;
+        .lib-css(margin, 0);
+        .lib-css(margin-right, 66px);
+        .lib-css(display, flex);
+        .lib-css(align-items, center);
     }
 
     // seção de destaques
     .custom-featured-section {
-        text-align: center;
-        padding: 30px 0;
+        .lib-css(text-align, center);
+        .lib-css(padding, 30px 0);
 
         h1 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: #000;
-            font-weight: bold;
+            .lib-css(font-size, 28px);
+            .lib-css(margin-bottom, 20px);
+            .lib-css(color, #000);
+            .lib-css(font-weight, bold);
         }
 
         .featured-items {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+            .lib-css(display, flex);
+            .lib-css(justify-content, space-between);
+            .lib-css(flex-wrap, wrap);
 
             .featured-item {
-                text-align: center;
+                .lib-css(text-align, center);
 
                 img {
-                    margin-bottom: 10px;
+                    .lib-css(margin-bottom, 10px);
                 }
 
                 a {
-                    display: block;
-                    font-size: 14px;
-                    color: #000;
-                    text-decoration: none;
+                    .lib-css(display, block);
+                    .lib-css(font-size, 14px);
+                    .lib-css(color, #000);
+                    .lib-css(text-decoration, none);
 
                     &:hover {
-                        text-decoration: underline;
+                        .lib-css(text-decoration, underline);
                     }
                 }
             }
@@ -150,7 +127,7 @@
 
     // footer desktop
     .page-footer {
-        background-color: #f5f5f5;
-        padding: 64px 0;
+        .lib-css(background-color, #f5f5f5);
+        .lib-css(padding, 64px 0);
     }
 }

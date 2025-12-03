@@ -3,9 +3,9 @@
 & when (@media-common =true) {
     .header.links {
         // links do header com cor e font config definida
-        color: #000;
-        font-size: 14px;
-        font-weight: 600;
+        .lib-css(color, #000);
+        .lib-css(font-size, 14px);
+        .lib-css(font-weight, 600);
 
         // oculta os links para usuários que não estão logados
         .not-logged-in {
@@ -23,7 +23,7 @@
     (@break = @screen__m) {
     // Links do header escondidos
     .header.links {
-        display: none;
+        .lib-css(display, none);
     }
 }
 
@@ -36,64 +36,64 @@
     (@break =@screen__m) {
     // Links do header desktop
     .header.links {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        list-style: none;
-        gap: 5px;
-        margin: 0 34px 0 0;
-        padding: 0;
+        .lib-css(display, flex);
+        .lib-css(flex-direction, row);
+        .lib-css(align-items, center);
+        .lib-css(list-style, none);
+        .lib-css(gap, 5px);
+        .lib-css(margin, 0 34px 0 0);
+        .lib-css(padding, 0);
 
         // cor dos links
         & a {
-            color: #000000;
+            .lib-css(color, #000000);
         }
 
         // remove margens e padding de cada item da lista
         > li {
-            margin: 0;
-            padding: 0;
+            .lib-css(margin, 0);
+            .lib-css(padding, 0);
         }
 
         // ícone de avatar antes do header.links
         &::before {
-            content: "";
-            display: inline-block;
-            width: 21px;
-            height: 24px;
-            background-image: url("@{baseDir}images/user-avatar.svg");
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
+            .lib-css(content, """");
+            .lib-css(display, inline-block);
+            .lib-css(width, 21px);
+            .lib-css(height, 24px);
+            .lib-css(background-image, url("@{baseDir}images/user-avatar.svg"));
+            .lib-css(background-repeat, no-repeat);
+            .lib-css(background-size, contain);
+            .lib-css(background-position, center);
         }
 
         // muda a cor do texto quando logado
         .greet.welcome .logged-in {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
-            width: 190px;
-            flex-grow: 1;
-            color: @theme__color__primary;
+            .lib-css(display, flex);
+            .lib-css(align-items, center);
+            .lib-css(justify-content, center);
+            .lib-css(margin, 0);
+            .lib-css(width, 190px);
+            .lib-css(flex-grow, 1);
+            .lib-css(color, @theme__color__primary);
         }
 
         // remove icone dentro do dropdown
         .customer-menu .header.links::before {
-            content: none;
+            .lib-css(content, none);
         }
 
         // altera a cor do arrow do dropdown
         .customer-welcome .action.switch::after {
-            color: #000;
+            .lib-css(color, #000);
         }
 
         .customer-welcome.active ul {
-            width: 200px;
-            right: -30px;
+            .lib-css(width, 200px);
+            .lib-css(right, -30px);
 
             &::after {
-                display: none;
+                .lib-css(display, none);
             }
         }
     }

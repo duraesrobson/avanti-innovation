@@ -2,25 +2,25 @@
 //  _____________________________________________
 & when (@media-common =true) {
     .page-wrapper .page-header .panel.wrapper .panel.header{
-        padding: 4px 22px;
+        .lib-css(padding, 4px 22px);
     }
 
     // mensagem promocional no topo do header
     .page-header .header.panel .promo-header-message {
         .lib-css(text-align, center);
         .lib-css(font-weight, 700);
-        padding: 2px;
+        .lib-css(padding, 2px);
 
         // strong's da mensagem de promo
         strong:first-child {
-            background-color: #6220c1;
-            border-radius: 4px;
-            padding: 1px 5px;
+            .lib-css(background-color, #6220c1);
+            .lib-css(border-radius, 4px);
+            .lib-css(padding, 1px 5px);
         }
 
         strong:last-child {
-            font-weight: 400;
-            font-style: italic;
+            .lib-css(font-weight, 400);
+            .lib-css(font-style, italic);
         }
     }
 }
@@ -34,16 +34,16 @@
     (@break = @screen__m) {
     .page-header .header.panel .promo-header-message {
         .lib-css(font-size, 14px);
-        .lib-css(padding, 6px 20px);
+        .lib-css(padding, 0);
 
         // strong's da mensagem de promo
         strong:first-child {
-            border-radius: 0;
+            .lib-css(border-radius, 0);
         }
 
         strong:last-child {
-            font-weight: 400;
-            font-style: normal;
+            .lib-css(font-weight, 400);
+            .lib-css(font-style, normal);
         }
     }
 }

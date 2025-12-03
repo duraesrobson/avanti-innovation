@@ -3,22 +3,22 @@
 & when (@media-common =true) {
     // Navegação principal
     .sections.nav-sections {
-        background: white;
+        .lib-css(background, white);
 
         .navigation {
-            background: white;
+            .lib-css(background, white);
 
             .ui-menu-icon {
-                display: none !important;
+                .lib-css(display, none);
             }
         }
 
         // Links de menu dropdown
         .ui-menu.ui-widget.ui-widget-content {
             li a {
-                color: #000;
-                font-weight: 400;
-                font-size: 14px;
+                .lib-css(color, #000);
+                .lib-css(font-weight, 400);
+                .lib-css(font-size, 14px);
             }
         }
     }
@@ -33,34 +33,65 @@
     (@break =@screen__m) {
     // coloca sombra como border do navigation
     .sections.nav-sections {
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+        .lib-css(box-shadow, 0 3px 6px rgba(0, 0, 0, 0.15));
 
         // primeiro item do navigation
         #ui-id-2 span {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 700;
-            gap: 8px;
+            .lib-css(display, flex);
+            .lib-css(justify-content, center);
+            .lib-css(align-items, center);
+            .lib-css(font-weight, 700);
+            .lib-css(gap, 8px);
 
             // ícone antes desse primeiro item
             &::before {
-                content: "";
-                display: block;
-                width: 14px;
-                height: 14px;
-                font-weight: 600;
-                background-image: url("@{baseDir}images/menu-desktop.svg");
-                background-repeat: no-repeat;
-                background-size: contain;
-                background-position: center;
+                .lib-css(content, """");
+                .lib-css(display, block);
+                .lib-css(width, 14px);
+                .lib-css(height, 14px);
+                .lib-css(font-weight, 600);
+                .lib-css(background-image, url("@{baseDir}images/menu-desktop.svg"));
+                .lib-css(background-repeat, no-repeat);
+                .lib-css(background-size, contain);
+                .lib-css(background-position, center);
             }
         }
     }
 
     // navegação desktop
     .navigation ul {
+        .lib-css(display, flex);
+        .lib-css(justify-content, space-between);
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    // toggle menu mobile
+    .action.nav-toggle {
         display: flex;
-        justify-content: space-between;
+        align-items: center;
+        justify-content: center;
+        .lib-css(height, 100%);
+        .lib-css(width, 30px);
+        margin: 0;
+        top: 12px;
+    }
+
+    // ícone do toggle
+    .action.nav-toggle::before {
+        content: """";
+        display: block;
+        width: 24px;
+        height: 22px;
+        background-image: url("@{baseDir}images/menu-mobile.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
     }
 }

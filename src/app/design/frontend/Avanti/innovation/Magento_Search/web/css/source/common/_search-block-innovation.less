@@ -13,9 +13,9 @@
         // placeholder e input-text com estilo padrão
         #search::placeholder,
         .input-text {
-            font-size: 14px;
-            color: #000;
-            font-weight: 600;
+            .lib-css(font-size, 14px);
+            .lib-css(color, #000);
+            .lib-css(font-weight, 600);
         }
 
         // Botão de busca
@@ -26,19 +26,19 @@
 
         // Ícone da lupa dentro do botão
         .action.search::before {
-            content: "";
-            display: block;
-            width: 19px;
-            height: 19px;
-            background-image: url("@{baseDir}images/lupa.svg");
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
+            .lib-css(content, """");
+            .lib-css(display, block);
+            .lib-css(width, 19px);
+            .lib-css(height, 19px);
+            .lib-css(background-image, url("@{baseDir}images/lupa.svg"));
+            .lib-css(background-repeat, no-repeat);
+            .lib-css(background-size, contain);
+            .lib-css(background-position, center);
         }
 
         // Estado de busca desativada
         .actions .action.search[disabled] {
-            opacity: 1;
+            .lib-css(opacity, 1);
         }
     }
 }
@@ -52,34 +52,34 @@
     (@break = @screen__m) {
     // Bloco de busca mobile
     .block.block-search {
-        margin: 0;
-        position: absolute;
+        .lib-css(margin, 0);
+        .lib-css(position, absolute);
         .lib-css(right, calc(7.5% + 30px));
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        .lib-css(display, flex);
+        .lib-css(justify-content, center);
+        .lib-css(align-items, center);
 
         .label::before {
-            margin: 0;
+            .lib-css(margin, 0);
         }
 
         .control {
-            border: none;
+            .lib-css(border, none);
             .lib-css(top, 160%);
-            position: absolute;
+            .lib-css(position, absolute);
             .lib-css(transform, translateX(calc(-88.5vw + 48px)));
         }
 
         // Ícone lupa mobile
         .form.minisearch .field.search .label::before {
-            content: "";
-            display: flex;
-            width: 19px;
-            height: 19px;
-            background-image: url("@{baseDir}images/lupa.svg");
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
+            .lib-css(content, """");
+            .lib-css(display, flex);
+            .lib-css(width, 19px);
+            .lib-css(height, 19px);
+            .lib-css(background-image, url("@{baseDir}images/lupa.svg"));
+            .lib-css(background-repeat, no-repeat);
+            .lib-css(background-size, contain);
+            .lib-css(background-position, center);
         }
 
         // Label do campo de busca
@@ -106,10 +106,9 @@
     (@break =@screen__m) {
     // Bloco de busca desktop
     .block.block-search {
-        // width: auto;
-        max-width: 592px;
-        flex: 1;
-        margin-right: calc(20% - 80px);
+        .lib-css(max-width, 592px);
+        .lib-css(flex, 1);
+        .lib-css(margin-right, calc(20% - 80px));
 
         // ajusta padding-right para evitar colisão do placeholder com o ícone de busca/lupa (tablets)
         #search {
