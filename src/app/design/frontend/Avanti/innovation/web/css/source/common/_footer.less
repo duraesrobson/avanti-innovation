@@ -1,0 +1,30 @@
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum ="min")
+    and
+    (@break =@screen__m) {
+    .footer-rows-wrapper {
+        gap: 138px;
+        align-items: center;
+        justify-content: center;
+
+        .pagebuilder-column {
+            h4 {
+                margin-top: 5px;
+                color: #000;
+            }
+
+            .social-logos-footer {
+                display: flex;
+                align-items: center;
+                padding-top: 44px;
+
+                .logo {
+                    margin-right: 40px;
+                }
+            }
+        }
+    }
+}

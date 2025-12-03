@@ -35,6 +35,53 @@
                 <argument name="logo_alt" xsi:type="string">Avanti Logo</argument>
             </arguments>
         </referenceBlock>
-        
+
+        <referenceContainer name="before.body.end">
+
+            <block class="Magento\Cms\Block\Block" name="text_copy">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">text_copy</argument>
+                </arguments>
+            </block>
+
+            <block class="Magento\Framework\View\Element\Template" name="stamps-partners" 
+           template="Magento_Theme::html/stamps-partners-wrapper.phtml" 
+           after="-" />
+        </referenceContainer>
+
+        <!-- cria um container dentro do main content para adicionar a newsletter  -->
+        <referenceContainer name="main.content">
+            <container name="footer.newsletter" 
+               label="Footer Columns Wrapper" 
+               htmlTag="div" 
+               htmlClass="footer-columns-wrapper"/>
+        </referenceContainer>
+
+        <!-- move a newsletter para o container criado -->
+        <move element="form.subscribe" destination="footer.newsletter" before="-"/>
+
+        <!-- remove os links nativos do tema -->
+        <referenceBlock name="footer_links" remove="true"/>
+
+        <referenceBlock name="copyright" remove="true"/>
+
+        <referenceContainer name="footer">
+            <container name="footer.rows.wrapper" 
+               label="Footer rows Wrapper" 
+               htmlTag="div" 
+               htmlClass="footer-rows-wrapper">
+                
+                <!-- linha 1: bloco CMS -->
+                <block class="Magento\Cms\Block\Block" name="footer_row_1">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer_row_1</argument>
+                    </arguments>
+                </block>
+
+                <!-- linha 2: bloco .phtml -->
+                <block class="Magento\Framework\View\Element\Template" name="flag.cards" template="Magento_Theme::html/flags-cards.phtml" />
+            </container>
+        </referenceContainer>
+
     </body>
 </page>
