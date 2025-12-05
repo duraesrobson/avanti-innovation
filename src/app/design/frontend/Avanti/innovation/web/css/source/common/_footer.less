@@ -1,11 +1,13 @@
-//  Desktop
-//  _____________________________________________
+// ------------------------------
+// Desktop
+// ------------------------------
 .media-width(@extremum, @break)
     when
     (@extremum ="min")
     and
     (@break =@screen__m) {
 
+    // Wrapper das bandeiras e cartões
     .flags-cards-wrapper {
         .lib-css(display, flex);
         .lib-css(flex-direction, row);
@@ -15,33 +17,35 @@
         .lib-css(gap, 50px);
         .lib-css(padding-top, 64px);
     }
-
+    
+    // Wrapper das linhas de footer
     .footer-rows-wrapper {
         .lib-css(align-items, center);
         .lib-css(justify-content, center);
 
+        // Cada coluna dentro do footer
         .pagebuilder-column {
             h4 {
                 .lib-css(margin-top, 5px);
+                .lib-css(margin-bottom, 13px);
                 .lib-css(color, #000);
             }
 
+            // Wrapper dos ícones sociais dentro da coluna
             .social-logos-footer {
                 .lib-css(display, flex);
                 .lib-css(align-items, center);
                 .lib-css(padding-top, 44px);
 
+                // Cada logo social
                 .logo-social-media {
                     .lib-css(margin-right, 40px);
                 }
             }
-
-            hr {
-                display: none;
-            }
         }
     }
 
+    // Wrapper de parceiros / selos
     .stamps-partners-wrapper {
         .lib-css(display, flex);
         .lib-css(flex-direction, column);
@@ -54,6 +58,7 @@
         }
     }
 
+    // Wrapper das colunas do footer
     .footer-columns-wrapper {
         .lib-css(display, flex);
         .lib-css(flex-direction, row);
@@ -62,63 +67,123 @@
         .lib-css(height, 227px);
     }
 
-    .text-container {
+    // Esconde versão mobile de certos conteúdos
+    #html-body div.text-container-stamps-mobile {
+        .lib-css(display, none);
+    }
+
+    // Padding para versão desktop de textos de selos/parceiros
+    .text-container-stamps-desktop {
         .lib-css(padding, 40px);
-        .lib-css(font-weight, 500);
     }
 }
 
-//  Mobile
-//  _____________________________________________
+// ------------------------------
+// Mobile
+// ------------------------------
 .media-width(@extremum, @break)
     when
     (@extremum = "max")
     and
     (@break = @screen__m) {
 
-        .page-footer {
-            background-color: #F5F5F5;
-        }
+    // Estilo geral do footer
+    .page-footer {
+        .lib-css(background-color, #F5F5F5);
 
-        /* Coluna principal */
+        .footer.content {
+            .lib-css(padding, 0);
+            .lib-css(border, none);
+        }
+    }
+
+    // Colunas do footer (versão mobile)
     .pagebuilder-column {
-        display: flex;
-        flex-direction: column;
-        align-items: left;
-        justify-content: left;
+        .lib-css(display, flex);
+        .lib-css(flex-direction, column);
+        .lib-css(align-items, left);
+        .lib-css(justify-content, left);
 
         h4 {
             .lib-css(font-size, 16px);
-                .lib-css(color, #000);
-            }
+            .lib-css(color, #000);
+        }
     }
 
-    /* Logo principal */
+    // Primeira coluna do footer (logo principal + conteúdo)
+    .first-column-footer {
+        .lib-css(display, flex);
+        .lib-css(flex-direction, column);
+        .lib-css(align-items, center);
+        .lib-css(justify-content, center);
+        .lib-css(row-gap, 40px);
+        .lib-css(padding, 40px 0 48px);
+    }
+
+    // Logo principal
     .logo-vendor {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
+        .lib-css(display, flex);
+        .lib-css(justify-content, center);
     }
 
-    /* Wrapper dos ícones sociais */
+    // Wrapper dos ícones sociais
     .social-logos-footer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 40px;
-        margin-top: 20px;
+        .lib-css(display, flex);
+        .lib-css(justify-content, center);
+        .lib-css(align-items, center);
+        .lib-css(gap, 40px);
     }
 
-    /* Cada ícone de rede social */
+    // Cada ícone social
     .logo-social-media {
-        margin: 0;
-        display: flex;
+        .lib-css(margin, 0);
+        .lib-css(display, flex);
     }
 
-    /* Link envolvendo a imagem */
+    // Link envolvendo cada ícone social
     .logo-social-media a {
-        display: flex;
-        align-items: center;
+        .lib-css(display, flex);
+        .lib-css(align-items, center);
     }
 
+    // Wrapper das bandeiras/cartões mobile
+    .flags-cards-wrapper {
+        .lib-css(display, flex);
+        .lib-css(flex-wrap, wrap);
+        .lib-css(justify-content, center);
+        .lib-css(align-items, center);
+        .lib-css(gap, 35px);
+        .lib-css(row-gap, 25px);
+        .lib-css(padding, 48px 46px 40px);
     }
+
+    // Wrapper de parceiros / selos (mobile)
+    .stamps-partners-wrapper {
+        .lib-css(display, flex);
+        .lib-css(flex-direction, column);
+        .lib-css(margin-bottom, 100px);
+        .lib-css(align-items, center);
+        .lib-css(justify-content, center);
+
+        img {
+            .lib-css(justify-content, center);
+            .lib-css(align-items, center);
+        }
+    }
+
+    // Esconde versão desktop de certos conteúdos
+    #html-body div.text-container-stamps-desktop {
+        .lib-css(display, none);
+    }
+
+    // Textos / selos versão mobile
+    .text-container-stamps-mobile {
+        .lib-css(padding, 40px 16px);
+        .lib-css(font-size, 12px);
+        .lib-css(color, #303030);
+        .lib-css(justify-content, center);
+        .lib-css(display, flex);
+        .lib-css(align-items, center);
+        .lib-css(text-align, center);
+    }
+}

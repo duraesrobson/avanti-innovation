@@ -72,9 +72,9 @@
         <referenceContainer name="before.body.end">
 
             <!-- bloco de texto para editar no page builder -->
-            <block class="Magento\Cms\Block\Block" name="text_before_stamps_partners">
+            <block class="Magento\Cms\Block\Block" name="text_stamps_partners">
                 <arguments>
-                    <argument name="block_id" xsi:type="string">text_before_stamps_partners</argument>
+                    <argument name="block_id" xsi:type="string">text_stamps_partners</argument>
                 </arguments>
             </block>
 
