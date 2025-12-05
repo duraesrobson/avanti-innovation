@@ -89,10 +89,18 @@
             .lib-css(transform, translateX(50%));
         }
 
-        // input expandido quando ativo
+        // campo do input de busca
+        .field.search input {
+            .lib-css(transform-origin, left); // anima o input, abrindo da esquerda pra direita
+            .lib-css(transform, scaleX(0)); // inicia fechado horizontalmente
+            .lib-css(transition, transform 0.25s ease); // animação suave
+        }
+
+        // campo do input de busca quando clickado na lupa
         .field.search input[aria-expanded="true"] {
-            .lib-css(width, 92vw);
-            .lib-css(margin-top, 27px);
+            .lib-css(width, 92vw); // largura desejada
+            .lib-css(transform, scaleX(1)); // expande para tamanho normal
+            .lib-css(margin-top, 27px); // ajuste visual
         }
     }
 }
