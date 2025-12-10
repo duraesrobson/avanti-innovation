@@ -56,29 +56,29 @@
                htmlTag="div" 
                htmlClass="footer-rows-wrapper">
                 
-                <!-- linha 1: adiciona bloco CMS (page builder) -->
+                <!-- adiciona bloco CMS (page builder / Magento Admin) -->
                 <block class="Magento\Cms\Block\Block" name="footer_row_1">
                     <arguments>
                         <argument name="block_id" xsi:type="string">footer_row_1</argument>
                     </arguments>
                 </block>
 
-                <!-- linha 2: bloco .phtml -->
+                <!-- bloco .phtml com as logos de formas de pagamento aceitas  -->
                 <block class="Magento\Framework\View\Element\Template" name="flag.cards" template="Magento_Theme::html/flags-cards.phtml" />
             </container>
         </referenceContainer>
 
-        <!-- cria os blocos após footer -->
+        <!-- cria os blocos após 1 parte do footer -->
         <referenceContainer name="before.body.end">
 
-            <!-- bloco de texto para editar no page builder -->
+            <!-- cria e adiciona bloco de texto para editar no page builder -->
             <block class="Magento\Cms\Block\Block" name="text_stamps_partners">
                 <arguments>
                     <argument name="block_id" xsi:type="string">text_stamps_partners</argument>
                 </arguments>
             </block>
 
-            <!-- adiciona o arquivo phtml com a logo -->
+            <!-- cria e adiciona o arquivo .phtml com a logo dos parceiros do vendor -->
             <block class="Magento\Framework\View\Element\Template" name="stamps-partners" 
            template="Magento_Theme::html/stamps-partners-wrapper.phtml" 
            after="-" />

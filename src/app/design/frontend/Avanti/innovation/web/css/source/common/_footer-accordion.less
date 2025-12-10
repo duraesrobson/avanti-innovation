@@ -1,8 +1,12 @@
+// ------------------------------
+// Mobile
+// ------------------------------
 .media-width(@extremum, @break)
     when
     (@extremum = "max")
     and
     (@break = @screen__m) {
+    // bloco do accordion
     .footer-accordion {
         .lib-css(padding, 16px);
         .lib-css(border-top, 1px solid #dddddd);
@@ -18,22 +22,22 @@
         .lib-css(position, relative);
         .lib-css(padding-right, 20px);
         .lib-css(margin, 0);
-        .lib-css(transition, margin 0.3s ease);
+        .lib-css(transition, margin 0.3s ease); // adiciona transicao na margem do titulo para a lista abaixo
     }
-
+    
     .footer-accordion.is-open h4 {
-        .lib-css(margin, 0 0 12px 0);
+        .lib-css(margin, 0 0 12px 0); // margem após a transição
     }
 
-    /* Ícone visual de abrir/fechar */
+    // ícone visual de abrir/fechar 
     .footer-accordion h4::after {
-        .lib-css(content, "\e622"); // seta sempre para baixo
+        .lib-css(content, "\e622"); // ícone inicia para baixo
         .lib-css(font-family, "luma-icons");
         .lib-css(position, absolute);
         .lib-css(right, 0);
         .lib-css(top, 50%);
-        .lib-css(font-weight, 700);
-        .lib-css(font-size, 12px);
+        .lib-css(font-size, 14px);
+        .lib-css(font-weight, bold);
         .lib-css(transform, translateY(-50%) rotate(0deg));
         .lib-css(color, @theme__color__primary);
         .lib-css(transition, transform 0.25s ease); // cria a transição do ícone de seta do accordion
@@ -41,18 +45,11 @@
 
     // usa a transição do ícone, virando o mesmo
     .footer-accordion.is-open h4::after {
-        .lib-css(transform, translateY(-50%) rotate(180deg)); // vira pra cima
+        .lib-css(transform, translateY(-50%) rotate(180deg)); // vira ícone pra cima
     }
 
-    /* Esconde o conteúdo por padrão no mobile */
+    /* esconde o conteúdo da lista por padrão no mobile */
     .footer-accordion ul {
-        .lib-css(max-height, 0);
-        .lib-css(overflow, hidden);
-        .lib-css(transition, max-height 0.25s ease);
-    }
-
-    /* Mostra quando o bloco tiver a classe is-open */
-    .footer-accordion.is-open ul {
-        .lib-css(max-height, 300px);
+        .lib-css(display, none);
     }
 }

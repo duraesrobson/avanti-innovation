@@ -6,8 +6,7 @@
     (@extremum ="min")
     and
     (@break =@screen__m) {
-
-    // Wrapper das bandeiras e cartões
+    // wrapper das bandeiras e cartões
     .flags-cards-wrapper {
         .lib-css(display, flex);
         .lib-css(flex-direction, row);
@@ -17,13 +16,23 @@
         .lib-css(gap, 50px);
         .lib-css(padding-top, 64px);
     }
+
+    // wrapper das colunas do footer
+    .footer-columns-wrapper {
+        .lib-css(display, flex);
+        .lib-css(flex-direction, row);
+        .lib-css(justify-content, center);
+        .lib-css(align-items, center);
+        .lib-css(height, 227px);
+    }
     
-    // Wrapper das linhas de footer
+    // wrapper das linhas de footer
     .footer-rows-wrapper {
         .lib-css(align-items, center);
         .lib-css(justify-content, center);
+        .lib-css(padding, 0px 50px);
 
-        // Cada coluna dentro do footer
+        // cada coluna dentro do footer
         .pagebuilder-column {
             h4 {
                 .lib-css(margin-top, 5px);
@@ -31,13 +40,13 @@
                 .lib-css(color, #000);
             }
 
-            // Wrapper dos ícones sociais dentro da coluna
-            .social-logos-footer {
+            // wrapper dos ícones sociais dentro da coluna
+            .social-logos-footer-wrapper {
                 .lib-css(display, flex);
                 .lib-css(align-items, center);
-                .lib-css(padding-top, 44px);
+                .lib-css(padding-top, 40px);
 
-                // Cada logo social
+                // cada logo social
                 .logo-social-media {
                     .lib-css(margin-right, 40px);
                 }
@@ -45,7 +54,7 @@
         }
     }
 
-    // Wrapper de parceiros / selos
+    // wrapper de parceiros / selos
     .stamps-partners-wrapper {
         .lib-css(display, flex);
         .lib-css(flex-direction, column);
@@ -58,23 +67,15 @@
         }
     }
 
-    // Wrapper das colunas do footer
-    .footer-columns-wrapper {
-        .lib-css(display, flex);
-        .lib-css(flex-direction, row);
-        .lib-css(justify-content, center);
-        .lib-css(align-items, center);
-        .lib-css(height, 227px);
-    }
-
-    // Esconde versão mobile de certos conteúdos
+    // esconde versão mobile do texto adicional do footer
     #html-body div.text-container-stamps-mobile {
         .lib-css(display, none);
     }
-
-    // Padding para versão desktop de textos de selos/parceiros
+    
+    // padding para versão desktop do texto adicional do footer
     .text-container-stamps-desktop {
-        .lib-css(padding, 40px);
+        .lib-css(width, 1074px);
+        .lib-css(padding, 40px 0px);
     }
 }
 
@@ -87,7 +88,7 @@
     and
     (@break = @screen__m) {
 
-    // Estilo geral do footer
+    // estilo geral do footer
     .page-footer {
         .lib-css(background-color, #F5F5F5);
 
@@ -97,7 +98,7 @@
         }
     }
 
-    // Colunas do footer (versão mobile)
+    // colunas do footer (versão mobile)
     .pagebuilder-column {
         .lib-css(display, flex);
         .lib-css(flex-direction, column);
@@ -110,7 +111,7 @@
         }
     }
 
-    // Primeira coluna do footer (logo principal + conteúdo)
+    // primeira coluna do footer (logo principal + conteúdo)
     .first-column-footer {
         .lib-css(display, flex);
         .lib-css(flex-direction, column);
@@ -120,33 +121,27 @@
         .lib-css(padding, 40px 0 48px);
     }
 
-    // Logo principal
-    .logo-vendor {
-        .lib-css(display, flex);
-        .lib-css(justify-content, center);
-    }
-
-    // Wrapper dos ícones sociais
-    .social-logos-footer {
+    // wrapper dos ícones das redes sociais
+    .social-logos-footer-wrapper {
         .lib-css(display, flex);
         .lib-css(justify-content, center);
         .lib-css(align-items, center);
         .lib-css(gap, 40px);
     }
 
-    // Cada ícone social
+    // cada ícone de rede social
     .logo-social-media {
         .lib-css(margin, 0);
         .lib-css(display, flex);
     }
 
-    // Link envolvendo cada ícone social
+    // link envolvendo cada ícone social
     .logo-social-media a {
         .lib-css(display, flex);
         .lib-css(align-items, center);
     }
 
-    // Wrapper das bandeiras/cartões mobile
+    // wrapper das bandeiras/cartões mobile
     .flags-cards-wrapper {
         .lib-css(display, flex);
         .lib-css(flex-wrap, wrap);
@@ -157,7 +152,7 @@
         .lib-css(padding, 48px 46px 40px);
     }
 
-    // Wrapper de parceiros / selos (mobile)
+    // wrapper de parceiros / selos (mobile)
     .stamps-partners-wrapper {
         .lib-css(display, flex);
         .lib-css(flex-direction, column);
@@ -171,12 +166,12 @@
         }
     }
 
-    // Esconde versão desktop de certos conteúdos
+    // esconde versão desktop do texto adicional do footer
     #html-body div.text-container-stamps-desktop {
         .lib-css(display, none);
     }
 
-    // Textos / selos versão mobile
+    // estilos do texto adicional do footer versão mobile
     .text-container-stamps-mobile {
         .lib-css(padding, 40px 16px);
         .lib-css(font-size, 12px);
