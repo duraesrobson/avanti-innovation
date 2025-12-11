@@ -1,0 +1,97 @@
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common =true) {
+    .slick-dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin-top: -20px;
+
+        li {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            button {
+                border-radius: 50%;
+                height: 8px;
+                width: 8px;
+                background: #838383;
+                border: 0.7px solid black;
+            }
+        }
+    }
+}
+
+// ------------------------------
+// Desktop
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum ="min")
+    and
+    (@break =@screen__m) {
+    .slick-prev:not(.primary),
+    .slick-next:not(.primary) {
+        background: #ffffff;
+        border: 1px solid @theme__color__primary;
+        border-radius: 50%;
+        width: 30px;
+        height: 36px;
+        top: 218px;
+        box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+    }
+    .slick-prev:not(.primary) {
+        left: -15px;
+    }
+
+    .slick-next:not(.primary) {
+        right: -15px;
+    }
+
+    .slick-prev.slick-disabled,
+    .slick-next.slick-disabled {
+        opacity: 1;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .slick-prev:before,
+    .slick-next:before {
+        .lib-css(content, """");
+        .lib-css(display, flex);
+        .lib-css(width, 12px);
+        .lib-css(height, 13px);
+        margin-left: 6px;
+        .lib-css(background-repeat, no-repeat);
+        .lib-css(background-size, contain);
+        .lib-css(background-position, center);
+    }
+
+    .slick-prev:before {
+        .lib-css(background-image, url("@{baseDir}images/arrow-left-icon.svg"));
+    }
+
+    .slick-next:before {
+        .lib-css(background-image, url("@{baseDir}images/arrow-left-icon.svg"));
+        .lib-css(transform, rotate(180deg));
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .slick-arrow {
+        display: none !important; // todo: encontrar seletor para não precisar usar !important
+    }
+
+    .slick-dots li button {
+        border: none;
+    }
+}
