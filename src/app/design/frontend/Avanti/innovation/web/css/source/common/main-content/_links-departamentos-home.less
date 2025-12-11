@@ -1,0 +1,74 @@
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    // margem superior extra no wrapper principal no mobile
+    .links-departamentos-home-wrapper {
+        .lib-css(margin-top, 40px);
+    }
+
+    // define largura e espaçamento dos blocos no mobile
+    .links-departamentos-home-column-content {
+        .lib-css(flex-basis, 33%); // distribui em 3 colunas por linha no mobile
+        .lib-css(margin, 16px auto);
+
+        img {
+            .lib-css(width, 108px); // tamanho menor da imagem no mobile
+            .lib-css(height, 108px);
+        }
+
+        p {
+            .lib-css(font-size, 14px); // texto menor para caber melhor no mobile
+        }
+    }
+
+    // esconde as colunas marcadas como desktop-only somente no mobile
+    .desktop-only {
+        .lib-visually-hidden(); // aplica display:none e outras regras de acessibilidade
+    }
+
+    // ajusta o título no mobile
+    .links-departamentos-home-text h1 {
+        .lib-css(font-size, 16px);
+        .lib-css(font-weight, 700);
+        .lib-css(margin, 0);
+    }
+}
+
+// ------------------------------
+// Desktop
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum ="min")
+    and
+    (@break = @screen__m) {
+    // ativa o layout em flex no desktop
+    .links-departamentos-home-wrapper {
+        .lib-css(display, flex);
+        .lib-css(justify-content, space-between);
+        .lib-css(flex-wrap, wrap);
+        .lib-css(margin-top, 40px);
+    }
+
+    // ajusta o título no mobile
+    .links-departamentos-home-text h1 {
+        .lib-css(font-size, 20px);
+    }
+
+    // define que cada coluna ocupa 1/8 da largura no desktop
+    .links-departamentos-home-wrapper .pagebuilder-column {
+        .lib-css(flex, 1 1 calc(12.5% - 20px)); // 8 colunas iguais
+    }
+
+    // imagens maiores no desktop
+    .links-departamentos-home-column-content {
+        img {
+            .lib-css(width, 143px);
+            .lib-css(height, 143px);
+        }
+    }
+}

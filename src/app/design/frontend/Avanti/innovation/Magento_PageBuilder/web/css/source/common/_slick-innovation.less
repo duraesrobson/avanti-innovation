@@ -1,97 +1,111 @@
-//  Common (styles-m.css)
+//  common (styles-m.css)
 //  _____________________________________________
 & when (@media-common =true) {
+    // estiliza os dots do slider em qualquer resolução
     .slick-dots {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
-        margin-top: -20px;
+        .lib-css(display, flex);
+        .lib-css(justify-content, center);
+        .lib-css(align-items, center);
+        .lib-css(padding, 0);
+        .lib-css(margin-top, -20px);
 
         li {
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            .lib-css(margin, 0);
+            .lib-css(display, flex);
+            .lib-css(align-items, center);
+            .lib-css(justify-content, center);
+
+            // botão individual do dot
             button {
-                border-radius: 50%;
-                height: 8px;
-                width: 8px;
-                background: #838383;
-                border: 0.7px solid black;
+                .lib-css(border-radius, 50%);
+                .lib-css(height, 8px);
+                .lib-css(width, 8px);
+                .lib-css(background, #838383);
+                .lib-css(border, 0.7px solid black);
             }
         }
     }
 }
 
 // ------------------------------
-// Desktop
+// desktop
 // ------------------------------
 .media-width(@extremum, @break)
     when
     (@extremum ="min")
     and
     (@break =@screen__m) {
+    // estiliza as setas quando não têm classe .primary
     .slick-prev:not(.primary),
     .slick-next:not(.primary) {
-        background: #ffffff;
-        border: 1px solid @theme__color__primary;
-        border-radius: 50%;
-        width: 30px;
-        height: 36px;
-        top: 218px;
-        box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+        .lib-css(background, #ffffff);
+        .lib-css(border, 1px solid @theme__color__primary);
+        .lib-css(border-radius, 50%);
+        .lib-css(width, 30px);
+        .lib-css(height, 36px);
+        .lib-css(top, 218px);
+        .lib-css(box-shadow, 0 3px 4px 0 rgba(0, 0, 0, 0.25));
     }
+
+    // seta esquerda
     .slick-prev:not(.primary) {
-        left: -15px;
+        .lib-css(left, -15px);
     }
 
+    // seta direita
     .slick-next:not(.primary) {
-        right: -15px;
+        .lib-css(right, -15px);
     }
 
+    // mantém opacidade quando desabilitada
     .slick-prev.slick-disabled,
     .slick-next.slick-disabled {
-        opacity: 1;
+        .lib-css(opacity, 1);
 
         &:hover {
-            opacity: 1;
+            .lib-css(opacity, 1);
         }
     }
+
+    // base dos ícones das setas
     .slick-prev:before,
     .slick-next:before {
         .lib-css(content, """");
         .lib-css(display, flex);
         .lib-css(width, 12px);
         .lib-css(height, 13px);
-        margin-left: 6px;
+        .lib-css(margin-left, 6px);
         .lib-css(background-repeat, no-repeat);
         .lib-css(background-size, contain);
         .lib-css(background-position, center);
     }
 
+    // seta esquerda com ícone
     .slick-prev:before {
         .lib-css(background-image, url("@{baseDir}images/arrow-left-icon.svg"));
     }
 
+    // seta direita rotacionada
     .slick-next:before {
         .lib-css(background-image, url("@{baseDir}images/arrow-left-icon.svg"));
         .lib-css(transform, rotate(180deg));
     }
 }
 
-//  Mobile
+//  mobile
 //  _____________________________________________
 .media-width(@extremum, @break)
     when
     (@extremum = "max")
     and
     (@break = @screen__m) {
+    // esconde completamente as setas do slider no mobile
     .slick-arrow {
-        display: none !important; // todo: encontrar seletor para não precisar usar !important
+        .lib-visually-hidden();
     }
 
+    // remove borda dos dots no mobile
     .slick-dots li button {
-        border: none;
+        .lib-css(border, none);
     }
 }
