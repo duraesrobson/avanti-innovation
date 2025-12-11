@@ -6,6 +6,16 @@
     (@extremum ="min")
     and
     (@break =@screen__m) {
+    // aumenta largura da primeira coluna
+    #html-body .pagebuilder-column.first-column-footer {
+        .lib-css(width, 30%);
+    }
+
+    // remove o padding a direita da ultima coluna, evitando a quebra de texto
+    .footer-accordion:nth-of-type(4) div > ul {
+        padding-right: 0;
+    }
+
     // wrapper das bandeiras e cartões
     .flags-cards-wrapper {
         .lib-css(display, flex);
@@ -25,12 +35,12 @@
         .lib-css(align-items, center);
         .lib-css(height, 227px);
     }
-    
+
     // wrapper das linhas de footer
     .footer-rows-wrapper {
         .lib-css(align-items, center);
         .lib-css(justify-content, center);
-        .lib-css(padding, 0px 50px);
+        // .lib-css(padding, 0px 50px);
 
         // cada coluna dentro do footer
         .pagebuilder-column {
@@ -38,6 +48,10 @@
                 .lib-css(margin-top, 5px);
                 .lib-css(margin-bottom, 13px);
                 .lib-css(color, #000);
+            }
+            
+            a:hover {
+                text-decoration: underline #000;
             }
 
             // wrapper dos ícones sociais dentro da coluna
@@ -47,8 +61,10 @@
                 .lib-css(padding-top, 40px);
 
                 // cada logo social
-                .logo-social-media {
-                    .lib-css(margin-right, 40px);
+                p {
+                    display: flex;
+                    align-items: center;
+                    gap: 40px;
                 }
             }
         }
@@ -71,7 +87,7 @@
     #html-body div.text-container-stamps-mobile {
         .lib-css(display, none);
     }
-    
+
     // padding para versão desktop do texto adicional do footer
     .text-container-stamps-desktop {
         .lib-css(width, 1074px);
@@ -87,7 +103,6 @@
     (@extremum = "max")
     and
     (@break = @screen__m) {
-
     // estilo geral do footer
     .page-footer {
         .lib-css(background-color, #F5F5F5);
@@ -126,19 +141,13 @@
         .lib-css(display, flex);
         .lib-css(justify-content, center);
         .lib-css(align-items, center);
-        .lib-css(gap, 40px);
-    }
 
-    // cada ícone de rede social
-    .logo-social-media {
-        .lib-css(margin, 0);
-        .lib-css(display, flex);
-    }
-
-    // link envolvendo cada ícone social
-    .logo-social-media a {
-        .lib-css(display, flex);
-        .lib-css(align-items, center);
+        // cada logo social
+        p {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
     }
 
     // wrapper das bandeiras/cartões mobile
