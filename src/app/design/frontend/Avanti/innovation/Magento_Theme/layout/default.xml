@@ -4,24 +4,25 @@
         <!-- referência ao container do header panel -->
         <referenceContainer name="header.panel">
 
-            <!-- cria um container dentro do header.panel para a mensagem promocional -->           
+            <!-- cria um container dentro do header.panel para a mensagem promocional -->
             <container name="promo.header.wrapper" htmlClass="promo-wrapper" htmlTag="div">
 
-            <!-- adiciona o bloco de template da promoção, usando o arquivo promo.phtml -->
-            <!-- o atributo before="-" força a renderização no início do container -->
+                <!-- adiciona o bloco de template da promoção, usando o arquivo promo.phtml -->
+                <!-- o atributo before="-" força a renderização no início do container -->
                 <block class="Magento\Framework\View\Element\Template" name="promo.header.panel" template="Magento_Theme::html/promo.phtml" before="-" />
             </container>
         </referenceContainer>
-        
+
         <!-- move o bloco de links do header para dentro do header-wrapper, antes do minicart -->
-        <move element="header.links" destination="header-wrapper" before="minicart"/>
+        <move element="header.links" destination="header-wrapper" before="minicart" />
 
         <!-- move o bloco do minicart para dentro do header-wrapper, após todos os outros elementos -->
-        <move element="minicart" destination="header-wrapper" after="-"/>
+        <move element="minicart" destination="header-wrapper" after="-" />
 
-        <!-- cria um bloco phtml dentro de header.links para exibir a string "ou" entre os links quando o usuário não está logado -->
+        <!-- cria um bloco phtml dentro de header.links para exibir a string "ou" entre os links
+        quando o usuário não está logado !-->
         <referenceBlock name="header.links">
-                <block class="Magento\Framework\View\Element\Template" name="header.links.or" template="Magento_Theme::html/or.phtml" after="authorization-link"/>
+            <block class="Magento\Framework\View\Element\Template" name="header.links.or" template="Magento_Theme::html/or.phtml" after="authorization-link" />
         </referenceBlock>
 
         <!-- configuração do logo -->
@@ -34,28 +35,47 @@
             </arguments>
         </referenceBlock>
 
+        <!-- ********************* -->
+        <!-- REMOÇÃO DE COMPARE ABAIXO -->
+
+        <!-- remove link de compare do cabeçalho -->
+        <referenceBlock name="catalog.compare.link" remove="true" />
+
+        <!-- remove sidebar de compare -->
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+
+        <!-- *** ESTE é o da shelf (card de produto) em categoria *** -->
+        <referenceBlock name="category.product.addto.compare" remove="true"/>
+
+        <!-- remove compare em resultados de busca -->
+        <referenceBlock name="catalogsearch.product.addto.compare" remove="true"/>
+
+        <!-- remove compare em relacionados / upsell / crosssell / página de produto -->
+        <referenceBlock name="crosssell.product.addto.compare" remove="true"/>
+        <referenceBlock name="related.product.addto.compare" remove="true"/>
+        <referenceBlock name="upsell.product.addto.compare" remove="true"/>
+        <referenceBlock name="view.addto.compare" remove="true"/>
+
+        <!-- FIM DA REMOÇÃO DE COMPARE ACIMA -->
+        <!-- ********************* -->
+
+
         <!-- cria um container dentro do main content para adicionar a newsletter  -->
         <referenceContainer name="main.content">
-            <container name="footer.newsletter" 
-               label="Footer Columns Wrapper" 
-               htmlTag="div" 
-               htmlClass="footer-columns-wrapper"/>
+            <container name="footer.newsletter" label="Footer Columns Wrapper" htmlTag="div" htmlClass="footer-columns-wrapper" />
         </referenceContainer>
 
         <!-- move a newsletter para o container criado -->
-        <move element="form.subscribe" destination="footer.newsletter" before="-"/>
+        <move element="form.subscribe" destination="footer.newsletter" before="-" />
 
         <!-- remove os links nativos do tema -->
-        <referenceBlock name="footer_links" remove="true"/>
-        <referenceBlock name="copyright" remove="true"/>
+        <referenceBlock name="footer_links" remove="true" />
+        <referenceBlock name="copyright" remove="true" />
 
         <!-- configuração do footer -->
         <referenceContainer name="footer">
-            <container name="footer.rows.wrapper" 
-               label="Footer rows Wrapper" 
-               htmlTag="div" 
-               htmlClass="footer-rows-wrapper">
-                
+            <container name="footer.rows.wrapper" label="Footer rows Wrapper" htmlTag="div" htmlClass="footer-rows-wrapper">
+
                 <!-- adiciona bloco CMS (page builder / Magento Admin) -->
                 <block class="Magento\Cms\Block\Block" name="footer_row_1">
                     <arguments>
@@ -79,9 +99,7 @@
             </block>
 
             <!-- cria e adiciona o arquivo .phtml com a logo dos parceiros do vendor -->
-            <block class="Magento\Framework\View\Element\Template" name="stamps-partners" 
-           template="Magento_Theme::html/stamps-partners-wrapper.phtml" 
-           after="-" />
+            <block class="Magento\Framework\View\Element\Template" name="stamps-partners" template="Magento_Theme::html/stamps-partners-wrapper.phtml" after="-" />
         </referenceContainer>
     </body>
 </page>

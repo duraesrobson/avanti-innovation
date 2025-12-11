@@ -1,0 +1,66 @@
+// ------------------------------
+// Desktop
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum ="min")
+    and
+    (@break =@screen__m) {
+    #html-body div.barra-vantagens {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap; // evita transbordar elementos na tela
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        margin-top: -32px;
+
+        p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 300px;
+            height: 56px;
+            gap: 12px;
+            font-size: 14px;
+            border-radius: 8px;
+            background-color: @theme__color__light-gray;
+            color: black;
+        }
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .barra-vantagens {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+
+        p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 358px;
+            height: 56px;
+            gap: 12px;
+            font-size: 14px;
+            border-radius: 8px;
+            background-color: @theme__color__light-gray;
+            color: black;
+        }
+    }
+
+    // remove margens laterais no slider, permitindo encostar nos cantos
+    .page-main .pagebuilder-slider {
+        margin-left: -15px;
+        margin-right: -15px;
+        width: calc(100% + 30px);
+    }
+}
