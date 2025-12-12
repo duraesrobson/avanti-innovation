@@ -1,0 +1,37 @@
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common =true) {
+
+    .banners-centrais-column {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .banners-centrais-column {
+        padding: 0 30px 19px;
+    }
+}
+
+// ------------------------------
+// Desktop
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum ="min")
+    and
+    (@break =@screen__m) {
+    .banners-centrais-column {
+        justify-content: space-between;
+        padding: 0;
+    }
+}
