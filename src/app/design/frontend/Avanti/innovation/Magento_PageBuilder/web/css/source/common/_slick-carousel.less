@@ -1,0 +1,127 @@
+//  mobile
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .slider-prateleira-top-home-mulheres {
+        .product-item .price-box {
+            margin: 0 0 12px 0;
+
+            .price {
+                font-size: 11px;
+            }
+        }
+        .product-item-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            .product-item-name  {
+                display: flex;
+                text-align: center;
+                margin: 0 0 5px 0;
+
+                a{
+                font-size: 11px;
+                font-weight: 400;
+                color: #303030;
+                }
+            }
+
+            // remove div de ratings do produto
+            .product-reviews-summary {
+                .lib-visually-hidden();
+            }
+
+            .swatch-attribute-options {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .swatch-attribute.size {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .clearfix{
+
+                    margin: 0;
+                }
+
+                .swatch-option.text {
+                    width: 19px;
+                    height: 19px;
+                    border-radius: 50%;
+                    font-size: 8px;
+                    font-weight: 700;
+                    min-width: 19px;
+                    font-weight: bold;
+                    padding: 0;
+                    margin-right: 11px;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+
+            .swatch-attribute.color {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .swatch-option.color {
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 50%;
+                    min-width: 14px;
+                    padding: 0;
+                    border: none;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+
+        .slick-current {
+            width: 164px;
+            height: 361px;
+            border: 2px solid #dddddd;
+            border-radius: 7px;
+        }
+
+        .product-image-wrapper {
+            // padding: 4px 6px;
+            .img {
+                // width: 153px;
+                // height: 207px;
+                margin: 0;
+            }
+        }
+    }
+
+    .actions-primary{
+        
+        .action.tocart.primary {
+            width: 167px;
+            height: 28px;
+            font-size: 10px;
+            font-weight: 700;
+            text-align: center;
+            padding: 0;
+            border-radius: 0 0 11px 11px;
+             text-transform: none;      // remove uppercase
+    letter-spacing: normal; 
+        }
+    }
+
+    .actions-secondary {
+        .lib-visually-hidden();
+    }
+}

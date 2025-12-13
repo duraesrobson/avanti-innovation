@@ -1,0 +1,38 @@
+// ------------------------------
+// Mobile
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    // configuraçoes do text-wrapper da prateleira top
+    .slider-prateleira-home-text-wrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: 11px;
+        
+        .pagebuilder-column-line {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        .pagebuilder-column {
+            width: 50%;
+            flex: 0 0 50%;
+        }
+
+        .slider-prateleira-top-home-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .slider-prateleira-top-home-link p a {
+            text-decoration: underline;
+            font-size: 14px;
+            font-weight: 700;
+            color: #303030;
+        }
+    }
+}
