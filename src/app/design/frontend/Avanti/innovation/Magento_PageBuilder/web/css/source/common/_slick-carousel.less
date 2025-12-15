@@ -5,122 +5,167 @@
     (@extremum = "max")
     and
     (@break = @screen__m) {
+    // container principal do slider da prateleira feminina
     .slider-prateleira-top-home-mulheres {
-        .product-item .price-box {
-            margin: 0 0 12px 0;
+        // controla o alinhamento geral dos slides
+        .slick-track {
+            .lib-css(display, flex);
+            .lib-css(justify-content, space-between);
+        }
+
+        // container visível do carrossel
+        .slick-list {
+            // item individual do produto
+            .product-item {
+                .lib-css(width, 167px) !important;
+                .lib-css(border, 1px solid #dddddd);
+                .lib-css(overflow, hidden);
+                .lib-css(margin, 0 auto);
+                .lib-css(border-radius, 7px 7px 12px 12px);
+            }
+        }
+
+        // posicionamento dos dots abaixo do carrossel
+        .slick-dots {
+            .lib-css(position, relative);
+            .lib-css(margin-top, 26px);
+            .lib-css(bottom, auto);
+        }
+
+        // slide individual do slick
+        .slick-slide {
+            .lib-css(width, 167px);
+            .lib-css(display, flex);
+            .lib-css(justify-content, space-between);
+            .lib-css(padding-left, 6px);
+            .lib-css(padding-right, 6px);
+        }
+    }
+
+    // ajustes no preço do produto
+    .product-item {
+        .price-box {
+            .lib-css(margin, 0 0 12px 0);
 
             .price {
-                font-size: 11px;
-            }
-        }
-        .product-item-details {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-
-            .product-item-name  {
-                display: flex;
-                text-align: center;
-                margin: 0 0 5px 0;
-
-                a{
-                font-size: 11px;
-                font-weight: 400;
-                color: #303030;
-                }
-            }
-
-            // remove div de ratings do produto
-            .product-reviews-summary {
-                .lib-visually-hidden();
-            }
-
-            .swatch-attribute-options {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            .swatch-attribute.size {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                .clearfix{
-
-                    margin: 0;
-                }
-
-                .swatch-option.text {
-                    width: 19px;
-                    height: 19px;
-                    border-radius: 50%;
-                    font-size: 8px;
-                    font-weight: 700;
-                    min-width: 19px;
-                    font-weight: bold;
-                    padding: 0;
-                    margin-right: 11px;
-
-                    &:last-child {
-                        margin-right: 0;
-                    }
-                }
-            }
-
-            .swatch-attribute.color {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                .swatch-option.color {
-                    width: 14px;
-                    height: 14px;
-                    border-radius: 50%;
-                    min-width: 14px;
-                    padding: 0;
-                    border: none;
-
-                    &:last-child {
-                        margin-right: 0;
-                    }
-                }
-            }
-        }
-
-        .slick-current {
-            width: 164px;
-            height: 361px;
-            border: 2px solid #dddddd;
-            border-radius: 7px;
-        }
-
-        .product-image-wrapper {
-            // padding: 4px 6px;
-            .img {
-                // width: 153px;
-                // height: 207px;
-                margin: 0;
+                .lib-css(font-size, 11px);
             }
         }
     }
 
-    .actions-primary{
-        
+    // área de detalhes do produto (nome, swatches, etc)
+    .product-item-details {
+        .lib-css(display, flex);
+        .lib-css(flex-direction, column);
+        .lib-css(justify-content, center);
+        .lib-css(align-items, center);
+        .lib-css(text-align, center);
+
+        // wrapper interno do produto
+        .product-item-inner {
+            .lib-css(width, 100%);
+        }
+
+        // container das ações (botão)
+        .product-item-actions {
+            .lib-css(width, 100%);
+        }
+
+        // nome do produto
+        .product-item-name {
+            .lib-css(display, flex);
+            .lib-css(text-align, center);
+            .lib-css(margin, 0 0 5px 0);
+
+            a {
+                .lib-css(font-size, 11px);
+                .lib-css(font-weight, 400);
+                .lib-css(color, #303030);
+            }
+        }
+
+        // remove visualmente o bloco de avaliações
+        .product-reviews-summary {
+            .lib-visually-hidden();
+        }
+
+        // centraliza os swatches genéricos
+        .swatch-attribute-options {
+            .lib-css(display, flex);
+            .lib-css(justify-content, center);
+            .lib-css(align-items, center);
+        }
+
+        // swatches de tamanho (size)
+        .swatch-attribute.size {
+            .lib-css(display, flex);
+            .lib-css(justify-content, center);
+            .lib-css(align-items, center);
+
+            .clearfix {
+                .lib-css(margin, 0);
+            }
+
+            // cada opção de tamanho
+            .swatch-option.text {
+                .lib-css(width, 19px);
+                .lib-css(height, 19px);
+                .lib-css(min-width, 19px);
+                .lib-css(border-radius, 50%);
+                .lib-css(font-size, 8px);
+                .lib-css(font-weight, bold);
+                .lib-css(padding, 0);
+                .lib-css(margin-right, 11px);
+
+                &:last-child {
+                    .lib-css(margin-right, 0);
+                }
+            }
+        }
+
+        // swatches de cor (color)
+        .swatch-attribute.color {
+            .lib-css(display, flex);
+            .lib-css(justify-content, center);
+            .lib-css(align-items, center);
+
+            .swatch-option.color {
+                .lib-css(width, 14px);
+                .lib-css(height, 14px);
+                .lib-css(min-width, 14px);
+                .lib-css(border-radius, 50%);
+                .lib-css(padding, 0);
+                .lib-css(border, none);
+
+                &:last-child {
+                    .lib-css(margin-right, 0);
+                }
+            }
+        }
+    }
+
+    // ajustes na imagem do produto
+    .product-image-wrapper {
+        .img {
+            .lib-css(margin, 0);
+        }
+    }
+
+    // botão principal de ação (adicionar ao carrinho)
+    .actions-primary {
         .action.tocart.primary {
-            width: 167px;
-            height: 28px;
-            font-size: 10px;
-            font-weight: 700;
-            text-align: center;
-            padding: 0;
-            border-radius: 0 0 11px 11px;
-             text-transform: none;      // remove uppercase
-    letter-spacing: normal; 
+            .lib-css(width, 100%);
+            .lib-css(font-size, 10px);
+            .lib-css(font-weight, 700);
+            .lib-css(text-align, center);
+            .lib-css(padding, 7px 17px);
+            .lib-css(border-radius, 0 0 11px 11px);
+            .lib-css(text-transform, none);
+            .lib-css(letter-spacing, normal);
         }
     }
 
+    // remove visualmente as ações secundárias (wishlist, compare)
     .actions-secondary {
         .lib-visually-hidden();
     }
