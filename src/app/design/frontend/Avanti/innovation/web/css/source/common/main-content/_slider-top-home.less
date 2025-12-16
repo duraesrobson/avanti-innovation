@@ -1,17 +1,10 @@
-// ------------------------------
-// Mobile
-// ------------------------------
-.media-width(@extremum, @break)
-    when
-    (@extremum = "max")
-    and
-    (@break = @screen__m) {
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common =true) {
     // configuraçoes do text-wrapper da prateleira top
     .slider-prateleira-home-text-wrapper {
-        display: flex;
-        align-items: center;
         margin-bottom: 11px;
-        
+
         .pagebuilder-column-line {
             display: flex;
             flex-wrap: nowrap;
@@ -23,16 +16,55 @@
         }
 
         .slider-prateleira-top-home-title {
-            font-size: 16px;
             font-weight: 700;
             color: #000000;
         }
 
         .slider-prateleira-top-home-link p a {
-            text-decoration: underline;
-            font-size: 14px;
             font-weight: 700;
             color: #303030;
+        }
+    }
+}
+
+// ------------------------------
+// Desktop
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum ="min")
+    and
+    (@break = @screen__m) {
+    .slider-prateleira-top-home-text-wrapper {
+        span {
+            font-size: 20px !important;
+
+        }
+
+        .slider-prateleira-top-home-link p a {
+            text-decoration: none;
+            font-size: 14px;
+        }
+    }
+}
+
+// ------------------------------
+// Mobile
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    // configuraçoes do text-wrapper da prateleira top
+    .slider-prateleira-home-text-wrapper {
+        .slider-prateleira-top-home-title p span {
+            font-size: 16px;
+        }
+
+        .slider-prateleira-top-home-link p a {
+            font-size: 14px;
+            text-decoration: underline;
         }
     }
 }

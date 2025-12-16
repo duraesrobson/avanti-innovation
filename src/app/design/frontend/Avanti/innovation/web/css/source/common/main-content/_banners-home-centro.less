@@ -1,0 +1,25 @@
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common =true) {
+    .banners-home-centro-column {
+        .lib-css(display, flex);
+        .lib-css(justify-content, center);
+        .lib-css(align-items, center);
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .banners-home-centro-column {
+        .lib-css(padding-bottom, 16px);
+
+        .banners-home-centro-img {
+            .lib-css(height, 224px);
+        }
+    }
+}
