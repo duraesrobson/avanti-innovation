@@ -1,4 +1,4 @@
-//  mobile
+//  Mobile
 //  _____________________________________________
 .media-width(@extremum, @break)
     when
@@ -7,10 +7,15 @@
     (@break = @screen__m) {
     // container principal do slider da prateleira feminina
     .slider-prateleira-top-home-mulheres {
-        // controla o alinhamento geral dos slides
-        .slick-track {
-            .lib-css(display, flex);
-            .lib-css(justify-content, space-between);
+
+        // Força a imagem a ser fluida e não estourar o card
+        .product-image-container {
+            width: 100%; // Sobrescreve o estilo inline do Magento
+        }
+        .product-image-photo {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         // container visível do carrossel
@@ -18,9 +23,9 @@
             // item individual do produto
             .product-item {
                 .lib-css(width, 167px) !important;
+                .lib-css(margin, 0 auto);
                 .lib-css(border, 1px solid #dddddd);
                 .lib-css(overflow, hidden);
-                .lib-css(margin, 0 auto);
                 .lib-css(border-radius, 7px 7px 12px 12px);
             }
         }
@@ -34,11 +39,8 @@
 
         // slide individual do slick
         .slick-slide {
-            .lib-css(width, 167px);
-            .lib-css(display, flex);
-            .lib-css(justify-content, space-between);
-            .lib-css(padding-left, 6px);
-            .lib-css(padding-right, 6px);
+            .lib-css(width, 167px) !important;
+            .lib-css(padding, 0 6px);
         }
     }
 
@@ -49,6 +51,7 @@
 
             .price {
                 .lib-css(font-size, 11px);
+                .lib-css(font-weight, 700);
             }
         }
     }
@@ -57,16 +60,11 @@
     .product-item-details {
         .lib-css(display, flex);
         .lib-css(flex-direction, column);
-        .lib-css(justify-content, center);
         .lib-css(align-items, center);
         .lib-css(text-align, center);
 
-        // wrapper interno do produto
-        .product-item-inner {
-            .lib-css(width, 100%);
-        }
-
-        // container das ações (botão)
+        // wrapper interno do produto e container das ações (botão)
+        .product-item-inner,
         .product-item-actions {
             .lib-css(width, 100%);
         }
@@ -98,9 +96,7 @@
 
         // swatches de tamanho (size)
         .swatch-attribute.size {
-            .lib-css(display, flex);
-            .lib-css(justify-content, center);
-            .lib-css(align-items, center);
+            .lib-css(margin-bottom, 8px);
 
             .clearfix {
                 .lib-css(margin, 0);
@@ -111,14 +107,24 @@
                 .lib-css(width, 19px);
                 .lib-css(height, 19px);
                 .lib-css(min-width, 19px);
+                .lib-css(color, #707070);
                 .lib-css(border-radius, 50%);
+                .lib-css(border-color, #707070);
                 .lib-css(font-size, 8px);
-                .lib-css(font-weight, bold);
+                .lib-css(font-weight, 700);
                 .lib-css(padding, 0);
-                .lib-css(margin-right, 11px);
+                .lib-css(margin-right, 10px);
 
                 &:last-child {
                     .lib-css(margin-right, 0);
+                }
+
+                &[aria-checked="true"] {
+                    background: @theme__color__primary; // Fundo azul
+                    color: #ffffff; // Texto branco
+                    border-color: transparent;
+                    border: none !important;
+                    background-color: @theme__color__primary;
                 }
             }
         }
@@ -136,18 +142,12 @@
                 .lib-css(border-radius, 50%);
                 .lib-css(padding, 0);
                 .lib-css(border, none);
+                box-shadow: 0 0 2px rgba(0, 0, 0, 0.2); // Adiciona uma sombra suave para destacar as cores claras
 
                 &:last-child {
                     .lib-css(margin-right, 0);
                 }
             }
-        }
-    }
-
-    // ajustes na imagem do produto
-    .product-image-wrapper {
-        .img {
-            .lib-css(margin, 0);
         }
     }
 
