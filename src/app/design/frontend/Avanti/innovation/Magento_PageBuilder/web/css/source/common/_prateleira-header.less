@@ -1,0 +1,91 @@
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common = true) {
+    // configurações do wrapper de texto da prateleira
+    .slider-prateleira-wrapper {
+        .pagebuilder-column-group {
+            // força colunas do pagebuilder a ficarem na mesma linha
+            .pagebuilder-column-line {
+                .lib-css(display, flex);
+                .lib-css(flex-wrap, nowrap);
+            }
+
+            // cada coluna ocupa 50% do espaço horizontal
+            .pagebuilder-column {
+                .lib-css(width, 50%);
+                .lib-css(flex, 0 0 50%);
+            }
+        }
+
+        .slider-prateleira-header {
+            // título da prateleira
+            .slider-prateleira-header-title{
+                .lib-css(font-weight, 700);
+                .lib-css(color, #000000);
+            }
+
+            // link "ver mais" da prateleira
+            .slider-prateleira-header-link p a {
+                .lib-css(font-weight, 700);
+                .lib-css(color, #303030);
+                .lib-css(cursor, pointer);
+            }
+        }
+    }
+}
+
+// ------------------------------
+// Desktop
+// ------------------------------
+.media-width(@extremum, @break)
+when
+(@extremum = "min")
+and
+(@break = @screen__m) {
+    .slider-prateleira-wrapper {
+        .pagebuilder-column-group {
+            // espaçamento inferior entre header e slider
+            .lib-css(margin-bottom, 20px);
+        }
+        .slider-prateleira-header {
+            // display: flex;
+            // align-items: center;
+            .slider-prateleira-header-title {
+                .lib-css(font-size, 20px);
+            }
+            // remove sublinhado e define tamanho do link no desktop
+            .slider-prateleira-header-link p a {
+                .lib-css(text-decoration, none);
+                .lib-css(font-size, 16px);
+            }
+        }
+    }
+}
+
+// ------------------------------
+// Mobile
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .slider-prateleira-wrapper {
+        .pagebuilder-column-group {
+            // espaçamento inferior entre header e slider
+            .lib-css(margin-bottom, 10px);
+        }
+        // ajustes do header da prateleira no mobile
+        .slider-prateleira-header {
+            .slider-prateleira-header-title {
+                .lib-css(font-size, 16px);
+            }
+
+            // mantém o link visível com sublinhado no mobile
+            .slider-prateleira-header-link p a {
+                .lib-css(font-size, 14px);
+                .lib-css(text-decoration, underline);
+            }
+        }
+    }
+}
