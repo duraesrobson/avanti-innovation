@@ -1,0 +1,300 @@
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common = true) {
+
+    // container principal do slider da prateleira feminina
+    .slider-prateleira{
+
+        // Força a imagem a ser fluida e não estourar o card
+        .product-image-container {
+            width: 100%; // Sobrescreve o estilo inline do Magento
+        }
+
+        .product-image-photo {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        // posicionamento dos dots abaixo do carrossel
+        .slick-dots {
+            .lib-css(position, relative);
+            .lib-css(margin-top, 26px);
+            .lib-css(bottom, auto);
+        }
+
+    }
+
+    // área de detalhes do produto (nome, swatches, etc)
+    .product-item-details {
+        .lib-css(display, flex);
+        .lib-css(flex-direction, column);
+        .lib-css(align-items, center);
+        .lib-css(text-align, center);
+
+        // wrapper interno do produto e container das ações (botão)
+        .product-item-inner,
+        .product-item-actions {
+            .lib-css(width, 100%);
+        }
+
+        // remove visualmente o bloco de avaliações
+        .product-reviews-summary {
+            .lib-visually-hidden();
+        }
+    }
+
+    .swatch-option:focus {
+        .lib-css(box-shadow, none);
+    }
+
+    // centraliza os swatches genéricos
+    .swatch-attribute-options {
+        .lib-css(display, flex);
+        .lib-css(justify-content, center);
+        .lib-css(align-items, center);
+    }
+
+    // swatches de tamanho (size)
+    .swatch-attribute.size {
+
+        .clearfix {
+            .lib-css(margin, 0);
+        }
+
+        // cada opção de tamanho
+        .swatch-option.text {
+            .lib-css(display, flex);
+            .lib-css(justify-content, center);
+            .lib-css(align-items, center);
+            .lib-css(border-radius, 50%);
+            .lib-css(padding, 0);
+
+            &[aria-checked="true"],
+            &:hover {
+                background: @theme__color__primary; // Fundo azul
+                color: #ffffff; // Texto branco
+                border: @theme__color__primary;
+            }
+        }
+    }
+
+    // swatches de cor (color)
+    .swatch-attribute.color {
+        .lib-css(display, flex);
+        .lib-css(justify-content, center);
+        .lib-css(align-items, center);
+
+        .swatch-option.color {
+            .lib-css(border-radius, 50%);
+            .lib-css(padding, 0);
+            .lib-css(border, none);
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.2); // Adiciona uma sombra suave para destacar as cores claras
+        }
+    }
+
+    // botão principal de ação (adicionar ao carrinho)
+    .actions-primary {
+        .action.tocart.primary {
+            .lib-css(text-align, center);
+            .lib-css(text-transform, none);
+            .lib-css(letter-spacing, normal);
+
+            span {
+                .lib-css(font-weight, 700);
+            }
+        }
+    }
+
+    // remove visualmente as ações secundárias (wishlist, compare)
+    .actions-secondary {
+        .lib-visually-hidden();
+    }
+}
+
+
+// ------------------------------
+// desktop
+// ------------------------------
+.media-width(@extremum, @break)
+when (@extremum = "min") and (@break = @screen__m) {
+
+    .slider-prateleira {
+
+        // container visível do carrossel
+        .slick-list {
+            margin: 0 -6px;
+
+            // item individual do produto
+            .product-item {
+                .lib-css(width, 242px);
+                .lib-css(border, 1px solid #dddddd);
+                .lib-css(overflow, hidden);
+                .lib-css(border-radius, 15px);
+            }
+        }
+
+        // slide individual do slick
+        .slick-slide {
+            .lib-css(padding, 0 6px);
+        }
+    }
+
+    // ajustes no preço do produto
+    .product-item {
+        .price-box {
+            .lib-css(margin, 17px 0 22px 0);
+
+            .price {
+                .lib-css(font-size, 16px);
+                .lib-css(font-weight, 700);
+            }
+        }
+    }
+
+    // nome do produto
+    .product-item-name {
+        .lib-css(display, flex);
+        .lib-css(text-align, center);
+        .lib-css(margin, 0);
+
+        a {
+            .lib-css(font-size, 15px);
+            .lib-css(font-weight, 700);
+            .lib-css(color, #303030);
+        }
+    }
+
+    // swatches de tamanho (size)
+    .swatch-attribute.size {
+        .lib-css(margin-bottom, 15px);
+
+        .swatch-option.text {
+            .lib-css(width, 27px);
+            .lib-css(height, 27px);
+            .lib-css(min-width, 27px);
+            .lib-css(color, #707070);
+            .lib-css(border, 1px solid #707070);
+            .lib-css(font-size, 11px);
+            .lib-css(font-weight, 700);
+            .lib-css(margin-right, 10px);
+
+            &:last-child {
+                .lib-css(margin-right, 0);
+            }
+        }
+    }
+
+    // swatches de cor (color)
+    .swatch-attribute.color {
+        .swatch-option.color {
+            .lib-css(width, 20px);
+            .lib-css(height, 20px);
+            .lib-css(min-width, 20px);
+        }
+    }
+
+    // botão principal de ação (adicionar ao carrinho)
+    .actions-primary {
+        .action.tocart.primary {
+            .lib-css(width, 242px);
+            .lib-css(padding, 10px 24px);
+            .lib-css(border-radius, 0 0 15px 15px);
+
+            span {
+                .lib-css(font-size, 14px);
+            }
+        }
+    }
+}
+
+
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break)
+when (@extremum = "max") and (@break = @screen__m) {
+
+    .slider-prateleira {
+
+        // container visível do carrossel
+        .slick-list {
+            margin: 0 -10px;
+            // item individual do produto
+            .product-item {
+                .lib-css(width, 167px);
+                .lib-css(border, 1px solid #dddddd);
+                .lib-css(overflow, hidden);
+                .lib-css(border-radius, 11px);
+            }
+        }
+
+        // slide individual do slick
+        .slick-slide {
+            .lib-css(padding, 0 10px);
+        }
+    }
+
+    // ajustes no preço do produto
+    .product-item {
+        .price-box {
+            .lib-css(margin, 0 0 12px 0);
+
+            .price {
+                .lib-css(font-size, 11px);
+                .lib-css(font-weight, 700);
+            }
+        }
+    }
+
+    // nome do produto
+    .product-item-name {
+        .lib-css(display, flex);
+        .lib-css(text-align, center);
+        .lib-css(margin, 0 0 5px 0);
+
+        a {
+            .lib-css(font-size, 11px);
+            .lib-css(font-weight, 400);
+            .lib-css(color, #303030);
+        }
+    }
+
+    // swatches de tamanho (size)
+    .swatch-attribute.size {
+        .lib-css(margin-bottom, 8px);
+
+        .swatch-option.text {
+            .lib-css(width, 19px);
+            .lib-css(height, 19px);
+            .lib-css(min-width, 19px);
+            .lib-css(color, #707070);
+            .lib-css(border-color, #707070);
+            .lib-css(font-size, 8px);
+            .lib-css(font-weight, 700);
+            .lib-css(margin-right, 10px);
+
+            &:last-child {
+                .lib-css(margin-right, 0);
+            }
+        }
+    }
+
+    // swatches de cor (color)
+    .swatch-attribute.color {
+        .swatch-option.color {
+            .lib-css(width, 14px);
+            .lib-css(height, 14px);
+            .lib-css(min-width, 14px);
+        }
+    }
+
+    // botão principal de ação (adicionar ao carrinho)
+    .actions-primary {
+        .action.tocart.primary {
+            .lib-css(width, 100%);
+            .lib-css(font-size, 10px);
+            .lib-css(padding, 7px 17px);
+            .lib-css(border-radius, 0 0 11px 11px);
+        }
+    }
+}
