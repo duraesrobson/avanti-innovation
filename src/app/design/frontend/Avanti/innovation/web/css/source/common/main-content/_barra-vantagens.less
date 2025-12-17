@@ -1,59 +1,90 @@
 // ------------------------------
-// Desktop
+// desktop
 // ------------------------------
 .media-width(@extremum, @break)
     when
-    (@extremum ="min")
+    (@extremum = "min")
     and
-    (@break =@screen__m) {
+    (@break = @screen__m) {
+
+    // barra de vantagens exibida no desktop
     #html-body div.barra-vantagens {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap; // evita transbordar elementos na tela
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-        margin-top: -32px;
+        // layout em linha com quebra automática
+        .lib-css(display, flex);
+        .lib-css(flex-direction, row);
+        .lib-css(flex-wrap, wrap); // evita transbordar elementos na tela
+        .lib-css(align-items, center);
+        .lib-css(justify-content, space-between);
+
+        // espaçamento entre os cards
+        .lib-css(gap, 20px);
+
+        // ajuste visual para sobrepor seção anterior
+        .lib-css(margin-top, -32px);
 
         p {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 300px;
-            height: 56px;
-            gap: 12px;
-            font-size: 14px;
-            border-radius: 8px;
-            background-color: @theme__color__light-gray;
-            color: black;
+            // centraliza conteúdo interno do card
+            .lib-css(display, flex);
+            .lib-css(align-items, center);
+            .lib-css(justify-content, center);
+
+            // dimensões fixas do card
+            .lib-css(width, 300px);
+            .lib-css(height, 56px);
+
+            // espaçamento interno entre ícone e texto
+            .lib-css(gap, 12px);
+
+            // tipografia do texto
+            .lib-css(font-size, 14px);
+
+            // aparência visual do card
+            .lib-css(border-radius, 8px);
+            .lib-css(background-color, @theme__color__light-gray);
+            .lib-css(color, black);
         }
     }
 }
 
-//  Mobile
-//  _____________________________________________
+// ------------------------------
+// mobile
+// ------------------------------
 .media-width(@extremum, @break)
     when
     (@extremum = "max")
     and
     (@break = @screen__m) {
+
+    // barra de vantagens exibida no mobile
     .barra-vantagens {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
+        // centraliza os cards verticalmente
+        .lib-css(display, flex);
+        .lib-css(align-items, center);
+        .lib-css(justify-content, center);
+
+        // espaçamento reduzido entre os cards
+        .lib-css(gap, 8px);
 
         p {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 358px;
-            height: 56px;
-            gap: 12px;
-            font-size: 14px;
-            border-radius: 8px;
-            background-color: @theme__color__light-gray;
-            color: black;
+            // centraliza conteúdo interno do card
+            .lib-css(display, flex);
+            .lib-css(align-items, center);
+            .lib-css(justify-content, center);
+
+            // largura ajustada para mobile
+            .lib-css(width, 358px);
+            .lib-css(height, 56px);
+
+            // espaçamento entre ícone e texto
+            .lib-css(gap, 12px);
+
+            // tipografia do texto
+            .lib-css(font-size, 14px);
+
+            // aparência visual do card
+            .lib-css(border-radius, 8px);
+            .lib-css(background-color, @theme__color__light-gray);
+            .lib-css(color, black);
         }
     }
 }

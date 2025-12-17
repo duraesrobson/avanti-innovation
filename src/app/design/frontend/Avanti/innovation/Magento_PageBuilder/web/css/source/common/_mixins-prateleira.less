@@ -1,0 +1,36 @@
+// ==============================================
+// Mixins reutilizáveis para prateleiras de produto
+// ==============================================
+
+// clamp de texto para nome de produto
+.product-title-clamp(@lines: 1, @line-height: 1.2em) {
+    display: -webkit-box; // necessário para line-clamp
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @lines;
+    line-clamp: @lines;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: @line-height;
+    max-height: (@lines * @line-height); // mantém altura consistente
+}
+
+// remove espaço entre R$ e valor (corrige &nbsp;)
+.price-no-space() {
+    white-space: nowrap;
+    word-spacing: -0.25em;
+}
+
+// centralização flex padrão
+.flex-center() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// botão padrão da prateleira
+.prateleira-button-base() {
+    text-align: center;
+    text-transform: none;
+    letter-spacing: normal;
+}

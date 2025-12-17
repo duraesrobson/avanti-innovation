@@ -1,28 +1,33 @@
 //  Common (styles-m.css)
 //  _____________________________________________
-& when (@media-common =true) {
-    // configuraçoes do text-wrapper da prateleira top
+& when (@media-common = true) {
+    // configurações do wrapper de texto da prateleira
     .slider-prateleira-wrapper {
-        margin-bottom: 11px;
+        // espaçamento inferior entre header e slider
+        .lib-css(margin-bottom, 11px);
 
+        // força colunas do pagebuilder a ficarem na mesma linha
         .pagebuilder-column-line {
-            display: flex;
-            flex-wrap: nowrap;
+            .lib-css(display, flex);
+            .lib-css(flex-wrap, nowrap);
         }
 
+        // cada coluna ocupa 50% do espaço horizontal
         .pagebuilder-column {
-            width: 50%;
-            flex: 0 0 50%;
+            .lib-css(width, 50%);
+            .lib-css(flex, 0 0 50%);
         }
 
+        // título da prateleira
         .slider-prateleira-header-title {
-            font-weight: 700;
-            color: #000000;
+            .lib-css(font-weight, 700);
+            .lib-css(color, #000000);
         }
 
+        // link "ver mais" da prateleira
         .slider-prateleira-header-link p a {
-            font-weight: 700;
-            color: #303030;
+            .lib-css(font-weight, 700);
+            .lib-css(color, #303030);
         }
     }
 }
@@ -32,14 +37,14 @@
 // ------------------------------
 .media-width(@extremum, @break)
     when
-    (@extremum ="min")
+    (@extremum = "min")
     and
     (@break = @screen__m) {
     .slider-prateleira-header {
-    
+        // remove sublinhado e define tamanho do link no desktop
         .slider-prateleira-header-link p a {
-            text-decoration: none;
-            font-size: 14px;
+            .lib-css(text-decoration, none);
+            .lib-css(font-size, 14px);
         }
     }
 }
@@ -52,15 +57,17 @@
     (@extremum = "max")
     and
     (@break = @screen__m) {
-    // configuraçoes do text-wrapper da prateleira top
+    // ajustes do header da prateleira no mobile
     .slider-prateleira-header {
+        // aumenta o tamanho do título no mobile
         .slider-prateleira-header-title p span {
-            font-size: 16px;
+            .lib-css(font-size, 16px);
         }
 
+        // mantém o link visível com sublinhado no mobile
         .slider-prateleira-header-link p a {
-            font-size: 14px;
-            text-decoration: underline;
+            .lib-css(font-size, 14px);
+            .lib-css(text-decoration, underline);
         }
     }
 }

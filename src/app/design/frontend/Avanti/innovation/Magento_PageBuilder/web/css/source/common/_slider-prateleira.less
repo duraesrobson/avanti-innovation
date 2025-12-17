@@ -1,19 +1,20 @@
+@import '_mixins-prateleira.less';
+
 //  Common (styles-m.css)
 //  _____________________________________________
 & when (@media-common = true) {
-
-    // container principal do slider da prateleira feminina
-    .slider-prateleira{
-
-        // Força a imagem a ser fluida e não estourar o card
+    // container principal do slider da prateleira
+    .slider-prateleira {
+        // força a imagem a ser fluida e não estourar o card
         .product-image-container {
-            width: 100%; // Sobrescreve o estilo inline do Magento
+            .lib-css(width, 100%); // sobrescreve o estilo inline do Magento
         }
 
         .product-image-photo {
-            width: 100%;
-            height: auto;
-            display: block;
+            .lib-css(width, 100%);
+            .lib-css(height, auto);
+            .lib-css(display, block);
+            .lib-css(margin-top, 6px); // cria espacamento anterior ao top da imagem do produto
         }
 
         // posicionamento dos dots abaixo do carrossel
@@ -22,9 +23,7 @@
             .lib-css(margin-top, 26px);
             .lib-css(bottom, auto);
         }
-
     }
-
     // área de detalhes do produto (nome, swatches, etc)
     .product-item-details {
         .lib-css(display, flex);
@@ -38,42 +37,50 @@
             .lib-css(width, 100%);
         }
 
+        // nome do produto com 1 linha fixa e reticências
+        .product-item-name a {
+            .product-title-clamp(1, 1.2em);
+        }
+
+        // ajuste para remover espaço entre R$ e valor
+        .price-box {
+            .price {
+                .price-no-space();
+            }
+        }
+
         // remove visualmente o bloco de avaliações
         .product-reviews-summary {
             .lib-visually-hidden();
         }
     }
 
+    // remove sombra quando focus nos options checks
     .swatch-option:focus {
         .lib-css(box-shadow, none);
     }
 
     // centraliza os swatches genéricos
     .swatch-attribute-options {
-        .lib-css(display, flex);
-        .lib-css(justify-content, center);
-        .lib-css(align-items, center);
+        .flex-center();
     }
 
     // swatches de tamanho (size)
     .swatch-attribute.size {
-
         .clearfix {
             .lib-css(margin, 0);
         }
 
         // cada opção de tamanho
         .swatch-option.text {
-            .lib-css(display, flex);
-            .lib-css(justify-content, center);
-            .lib-css(align-items, center);
+            .flex-center();
             .lib-css(border-radius, 50%);
             .lib-css(padding, 0);
 
             &[aria-checked="true"],
             &:hover {
-                background: @theme__color__primary; // Fundo azul
-                color: #ffffff; // Texto branco
+                background: @theme__color__primary;
+                color: #ffffff;
                 border: @theme__color__primary;
             }
         }
@@ -81,24 +88,20 @@
 
     // swatches de cor (color)
     .swatch-attribute.color {
-        .lib-css(display, flex);
-        .lib-css(justify-content, center);
-        .lib-css(align-items, center);
+        .flex-center();
 
         .swatch-option.color {
             .lib-css(border-radius, 50%);
             .lib-css(padding, 0);
             .lib-css(border, none);
-            box-shadow: 0 0 2px rgba(0, 0, 0, 0.2); // Adiciona uma sombra suave para destacar as cores claras
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.2); // destaca as cores claras
         }
     }
 
-    // botão principal de ação (adicionar ao carrinho)
+    // botão principal de ação (comprar)
     .actions-primary {
         .action.tocart.primary {
-            .lib-css(text-align, center);
-            .lib-css(text-transform, none);
-            .lib-css(letter-spacing, normal);
+            .prateleira-button-base();
 
             span {
                 .lib-css(font-weight, 700);
@@ -112,15 +115,15 @@
     }
 }
 
-
 // ------------------------------
 // desktop
 // ------------------------------
 .media-width(@extremum, @break)
-when (@extremum = "min") and (@break = @screen__m) {
-
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__m) {
     .slider-prateleira {
-
         // container visível do carrossel
         .slick-list {
             margin: 0 -6px;
@@ -154,8 +157,7 @@ when (@extremum = "min") and (@break = @screen__m) {
 
     // nome do produto
     .product-item-name {
-        .lib-css(display, flex);
-        .lib-css(text-align, center);
+        .flex-center();
         .lib-css(margin, 0);
 
         a {
@@ -208,14 +210,14 @@ when (@extremum = "min") and (@break = @screen__m) {
     }
 }
 
-
 //  Mobile
 //  _____________________________________________
 .media-width(@extremum, @break)
-when (@extremum = "max") and (@break = @screen__m) {
-
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
     .slider-prateleira {
-
         // container visível do carrossel
         .slick-list {
             margin: 0 -10px;
@@ -248,8 +250,7 @@ when (@extremum = "max") and (@break = @screen__m) {
 
     // nome do produto
     .product-item-name {
-        .lib-css(display, flex);
-        .lib-css(text-align, center);
+        .flex-center();
         .lib-css(margin, 0 0 5px 0);
 
         a {

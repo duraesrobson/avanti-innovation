@@ -1,37 +1,48 @@
-//  Common (styles-m.css)
+//  common (styles-m.css)
 //  _____________________________________________
-& when (@media-common =true) {
+& when (@media-common = true) {
 
+    // coluna que envolve os banners centrais
     .banners-centrais-column {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        // estrutura flex para alinhamento dos banners
+        .lib-css(display, flex);
+        .lib-css(justify-content, center);
+        .lib-css(align-items, center);
     }
 
 }
 
-//  Mobile
-//  _____________________________________________
+// ------------------------------
+// mobile
+// ------------------------------
 .media-width(@extremum, @break)
     when
     (@extremum = "max")
     and
     (@break = @screen__m) {
+
+    // ajustes de espaçamento dos banners no mobile
     .banners-centrais-column {
-        padding: 0 30px 19px;
+        // padding lateral para evitar encostar nas bordas
+        .lib-css(padding, 0 30px 19px);
     }
 }
 
 // ------------------------------
-// Desktop
+// desktop
 // ------------------------------
 .media-width(@extremum, @break)
     when
-    (@extremum ="min")
+    (@extremum = "min")
     and
-    (@break =@screen__m) {
+    (@break = @screen__m) {
+
+    // ajustes de layout dos banners no desktop
     .banners-centrais-column {
-        justify-content: space-between;
-        padding: 0;
+        // distribui os banners horizontalmente
+        .lib-css(justify-content, space-between);
+
+        // remove padding aplicado no mobile
+        .lib-css(padding, 0);
     }
 }
