@@ -1,0 +1,30 @@
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common = true) {
+    .slider-marcas-home {
+
+        // posicionamento dos dots abaixo do carrossel
+        .slick-dots {
+            .lib-css(position, relative);
+            .lib-css(margin-top, 26px);
+            .lib-css(bottom, auto);
+        }
+
+        .pagebuilder-column-line.slick-slider {
+            flex-direction: column;
+        }
+        .slick-list {
+            margin: 0 -10px; // compensa o padding interno dos slides para alinhar nas bordas do container
+        }
+
+        .pagebuilder-column {
+            padding: 0 10px; // cria o espaçamento visual entre os slides sem quebrar o layout do slick
+        }
+
+        img {
+            max-width: 100%;
+            margin: 0;
+            display: block;
+        }
+    }
+}
