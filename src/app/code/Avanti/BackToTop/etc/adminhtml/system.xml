@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!-- Admin configuration for Avanti_BackToTop module -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="avanti" translate="label" sortOrder="999">
+            <label>Avanti</label>
+        </tab>
+        <section id="avanti_backtotop" translate="label" sortOrder="900" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Avanti - Back To Top</label>
+            <tab>avanti</tab>
+            <resource>Avanti_BackToTop::backtotop_config</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+
+
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled Avanti BacktoTop</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+
+                <field id="position" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Position</label>
+                    <source_model>Avanti\BackToTop\Model\Config\Source\Position</source_model>
+                </field>
+
+
+                <field id="color" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Button Color</label>
+                    <comment>Enter a HEX color (e.g. #000000)</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

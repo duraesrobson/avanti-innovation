@@ -1,0 +1,60 @@
+//
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common = true) {
+    #back-to-top {
+        .lib-css(display, none);
+        .lib-css(position, fixed);
+
+        .lib-css(z-index, 1000);
+        .lib-css(background, @theme__color__primary);
+        .lib-css(color, @color-white);
+        .lib-css(line-height, 0);
+        .lib-css(padding, 15px 15px);
+        .lib-css(border-radius, 50%);
+        .lib-css(text-decoration, none);
+        .lib-css(opacity, 0.7);
+        .lib-css(transition, opacity 0.3s ease);
+
+        &:hover {
+            .lib-css(opacity, 1);
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    #back-to-top {
+        .lib-css(right, 15px);
+        .lib-css(bottom, 15px);
+        .lib-css(padding, 12px 12px);
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__m) {
+    #back-to-top {
+        .lib-css(padding, 18px 18px);
+    }
+    .right {
+        .lib-css(right, 30px);
+        .lib-css(bottom, 300px);
+    }
+
+    .left {
+        .lib-css(left, 30px);
+        .lib-css(bottom, 300px);
+    }
+}
