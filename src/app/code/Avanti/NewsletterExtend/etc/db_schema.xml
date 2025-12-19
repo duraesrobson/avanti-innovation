@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="newsletter_subscriber" resource="default" engine="innodb" comment="Newsletter Subscriber">
+        <column xsi:type="varchar" name="subscriber_name" nullable="true" comment="Subscriber Name"/>
+        <column xsi:type="smallint" name="subscriber_privacy" nullable="true" default="0"
+                comment="Privacy Policy Accepted (0 = No, 1 = Yes)"/>
+    </table>
+</schema>
