@@ -1,8 +1,17 @@
 //  Common (styles-m.css)
 //  _____________________________________________
 & when (@media-common = true) {
-    .slider-marcas-home {
+}
 
+// ------------------------------
+// Desktop
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum ="min")
+    and
+    (@break = @screen__m) {
+    .slider-marcas-home {
         // posicionamento dos dots abaixo do carrossel
         .slick-dots {
             .lib-css(position, relative);
@@ -24,6 +33,36 @@
         img {
             max-width: 100%;
             margin: 0;
+            display: block;
+        }
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .slider-marcas-home {
+        .pagebuilder-column-line {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .pagebuilder-column {
+            // Força 3 colunas (100 / 3 = 33.33)
+            flex: 0 0 33.33% ;
+            box-sizing: border-box;
+            padding: 10px; // Espaçamento entre as logos
+        }
+
+        img {
+            width: 100%;
+            height: auto;
             display: block;
         }
     }
