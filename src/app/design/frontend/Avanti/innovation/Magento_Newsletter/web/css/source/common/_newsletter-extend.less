@@ -1,0 +1,235 @@
+//  common (styles-m.css)
+//  _____________________________________________
+& when (@media-common = true) {
+    // bloco principal da newsletter
+    .block.newsletter {
+        .lib-css(display, flex);
+        .lib-css(flex-direction, column);
+        .lib-css(justify-content, center);
+        .lib-css(align-items, center);
+
+        // titulo da newsletter
+        .title {
+            .lib-css(display, block);
+            .lib-css(text-align, center);
+            .lib-css(color, #000000);
+
+            // destaque da palavra newsletter
+            span {
+                .lib-css(color, @theme__color__primary);
+            }
+        }
+
+        // container com fundo do formulário
+        .content {
+            .lib-css(display, flex);
+            .lib-css(justify-content, center);
+            .lib-css(align-items, center);
+            .lib-css(background-color, #f5f5f5);
+            .lib-css(box-sizing, border-box);
+            .lib-css(border-radius, 8px);
+
+            // formulário da newsletter
+            .form.subscribe {
+                .lib-css(display, flex);
+                .lib-css(justify-content, center);
+                .lib-css(align-items, center);
+                .lib-css(width, 100%);
+
+                // campo padrão do formulário
+                .field {
+                    .lib-css(width, 100%);
+                    .lib-css(border-radius, 8px);
+
+                    // remove decoração padrão do magento
+                    .control::before {
+                        .lib-visually-hidden();
+                    }
+
+                    // input padrão
+                    input {
+                        .lib-css(height, 48px);
+                        .lib-css(border, none);
+                        .lib-css(border-radius, 8px);
+                        .lib-css(padding, 15px 24px);
+                        .lib-css(font-size, 14px);
+                        .lib-css(color, #303030);
+                    }
+                }
+
+                // campo de aceite da política de privacidade
+                .field.newsletter-privacy {
+                    .lib-css(display, flex);
+                    .lib-css(align-items, center);
+                    .lib-css(justify-content, center);
+
+                    label {
+                        .lib-css(display, flex);
+                        .lib-css(align-items, center);
+
+                        // checkbox
+                        input[type="checkbox"] {
+                            .lib-css(margin-right, 8px);
+                            .lib-css(width, 16px);
+                            .lib-css(border-radius, 4px);
+                            .lib-css(border, 1px solid #dddddd);
+
+                            // ajuste fino do checkbox
+                            .lib-css(top, 0);
+                        }
+
+                        // texto da política
+                        strong,
+                        .privacy-policy-link {
+                            .lib-css(font-size, 12px);
+                            .lib-css(color, #656565);
+                        }
+
+                        // link da política
+                        .privacy-policy-link {
+                            .lib-css(text-decoration, underline);
+                            .lib-css(cursor, pointer);
+                        }
+                    }
+                }
+
+                // área do botão de envio
+                .actions {
+                    .lib-css(display, flex);
+                    .lib-css(justify-content, center);
+                    .lib-css(align-items, center);
+
+                    // botão submit
+                    .action.subscribe.primary {
+                        .lib-css(background-color, @theme__color__primary);
+                        .lib-css(height, 48px);
+                        .lib-css(border-radius, 8px);
+                        .lib-css(padding, 14px 24px);
+
+                        // texto do botão
+                        span {
+                            .lib-css(font-size, 16px);
+                            .lib-css(font-weight, 700);
+                            .lib-css(color, #ffffff);
+                            .lib-css(text-transform, none);
+                            .lib-css(letter-spacing, normal);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ------------------------------
+// desktop
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__m) {
+    // wrapper do footer onde a newsletter está inserida
+    .footer-columns-wrapper {
+        .lib-css(width, 100%);
+        .lib-css(margin-top, 82px);
+        .lib-css(margin-bottom, 71px);
+    }
+
+    .block.newsletter {
+        // ajustes de tipografia do titulo no desktop
+        .title {
+            .lib-css(margin-bottom, 20px);
+
+            strong,
+            span {
+                .lib-css(font-size, 20px);
+            }
+        }
+
+        // container do formulário no desktop
+        .content {
+            .lib-css(flex-direction, row);
+            .lib-css(width, 1260px);
+            .lib-css(padding, 64px 114px);
+
+            .form.subscribe {
+                .lib-css(flex-direction, row);
+                .lib-css(gap, 12px);
+
+                // campos lado a lado
+                .field {
+                    .lib-css(margin-bottom, 0);
+
+                    input {
+                        .lib-css(width, 280px);
+                        .lib-css(margin, 0);
+                    }
+                }
+
+                // botão ao lado dos campos
+                .actions {
+                    .lib-css(width, auto);
+
+                    .action.subscribe.primary {
+                        .lib-css(width, 121px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ------------------------------
+// mobile
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    // espaçamento do footer no mobile
+    .footer-columns-wrapper {
+        .lib-css(margin, 40px 0);
+    }
+
+    .block.newsletter {
+        // tipografia do titulo no mobile
+        .title {
+            strong,
+            span {
+                .lib-css(font-size, 16px);
+            }
+        }
+
+        // container empilhado no mobile
+        .content {
+            .lib-css(flex-direction, column);
+            .lib-css(width, 100%);
+            .lib-css(padding, 38px 16px);
+
+            .form.subscribe {
+                .lib-css(flex-direction, column);
+
+                // ajuste fino do checkbox no mobile
+                .field.newsletter-privacy {
+                    label {
+                        input[type="checkbox"] {
+                            .lib-css(top, -1px);
+                        }
+                    }
+                }
+
+                // espaçamento entre campos
+                .field {
+                    .lib-css(margin-bottom, 16px);
+                }
+
+                // botão ocupa largura total
+                .actions {
+                    .lib-css(width, 100%);
+                }
+            }
+        }
+    }
+}

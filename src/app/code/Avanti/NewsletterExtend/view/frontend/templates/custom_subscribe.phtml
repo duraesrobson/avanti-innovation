@@ -63,7 +63,7 @@ if (!$block->getButtonLockManager()) {
                         <input type="hidden" name="privacy" value="0"/>
                         <input type="checkbox" name="privacy" id="newsletter-privacy" value="1"
                                data-validate="{required:true}" />
-                        <span><?= $escaper->escapeHtml(__('I agree with the Privacy Policy')) ?></span>
+                        <strong><?=__('I agree with the %1Privacy Policy%2', '<a href="#" class="privacy-policy-link" target="_blank">', '</a>') ?></strong>
                     </label>
                 </div>
             </div>
