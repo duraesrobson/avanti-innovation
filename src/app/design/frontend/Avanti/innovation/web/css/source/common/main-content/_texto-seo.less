@@ -1,0 +1,65 @@
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common = true) {
+    // wrapper principal do texto seo
+    .texto-seo-wrapper {
+        .lib-css(display, flex);
+        .lib-css(justify-content, center);
+        .lib-css(align-items, center);
+
+        // texto seo descritivo
+        .texto-seo {
+            .lib-css(font-size, 14px);
+            .lib-css(font-weight, 700);
+            .lib-css(color, #656565);
+            .lib-css(text-align, center);
+        }
+    }
+}
+
+// ------------------------------
+// Desktop
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__m) {
+    .texto-seo-wrapper {
+        .lib-css(margin-top, 85px);
+        .lib-css(gap, 19px);
+        
+        // titulo seo no desktop
+        .texto-seo-title {
+            .lib-css(font-size, 20px);
+            .lib-css(font-weight, 700);
+            .lib-css(color, #000000);
+        }
+        
+        // adiciona padding lateral ao texto seo descritivo para desktop
+        .texto-seo {
+            .lib-css(padding, 0 10px);
+        }
+    }
+}
+
+// ------------------------------
+// Mobile
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .texto-seo-wrapper {
+        .lib-css(margin-top, 40px);
+        .lib-css(gap, 16px);
+
+        // titulo seo no mobile
+        .texto-seo-title {
+            .lib-css(font-size, 16px);
+            .lib-css(font-weight, 700);
+            .lib-css(color, #000000);
+        }
+    }
+}
