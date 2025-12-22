@@ -150,6 +150,7 @@
         // container do formulário no desktop
         .content {
             .lib-css(flex-direction, row);
+            flex-wrap: wrap; // permite quebrar linha
             .lib-css(width, 1260px);
             .lib-css(padding, 64px 114px);
 
@@ -174,6 +175,20 @@
                     .action.subscribe.primary {
                         .lib-css(width, 121px);
                     }
+                }
+            }
+
+            .newsletter-messages {
+                text-align: center;
+                width: 100%;
+                order: 99;
+                padding: 10px;
+                .message-success {
+                    font-size: 14px;
+                    color: green;
+                }
+                .message-error {
+                    color: red;
                 }
             }
         }
