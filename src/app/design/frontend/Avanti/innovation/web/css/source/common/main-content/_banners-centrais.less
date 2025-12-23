@@ -1,6 +1,9 @@
 //  common (styles-m.css)
 //  _____________________________________________
 & when (@media-common = true) {
+    .banners-centrais-wrapper {
+        margin-top: 24px;
+    }
 
     // coluna que envolve os banners centrais
     .banners-centrais-column {
@@ -9,7 +12,6 @@
         .lib-css(justify-content, center);
         .lib-css(align-items, center);
     }
-
 }
 
 // ------------------------------
@@ -20,7 +22,6 @@
     (@extremum = "max")
     and
     (@break = @screen__m) {
-
     // ajustes de espaçamento dos banners no mobile
     .banners-centrais-column {
         // padding lateral para evitar encostar nas bordas
@@ -36,7 +37,6 @@
     (@extremum = "min")
     and
     (@break = @screen__m) {
-
     // ajustes de layout dos banners no desktop
     .banners-centrais-column {
         // distribui os banners horizontalmente

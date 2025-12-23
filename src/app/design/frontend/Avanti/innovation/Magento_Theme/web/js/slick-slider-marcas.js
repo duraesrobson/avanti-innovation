@@ -14,7 +14,7 @@ define([
                         infinite: false,
                         slidesToShow: 6,
                         slidesToScroll: 6,
-                        dots: true,
+                        dots: false,
                         arrows: true
                     });
                 }

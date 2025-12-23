@@ -7,12 +7,17 @@
         .lib-css(flex-direction, column);
         .lib-css(justify-content, center);
         .lib-css(align-items, center);
+        .lib-css(margin-top, -20px);
 
         // titulo da newsletter
         .title {
             .lib-css(display, block);
             .lib-css(text-align, center);
             .lib-css(color, #000000);
+
+            strong {
+                .lib-css(margin-top, 0);
+            }
 
             // destaque da palavra newsletter
             span {
@@ -121,7 +126,6 @@
                         }
                     }
                 }
-
             }
             // mensagem de retorno da inscrição
             .newsletter-messages {
@@ -129,7 +133,7 @@
                 .lib-css(order, 99);
                 .lib-css(font-size, 14px);
                 .lib-css(margin-top, 15px);
-                
+
                 // sucesso
                 .message-success {
                     .lib-css(display, flex);
