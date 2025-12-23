@@ -1,7 +1,6 @@
 //  common (styles-m.css)
 //  _____________________________________________
 & when (@media-common =true) {
-  
     // estiliza os dots do slider em qualquer resolução
     .slick-dots {
         .lib-css(display, flex);
@@ -36,25 +35,33 @@
     (@extremum ="min")
     and
     (@break =@screen__m) {
-    // estiliza as setas quando não têm classe .primary
-    .slick-prev:not(.primary),
-    .slick-next:not(.primary) {
+    // estiliza o background das setas
+    .slick-prev.slick-arrow,
+    .slick-next.slick-arrow {
         .lib-css(background, #ffffff);
         .lib-css(border, 1px solid @theme__color__primary);
         .lib-css(border-radius, 50%);
         .lib-css(width, 30px);
         .lib-css(height, 30px);
-        // .lib-css(top, 218px);
         .lib-css(box-shadow, 0 3px 4px 0 rgba(0, 0, 0, 0.25));
+        .lib-css(transition, background 0.2s ease);
+
+        &:hover {
+            .lib-css(background, @theme__color__primary);
+
+            &::before {
+                .lib-css(background-image, url("@{baseDir}images/arrow-left-icon-white.svg"));
+            }
+        }
     }
 
     // seta esquerda
-    .slick-prev:not(.primary) {
+    .slick-prev.slick-arrow {
         .lib-css(left, -15px);
     }
 
     // seta direita
-    .slick-next:not(.primary) {
+    .slick-next.slick-arrow {
         .lib-css(right, -15px);
     }
 
@@ -73,22 +80,18 @@
     .slick-next:before {
         .lib-css(content, """");
         .lib-css(display, flex);
+        .lib-css(margin-left, 6px);
         .lib-css(width, 12px);
         .lib-css(height, 13px);
-        .lib-css(margin-left, 6px);
         .lib-css(background-repeat, no-repeat);
         .lib-css(background-size, contain);
         .lib-css(background-position, center);
-    }
-
-    // seta esquerda com ícone
-    .slick-prev:before {
         .lib-css(background-image, url("@{baseDir}images/arrow-left-icon.svg"));
+        .lib-css(transition, background-image 0.2s ease); // Transição suave da troca de imagem
     }
 
     // seta direita rotacionada
     .slick-next:before {
-        .lib-css(background-image, url("@{baseDir}images/arrow-left-icon.svg"));
         .lib-css(transform, rotate(180deg));
     }
 }

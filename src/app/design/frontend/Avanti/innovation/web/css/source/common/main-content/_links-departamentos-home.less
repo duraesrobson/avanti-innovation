@@ -66,9 +66,30 @@
 
     // imagens maiores no desktop
     .links-departamentos-home-column-content {
-        img {
+        // imagem dentro do PageBuilder (círculo)
+        figure[data-content-type="image"] > [data-element="link"] img {
             .lib-css(width, 143px);
             .lib-css(height, 143px);
+            .lib-css(border-radius, 50%); // transforma o quadrado em círculo
+            .lib-css(border, 1px solid transparent); // reserva espaço da borda evitando pulo no hover
+            .lib-css(transition, border-color 0.2s ease); // suaviza aparição da borda
+        }
+
+        [data-content-type="text"] p a {
+            .lib-css(text-decoration, none); // remove sublinhado
+            .lib-css(color, #000000);
+            .lib-css(transition, color 0.2s ease);
+        }
+
+        // quando o mouse entra em qualquer lugar da coluna da categoria
+        &:hover {
+            figure[data-content-type="image"] > [data-element="link"] img {
+                .lib-css(border-color, @theme__color__primary);
+            }
+
+            [data-content-type="text"] p a {
+                .lib-css(color, @theme__color__primary);
+            }
         }
     }
 }
