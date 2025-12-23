@@ -91,6 +91,11 @@
                             .lib-css(cursor, pointer);
                         }
                     }
+
+                    // mensagem de campo obrigatório
+                    .mage-error {
+                        text-align: center;
+                    }
                 }
 
                 // área do botão de envio
@@ -114,6 +119,66 @@
                             .lib-css(text-transform, none);
                             .lib-css(letter-spacing, normal);
                         }
+                    }
+                }
+
+            }
+            // mensagem de retorno da inscrição
+            .newsletter-messages {
+                .lib-css(text-align, center);
+                .lib-css(order, 99);
+                .lib-css(font-size, 14px);
+                .lib-css(margin-top, 15px);
+                
+                // sucesso
+                .message-success {
+                    .lib-css(display, flex);
+                    .lib-css(flex-direction, row);
+                    .lib-css(justify-content, center);
+                    .lib-css(align-items, center);
+                    .lib-css(padding, 4px 8px);
+                    .lib-css(border, 1px solid green);
+                    .lib-css(border-radius, 8px);
+                    .lib-css(color, green);
+
+                    // ícone de sucesso
+                    &::before {
+                        .lib-css(content, "\e60e");
+                        .lib-css(font-family, "luma-icons");
+                        .lib-css(vertical-align, middle);
+                        .lib-css(display, inline-block);
+                        .lib-css(font-weight, normal);
+                        .lib-css(overflow, hidden);
+                        .lib-css(text-align, center);
+                        .lib-css(margin-right, 5px);
+                        .lib-css(color, green);
+                        .lib-css(font-size, 18px);
+                    }
+                }
+
+                // erro
+                .message-error {
+                    .lib-css(display, flex);
+                    .lib-css(flex-direction, row);
+                    .lib-css(justify-content, center);
+                    .lib-css(align-items, center);
+                    .lib-css(padding, 4px 8px);
+                    .lib-css(border, 1px solid red);
+                    .lib-css(border-radius, 8px);
+                    .lib-css(color, red);
+
+                    // ícone de erro
+                    &::before {
+                        .lib-css(content, "\e602");
+                        .lib-css(font-family, "luma-icons");
+                        .lib-css(vertical-align, middle);
+                        .lib-css(display, inline-block);
+                        .lib-css(font-weight, normal);
+                        .lib-css(overflow, hidden);
+                        .lib-css(text-align, center);
+                        .lib-css(margin-right, 5px);
+                        .lib-css(color, red);
+                        .lib-css(font-size, 18px);
                     }
                 }
             }
@@ -175,20 +240,6 @@
                     .action.subscribe.primary {
                         .lib-css(width, 121px);
                     }
-                }
-            }
-
-            .newsletter-messages {
-                text-align: center;
-                width: 100%;
-                order: 99;
-                padding: 10px;
-                .message-success {
-                    font-size: 14px;
-                    color: green;
-                }
-                .message-error {
-                    color: red;
                 }
             }
         }

@@ -1,8 +1,14 @@
 <?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- plugin para adicionar campos customizados e lógica extra no SubscriptionManager da newsletter -->
     <type name="Magento\Newsletter\Model\SubscriptionManager">
-        <plugin name="Newsletter_Subscriber_Custom_Field"
-                type="Avanti\NewsletterExtend\Plugin\Newsletter\Model\SubscriptionManager"/>
+        <plugin name="Newsletter_Subscriber_Custom_Field" type="Avanti\NewsletterExtend\Plugin\Newsletter\Model\SubscriptionManager"/>
+    </type>
+
+    <!-- plugin para interceptar o controller NewAction da newsletter -->
+    <!-- retorna JSON em requisições AJAX, evitando que a página seja recarregada -->
+    <type name="Magento\Newsletter\Controller\Subscriber\NewAction">
+        <plugin name="Avanti_Newsletter_Ajax_Response" type="Avanti\NewsletterExtend\Plugin\Newsletter\Controller\Subscriber\NewsletterAjaxPlugin" />
     </type>
 </config>
