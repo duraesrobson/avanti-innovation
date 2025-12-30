@@ -1,4 +1,4 @@
-@import '_mixins-prateleira.less';
+@import "_mixins-prateleira.less";
 
 //  Common (styles-m.css)
 //  _____________________________________________
@@ -146,11 +146,47 @@
     // ajustes no preço do produto
     .product-item {
         .price-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             .lib-css(margin, 17px 0 22px 0);
+
+            .old-price {
+                margin: 0;
+                .price {
+                    font-size: 12px;
+                    font-weight: 400;
+                    text-decoration: line-through;
+                }
+            }
 
             .price {
                 .lib-css(font-size, 16px);
                 .lib-css(font-weight, 700);
+            }
+            .special-price {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+
+                .percent-discount {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 10px;
+                    color: white;
+                    border-radius: 4px;
+                    padding: 2px 4px;
+                    .lib-css(background, #5ec0be);
+                }
+            }
+
+            .installment-text {
+                font-size: 14px;
+                font-weight: 400;
+                color: #303030;
             }
         }
     }
@@ -159,6 +195,7 @@
     .product-item-name {
         .flex-center();
         .lib-css(margin, 0);
+        .lib-css(padding, 0 5px);
 
         a {
             .lib-css(font-size, 15px);
@@ -193,6 +230,10 @@
             .lib-css(width, 20px);
             .lib-css(height, 20px);
             .lib-css(min-width, 20px);
+        }
+
+        .swatch-attribute-options.clearfix {
+            margin-left: 10px;
         }
     }
 
@@ -239,11 +280,45 @@
     // ajustes no preço do produto
     .product-item {
         .price-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             .lib-css(margin, 0 0 12px 0);
+
+            .old-price {
+                margin: 0;
+                .price {
+                    font-size: 9px;
+                    font-weight: 400;
+                    text-decoration: line-through;
+                }
+            }
 
             .price {
                 .lib-css(font-size, 11px);
                 .lib-css(font-weight, 700);
+            }
+
+            .special-price {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+
+                .percent-discount {
+                    font-size: 8px;
+                    color: white;
+                    border-radius: 4px;
+                    padding: 2px 4px;
+                    .lib-css(background, #5ec0be);
+                }
+            }
+
+            .installment-text {
+                font-size: 10px;
+                font-weight: 400;
+                color: #303030;
             }
         }
     }
@@ -252,6 +327,7 @@
     .product-item-name {
         .flex-center();
         .lib-css(margin, 0 0 5px 0);
+        .lib-css(padding, 0 5px);
 
         a {
             .lib-css(font-size, 11px);
@@ -286,6 +362,10 @@
             .lib-css(width, 14px);
             .lib-css(height, 14px);
             .lib-css(min-width, 14px);
+        }
+
+        .swatch-attribute-options.clearfix {
+            margin-left: 10px;
         }
     }
 

@@ -1,0 +1,23 @@
+// ------------------------------
+// desktop
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__m) {
+
+        .column.main {
+            width: 1034px !important;
+        }
+
+        .sidebar.sidebar-main{
+            width: 184px;
+        }
+    .item.product.product-item {
+        width: 242px;
+        .lib-css(border, 1px solid #dddddd);
+        .lib-css(overflow, hidden);
+        .lib-css(border-radius, 15px);
+    }
+}
