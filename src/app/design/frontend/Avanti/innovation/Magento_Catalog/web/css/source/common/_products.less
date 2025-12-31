@@ -1,23 +1,196 @@
-// ------------------------------
-// desktop
-// ------------------------------
 .media-width(@extremum, @break)
     when
     (@extremum = "min")
     and
     (@break = @screen__m) {
-
+    // ajuste dos containers principais para garantir espaço
+    .page-layout-2columns-left {
         .column.main {
-            width: 1034px !important;
+            width: 1048px;
+
+            .toolbar-products {
+                .modes-mode {
+                    background: #d9d9d9;
+                    border: none;
+                    border-radius: 0;
+                    box-shadow: none;
+
+                    &.active.mode-grid,
+                    &.active.mode-list {
+                        background: @theme__color__primary;
+                        box-shadow: none;
+                    }
+
+                    &::before {
+                        box-shadow: none;
+                        color: #ffffff;
+                    }
+                }
+                .items.pages-items {
+                    .current {
+                        .page {
+                            background: @theme__color__primary;
+                            color: #ffffff;
+                            border-radius: 50%;
+                            width: 27px;
+                            height: 27px;
+
+                            // centralização do número
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            padding: 0;
+                            text-align: center;
+                        }
+                    }
+
+                    .action {
+                        background: @theme__color__primary;
+                        border: none;
+                        border-radius: 5px;
+                        box-shadow: none;
+
+                        &::before {
+                            color: #ffffff;
+                        }
+                    }
+                }
+
+                .limiter {
+                    span {
+                        font-size: 12px;
+                        font-weight: 700;
+                        color: #444444;
+                    }
+
+                    .control {
+                        .limiter-options {
+                            border-color: #000000;
+                            border-radius: 5px;
+                            width: 60px;
+                            font-size: 12px;
+                            font-weight: 700;
+                            background-color: transparent;
+                        }
+                    }
+                }
+            }
         }
 
-        .sidebar.sidebar-main{
+        .sidebar-main {
             width: 184px;
+
+            .block-content.filter-content {
+                .filter-subtitle {
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: #000000;
+                    border-bottom: 1px solid #dddddd;
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+
+                .filter-options-item {
+                    padding-top: 0;
+                    border-bottom: 1px solid #dddddd;
+                    transition: padding-top 0.2s ease;
+
+                    &.allow.active {
+                        padding-top: 10px;
+                    }
+                }
+
+                .filter-options-title {
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: #000000;
+                    padding-left: 0;
+                    padding-right: 0;
+                    text-transform: capitalize;
+
+                    &::after {
+                        right: 0;
+                        font-weight: 700;
+                    }
+                }
+
+                .filter-options-content {
+                    padding: 5px 0;
+
+                    a {
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: #000000;
+                    }
+
+                    li {
+                        margin: 0;
+                    }
+                }
+            }
         }
+    }
+
+    // --- MUDANÇA PARA 4 ITENS POR LINHA ---
+    .products-grid .product-items {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -10px !important;
+
+        &:before,
+        &:after {
+            display: none;
+        }
+    }
+
     .item.product.product-item {
-        width: 242px;
+        width: calc(25% - 20px);
+        margin: 0 10px 30px 10px !important;
         .lib-css(border, 1px solid #dddddd);
-        .lib-css(overflow, hidden);
         .lib-css(border-radius, 15px);
+        .lib-css(overflow, hidden);
+        display: flex;
+        flex-direction: column;
+
+        // Reset do container interno para evitar o "salto" no hover
+        .product-item-info {
+            position: relative;
+
+            &:hover,
+            &.active {
+                // Garante que o container continue estático mesmo no hover do pai
+                .product-item-inner {
+                    position: static !important;
+                    display: block !important;
+                    box-shadow: none !important;
+                    background: none !important;
+                    border: none !important;
+                    margin: 0 !important;
+                    padding: 0;
+                }
+            }
+        }
+
+        // Força o container do botão a ser fixo e visível sempre
+        .product-item-inner {
+            display: block !important;
+            position: static !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            box-shadow: none !important;
+            width: auto !important;
+            height: 40px !important;
+            padding: 0;
+            clip: auto !important;
+        }
+
+        .product-item-actions {
+            margin: 0 !important;
+            display: block !important;
+
+            .actions-primary {
+                display: block !important;
+            }
+        }
     }
 }
