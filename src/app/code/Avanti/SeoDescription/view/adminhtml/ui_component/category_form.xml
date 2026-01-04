@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- inicia a configuração do formulario de interface -->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <!-- referencia o grupo de campos de conteudo ja existente -->
+    <fieldset name="content">
+        <!-- declara o novo campo de seo usando o elemento wysiwyg -->
+        <field name="seo_description" template="ui/form/field" sortOrder="100" formElement="wysiwyg">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="wysiwygConfigData" xsi:type="array">
+                        <!-- ativa a funcionalidade do pagebuilder para este campo -->
+                        <item name="is_pagebuilder_enabled" xsi:type="boolean">true</item>
+                        <item name="page_builder_button" xsi:type="boolean">true</item>
+                        <item name="developerMode" xsi:type="boolean">false</item>
+                    </item>
+                    <item name="wysiwyg" xsi:type="boolean">true</item>
+                </item>
+            </argument>
+            <settings>
+                <!-- define o nome do campo que aparecera no admin -->
+                <label translate="true">SEO Description (Footer)</label>
+                <!-- vincula o campo ao nome da coluna no banco de dados -->
+                <dataScope>seo_description</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+</form>

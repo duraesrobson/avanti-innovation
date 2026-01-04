@@ -1,0 +1,38 @@
+<?php
+/**
+* Copyright © Magento, Inc. All rights reserved.
+* See COPYING.txt for license details.
+*/
+?>
+<?php
+// phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
+
+
+/**
+ * Category view template
+ *
+ * @var \Magento\Catalog\Block\Category\View $block
+ */
+ 
+// pega a categoria atual
+$currentCategory = $block->getCurrentCategory();
+
+if ($currentCategory):
+    // puxa o dado do atributo customizado
+    $seoDescription = $currentCategory->getData('seo_description');
+
+    if ($seoDescription):
+        /** * usa o ObjectManager diretamente no template apenas se o block não prover o processador.
+         * para o PageBuilder funcionar, é preciso filtrar as diretivas (imagens, links, etc).
+         */
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $filterProvider = $objectManager->get(\Magento\Cms\Model\Template\FilterProvider::class);
+        
+        $html = $filterProvider->getBlockFilter()->filter($seoDescription);
+        ?>
+        <div class="category-seo-footer">
+            <?= /* @noEscape */ $html ?>
+        </div>
+    <?php 
+    endif; 
+endif;

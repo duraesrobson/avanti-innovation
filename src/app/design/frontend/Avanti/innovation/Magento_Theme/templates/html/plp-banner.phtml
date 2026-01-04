@@ -1,0 +1,32 @@
+<?php
+/**
+* Copyright © Magento, Inc. All rights reserved.
+* See COPYING.txt for license details.
+*/
+?>
+<?php
+// phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
+
+
+/**
+ * Category view template
+ *
+ * @var \Magento\Framework\View\Element\Template $block
+ */
+
+// Busca a categoria do Registro do Magento
+$currentCategory = $block->getCurrentCategory();
+$categoryName = $currentCategory->getName();
+?>
+
+<!-- cria a div wrapper das logos de pagamentos -->
+<div class="plp-banner-wrapper">
+    <div class="plp-title">
+        <h1><?= $block->escapeHtml($categoryName) ?></h1>
+    </div>
+
+    <!-- usa o conteúdo de "description" do pagebuilder da categoria -->
+    <div class="plp-pagebuilder-content">
+        <?= $block->getChildHtml('category.description') ?>
+    </div>
+</div>

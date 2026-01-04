@@ -1,195 +1,244 @@
+//  Desktop
+//  _____________________________________________
 .media-width(@extremum, @break)
     when
-    (@extremum = "min")
+    (@extremum ="min")
     and
-    (@break = @screen__m) {
-    // ajuste dos containers principais para garantir espaço
+    (@break =@screen__m) {
+    
+    // configurações de layout para a página com duas colunas
     .page-layout-2columns-left {
+        
+        // container principal de conteúdo (lista de produtos)
         .column.main {
-            width: 1048px;
+            .lib-css(width, 1048px);
 
+            // barra de ferramentas superior (filtros rápidos e paginação)
             .toolbar-products {
+                
+                // botões de alternância entre visualização em grade ou lista
                 .modes-mode {
-                    background: #d9d9d9;
-                    border: none;
-                    border-radius: 0;
-                    box-shadow: none;
+                    .lib-css(background, #d9d9d9);
+                    .lib-css(border, none);
+                    .lib-css(border-radius, 0);
+                    .lib-css(box-shadow, none);
 
+                    // estado ativo do botão de modo de exibição
                     &.active.mode-grid,
                     &.active.mode-list {
-                        background: @theme__color__primary;
-                        box-shadow: none;
+                        .lib-css(background, @theme__color__primary);
+                        .lib-css(box-shadow, none);
                     }
 
+                    // ícone interno do botão de modo
                     &::before {
-                        box-shadow: none;
-                        color: #ffffff;
+                        .lib-css(box-shadow, none);
+                        .lib-css(color, #ffffff);
                     }
                 }
+                
+                // lista de números da paginação
                 .items.pages-items {
+                    // estilo do número da página atual (selecionada)
                     .current {
                         .page {
-                            background: @theme__color__primary;
-                            color: #ffffff;
-                            border-radius: 50%;
-                            width: 27px;
-                            height: 27px;
-
-                            // centralização do número
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            padding: 0;
-                            text-align: center;
+                            .lib-css(background, @theme__color__primary);
+                            .lib-css(color, #ffffff);
+                            .lib-css(border-radius, 50%);
+                            .lib-css(width, 27px);
+                            .lib-css(height, 27px);
+                            .lib-css(display, flex);
+                            .lib-css(justify-content, center);
+                            .lib-css(align-items, center);
+                            .lib-css(padding, 0);
+                            .lib-css(text-align, center);
                         }
                     }
 
+                    // botões de ação da paginação (próximo/anterior)
                     .action {
-                        background: @theme__color__primary;
-                        border: none;
-                        border-radius: 5px;
-                        box-shadow: none;
+                        .lib-css(background, @theme__color__primary);
+                        .lib-css(border, none);
+                        .lib-css(border-radius, 5px);
+                        .lib-css(box-shadow, none);
 
                         &::before {
-                            color: #ffffff;
+                            .lib-css(color, #ffffff);
                         }
                     }
                 }
 
+                // seletor de quantidade de produtos por página
                 .limiter {
+                    // rótulo do seletor (texto "mostrar")
                     span {
-                        font-size: 12px;
-                        font-weight: 700;
-                        color: #444444;
+                        .lib-css(font-size, 12px);
+                        .lib-css(font-weight, 700);
+                        .lib-css(color, #444444);
                     }
 
+                    // container do campo select
                     .control {
+                        // campo dropdown de opções do limiter
                         .limiter-options {
-                            border-color: #000000;
-                            border-radius: 5px;
-                            width: 60px;
-                            font-size: 12px;
-                            font-weight: 700;
-                            background-color: transparent;
+                            .lib-css(border-color, #000000);
+                            .lib-css(border-radius, 5px);
+                            .lib-css(width, 60px);
+                            .lib-css(font-size, 12px);
+                            .lib-css(font-weight, 700);
+                            .lib-css(background-color, transparent);
                         }
                     }
                 }
             }
         }
 
+        // coluna lateral onde ficam os filtros (layered navigation)
         .sidebar-main {
-            width: 184px;
+            .lib-css(width, 184px);
 
+            // container interno dos filtros
             .block-content.filter-content {
+                // título principal da seção de filtros
                 .filter-subtitle {
-                    font-size: 16px;
-                    font-weight: 700;
-                    color: #000000;
-                    border-bottom: 1px solid #dddddd;
-                    padding-left: 0;
-                    padding-right: 0;
+                    .lib-css(font-size, 16px);
+                    .lib-css(font-weight, 700);
+                    .lib-css(color, #000000);
+                    .lib-css(border-bottom, 1px solid #dddddd);
+                    .lib-css(padding-left, 0);
+                    .lib-css(padding-right, 0);
                 }
 
+                // item individual de filtro (ex: cor, tamanho)
                 .filter-options-item {
-                    padding-top: 0;
-                    border-bottom: 1px solid #dddddd;
-                    transition: padding-top 0.2s ease;
+                    .lib-css(padding-top, 0);
+                    .lib-css(border-bottom, 1px solid #dddddd);
+                    .lib-css(transition, padding-top 0.2s ease);
 
+                    // estado quando o filtro está aberto/expandido
                     &.allow.active {
-                        padding-top: 10px;
+                        .lib-css(padding-top, 10px);
                     }
                 }
 
+                // título do atributo do filtro (clicável para expandir)
                 .filter-options-title {
-                    font-size: 14px;
-                    font-weight: 700;
-                    color: #000000;
-                    padding-left: 0;
-                    padding-right: 0;
-                    text-transform: capitalize;
+                    .lib-css(font-size, 14px);
+                    .lib-css(font-weight, 700);
+                    .lib-css(color, #000000);
+                    .lib-css(padding-left, 0);
+                    .lib-css(padding-right, 0);
+                    .lib-css(text-transform, capitalize);
 
+                    // ícone de seta do título do filtro
                     &::after {
-                        right: 0;
-                        font-weight: 700;
+                        .lib-css(right, 0);
+                        .lib-css(font-weight, 700);
                     }
                 }
 
+                // lista de valores dentro de um filtro
                 .filter-options-content {
-                    padding: 5px 0;
+                    .lib-css(padding, 5px 0);
 
+                    // link para selecionar o filtro
                     a {
-                        font-size: 14px;
-                        font-weight: 400;
-                        color: #000000;
+                        .lib-css(font-size, 14px);
+                        .lib-css(font-weight, 400);
+                        .lib-css(color, #000000);
                     }
 
+                    // item da lista de opções de filtro
                     li {
-                        margin: 0;
+                        .lib-css(margin, 0);
                     }
                 }
             }
         }
     }
 
-    // --- MUDANÇA PARA 4 ITENS POR LINHA ---
-    .products-grid .product-items {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 -10px !important;
+    // container pai da lista de produtos em grade
+    .products-grid .product-items.product-items {
+        .lib-css(display, flex);
+        .lib-css(flex-wrap, wrap);
+        .lib-css(margin, 0 -10px) !important;
 
+        // remove elementos de limpeza de float nativos do magento
         &:before,
         &:after {
-            display: none;
+            .lib-css(display, none);
         }
     }
 
-    .item.product.product-item {
-        width: calc(25% - 20px);
-        margin: 0 10px 30px 10px !important;
+    // estrutura do card individual do produto (configurado para 4 colunas)
+    .products-grid .product-item.product-item {
+        .lib-css(width, calc(25% - 20px));
+        .lib-css(margin, 0 10px 30px 10px) !important;
         .lib-css(border, 1px solid #dddddd);
         .lib-css(border-radius, 15px);
         .lib-css(overflow, hidden);
-        display: flex;
-        flex-direction: column;
+        .lib-css(display, flex);
+        .lib-css(flex-direction, column);
 
-        // Reset do container interno para evitar o "salto" no hover
-        .product-item-info {
-            position: relative;
+        // container que envolve as informações do produto
+        .product-item-info.product-item-info {
+            .lib-css(position, relative);
 
+            // previne alterações de layout e "saltos" ao passar o mouse
             &:hover,
             &.active {
-                // Garante que o container continue estático mesmo no hover do pai
+                .lib-css(box-shadow, none);
+                .lib-css(background, #fff);
+                .lib-css(border, none);
+                .lib-css(padding, 0);
+                .lib-css(margin, 0);
+                .lib-css(z-index, 1);
+
+                // garante que o bloco de ações não altere o fluxo no hover
                 .product-item-inner {
-                    position: static !important;
-                    display: block !important;
-                    box-shadow: none !important;
-                    background: none !important;
-                    border: none !important;
-                    margin: 0 !important;
-                    padding: 0;
+                    .lib-css(position, static);
+                    .lib-css(display, block);
+                    .lib-css(box-shadow, none);
+                    .lib-css(background, none);
+                    .lib-css(border, none);
+                    .lib-css(margin, 0);
+                    .lib-css(padding, 0);
+                    
+                    // esconde comparador e lista de desejos no hover
+                    .actions-secondary {
+                        .lib-css(display, none);
+                    }
                 }
             }
         }
 
-        // Força o container do botão a ser fixo e visível sempre
-        .product-item-inner {
-            display: block !important;
-            position: static !important;
-            opacity: 1 !important;
-            visibility: visible !important;
-            box-shadow: none !important;
-            width: auto !important;
-            height: 40px !important;
-            padding: 0;
-            clip: auto !important;
+        // container interno das ações (botão comprar) - mantido estático
+        .product-item-info .product-item-inner {
+            .lib-css(display, block);
+            .lib-css(position, static);
+            .lib-css(opacity, 1);
+            .lib-css(visibility, visible);
+            .lib-css(box-shadow, none);
+            .lib-css(width, auto);
+            .lib-css(height, auto);
+            .lib-css(padding, 0);
+            .lib-css(clip, auto);
+            .lib-css(margin, 0);
+
+            // garante que comparador e wishlist não apareçam
+            .actions-secondary {
+                .lib-css(display, none);
+            }
         }
 
-        .product-item-actions {
-            margin: 0 !important;
-            display: block !important;
+        // wrapper dos botões de ação do produto
+        .product-item-actions.product-item-actions {
+            .lib-css(margin, 0);
+            .lib-css(display, block);
 
-            .actions-primary {
-                display: block !important;
+            // container do botão principal (adicionar ao carrinho)
+            .actions-primary.actions-primary {
+                .lib-css(display, block);
             }
         }
     }

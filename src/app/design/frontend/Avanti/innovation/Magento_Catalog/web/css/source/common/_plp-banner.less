@@ -1,0 +1,21 @@
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum ="min")
+    and
+    (@break =@screen__m) {
+    .plp-banner-wrapper {
+        .lib-css(display, flex);
+        .lib-css(justify-content, center);
+        .lib-css(align-items, center);
+
+        .plp-title {
+            h1 {
+                .lib-css(font-size, 32px);
+                .lib-css(font-weight, 700);
+                .lib-css(color, #000000);
+            }
+        }
+    }
+}

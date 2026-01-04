@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Avanti_SeoDescription">
+        <!-- define a lista de modulos que devem carregar antes deste -->
+        <sequence>
+            <!-- garante que as funcoes de categoria ja existam no sistema -->
+            <module name="Magento_Catalog"/> 
+
+            <!-- permite que o modulo use recursos de blocos e paginas cms -->
+            <module name="Magento_Cms"/>
+
+            <!-- habilita o suporte ao editor visual pagebuilder para o novo campo -->
+            <module name="Magento_PageBuilder"/> </sequence>
+    </module>
+</config>

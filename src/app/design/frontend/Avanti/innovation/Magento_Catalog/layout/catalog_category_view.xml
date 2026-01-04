@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <!-- remove o sidebar de wishlist que aparece na pagina -->
+        <referenceContainer name="sidebar.additional" remove="true"/>
+
+        <!-- coloca a seção do banner logo em cima -->
+        <referenceContainer name="columns.top">
+            <block class="Magento\Catalog\Block\Category\View" name="plp_banner" template="Magento_Theme::html/plp-banner.phtml"/>
+        </referenceContainer>
+
+        <!-- coloca o texto seo da categoria antes do newsletter -->
+        <referenceContainer name="main.content">
+            <block class="Magento\Catalog\Block\Category\View" name="category.seo.footer" template="Magento_Catalog::product/list/seo-text.phtml" before="footer.newsletter"/>
+        </referenceContainer>
+
+    </body>
+</page>
