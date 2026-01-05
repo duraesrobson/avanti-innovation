@@ -5,17 +5,32 @@
     (@extremum ="min")
     and
     (@break =@screen__m) {
-    
     // configurações de layout para a página com duas colunas
     .page-layout-2columns-left {
-        
         // container principal de conteúdo (lista de produtos)
         .column.main {
             .lib-css(width, 1048px);
 
             // barra de ferramentas superior (filtros rápidos e paginação)
             .toolbar-products {
-                
+                .toolbar-amount {
+                    .lib-css(font-size, 14px);
+                }
+
+                .toolbar-sorter {
+                    .lib-css(font-size, 14px);
+
+                    select#sorter {
+                        .lib-css(font-size, 14px);
+                        .lib-css(font-weight, 700);
+                        .lib-css(color, #787878);
+                        .lib-css(background, #fff url("../images/gray-select-bg.svg") no-repeat 90% center);
+                        .lib-css(background-size, 13px);
+                        .lib-css(border, 1px solid #005cff);
+                        .lib-css(border-radius, 5px);
+                    }
+                }
+
                 // botões de alternância entre visualização em grade ou lista
                 .modes-mode {
                     .lib-css(background, #d9d9d9);
@@ -36,7 +51,7 @@
                         .lib-css(color, #ffffff);
                     }
                 }
-                
+
                 // lista de números da paginação
                 .items.pages-items {
                     // estilo do número da página atual (selecionada)
@@ -68,6 +83,12 @@
                     }
                 }
 
+                // ícone de seta dentro do limiter-options
+                select#limiter {
+                    .lib-css(background, #fff url("../images/select-bg.svg") no-repeat
+                        100% center);
+                }
+
                 // seletor de quantidade de produtos por página
                 .limiter {
                     // rótulo do seletor (texto "mostrar")
@@ -81,10 +102,11 @@
                     .control {
                         // campo dropdown de opções do limiter
                         .limiter-options {
-                            .lib-css(border-color, #000000);
+                            .lib-css(border, 1px solid #000000);
                             .lib-css(border-radius, 5px);
-                            .lib-css(width, 60px);
+                            .lib-css(width, 52px);
                             .lib-css(font-size, 12px);
+                            .lib-css(color, #444444);
                             .lib-css(font-weight, 700);
                             .lib-css(background-color, transparent);
                         }
@@ -203,7 +225,7 @@
                     .lib-css(border, none);
                     .lib-css(margin, 0);
                     .lib-css(padding, 0);
-                    
+
                     // esconde comparador e lista de desejos no hover
                     .actions-secondary {
                         .lib-css(display, none);
@@ -240,6 +262,245 @@
             .actions-primary.actions-primary {
                 .lib-css(display, block);
             }
+        }
+    }
+}
+
+// ------------------------------
+// Mobile
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    // configurações de layout para a página com duas colunas
+    .page-layout-2columns-left {
+        // container principal de conteúdo (lista de produtos)
+        .column.main {
+            // barra de ferramentas superior (filtros rápidos e paginação)
+            .toolbar-products {
+                .toolbar-amount {
+                    .lib-css(font-size, 14px);
+                }
+
+                .toolbar-sorter {
+                    .lib-css(font-size, 12px);
+                    .lib-css(color, #151515);
+
+                    select#sorter {
+                        .lib-css(font-size, 14px);
+                        .lib-css(font-weight, 700);
+                        .lib-css(color, #787878);
+                        .lib-css(background, #fff url("../images/gray-select-bg.svg") no-repeat 90% center);
+                        .lib-css(background-size, 13px);
+                        .lib-css(border, 1px solid #005cff);
+                        .lib-css(border-radius, 5px);
+                    }
+                }
+
+                // botões de alternância entre visualização em grade ou lista
+                .modes-mode {
+                    .lib-css(background, #d9d9d9);
+                    .lib-css(border, none);
+                    .lib-css(border-radius, 0);
+                    .lib-css(box-shadow, none);
+
+                    // estado ativo do botão de modo de exibição
+                    &.active.mode-grid,
+                    &.active.mode-list {
+                        .lib-css(background, @theme__color__primary);
+                        .lib-css(box-shadow, none);
+                    }
+
+                    // ícone interno do botão de modo
+                    &::before {
+                        .lib-css(box-shadow, none);
+                        .lib-css(color, #ffffff);
+                    }
+                }
+
+                // lista de números da paginação
+                .items.pages-items {
+                    // estilo do número da página atual (selecionada)
+                    .current {
+                        .page {
+                            .lib-css(background, @theme__color__primary);
+                            .lib-css(color, #ffffff);
+                            .lib-css(border-radius, 50%);
+                            .lib-css(width, 27px);
+                            .lib-css(height, 27px);
+                            .lib-css(display, flex);
+                            .lib-css(justify-content, center);
+                            .lib-css(align-items, center);
+                            .lib-css(padding, 0);
+                            .lib-css(text-align, center);
+                        }
+                    }
+
+                    // botões de ação da paginação (próximo/anterior)
+                    .action {
+                        .lib-css(background, @theme__color__primary);
+                        .lib-css(border, none);
+                        .lib-css(border-radius, 5px);
+                        .lib-css(box-shadow, none);
+
+                        &::before {
+                            .lib-css(color, #ffffff);
+                        }
+                    }
+                }
+
+                // ícone de seta dentro do limiter-options
+                select#limiter {
+                    .lib-css(background, #fff url("../images/select-bg.svg") no-repeat
+                        100% center);
+                }
+
+                // seletor de quantidade de produtos por página
+                .limiter {
+                    // rótulo do seletor (texto "mostrar")
+                    span {
+                        .lib-css(font-size, 12px);
+                        .lib-css(font-weight, 700);
+                        .lib-css(color, #444444);
+                    }
+
+                    // container do campo select
+                    .control {
+                        // campo dropdown de opções do limiter
+                        .limiter-options {
+                            .lib-css(border, 1px solid #000000);
+                            .lib-css(border-radius, 5px);
+                            .lib-css(width, 52px);
+                            .lib-css(font-size, 12px);
+                            .lib-css(color, #444444);
+                            .lib-css(font-weight, 700);
+                            .lib-css(background-color, transparent);
+                        }
+                    }
+                }
+            }
+        }
+
+        // coluna lateral onde ficam os filtros (layered navigation)
+        .sidebar-main {
+            .lib-css(width, 184px);
+
+            // container interno dos filtros
+            .block-content.filter-content {
+                // título principal da seção de filtros
+                .filter-subtitle {
+                    .lib-css(font-size, 16px);
+                    .lib-css(font-weight, 700);
+                    .lib-css(color, #000000);
+                    .lib-css(border-bottom, 1px solid #dddddd);
+                    .lib-css(padding-left, 0);
+                    .lib-css(padding-right, 0);
+                }
+
+                // item individual de filtro (ex: cor, tamanho)
+                .filter-options-item {
+                    .lib-css(padding-top, 0);
+                    .lib-css(border-bottom, 1px solid #dddddd);
+                    .lib-css(transition, padding-top 0.2s ease);
+
+                    // estado quando o filtro está aberto/expandido
+                    &.allow.active {
+                        .lib-css(padding-top, 10px);
+                    }
+                }
+
+                // título do atributo do filtro (clicável para expandir)
+                .filter-options-title {
+                    .lib-css(font-size, 14px);
+                    .lib-css(font-weight, 700);
+                    .lib-css(color, #000000);
+                    .lib-css(padding-left, 0);
+                    .lib-css(padding-right, 0);
+                    .lib-css(text-transform, capitalize);
+
+                    // ícone de seta do título do filtro
+                    &::after {
+                        .lib-css(right, 0);
+                        .lib-css(font-weight, 700);
+                    }
+                }
+
+                // lista de valores dentro de um filtro
+                .filter-options-content {
+                    .lib-css(padding, 5px 0);
+
+                    // link para selecionar o filtro
+                    a {
+                        .lib-css(font-size, 14px);
+                        .lib-css(font-weight, 400);
+                        .lib-css(color, #000000);
+                    }
+
+                    // item da lista de opções de filtro
+                    li {
+                        .lib-css(margin, 0);
+                    }
+                }
+            }
+        }
+    }
+
+    // container pai da lista de produtos em grade
+    .products-grid .product-items.product-items {
+        .lib-css(display, flex);
+        .lib-css(flex-wrap, wrap);
+        .lib-css(margin, 0 -10px) !important;
+
+        // remove elementos de limpeza de float nativos do magento
+        &:before,
+        &:after {
+            .lib-css(display, none);
+        }
+    }
+
+    // estrutura do card individual do produto (configurado para 4 colunas)
+    .products-grid .product-item.product-item {
+        width: 166px;
+        .lib-css(margin, 0 12px 20px);
+        .lib-css(border, 1px solid #dddddd);
+        .lib-css(border-radius, 15px);
+        .lib-css(overflow, hidden);
+        .lib-css(display, flex);
+        .lib-css(flex-direction, column);
+
+        // container que envolve as informações do produto
+        .product-item-info.product-item-info {
+            .lib-css(position, relative);
+
+            // previne alterações de layout e "saltos" ao passar o mouse
+            &:hover,
+            &.active {
+                // garante que o bloco de ações não altere o fluxo no hover
+                .product-item-inner {
+                    // esconde comparador e lista de desejos no hover
+                    .actions-secondary {
+                        .lib-css(display, none);
+                    }
+                }
+            }
+        }
+
+        // container interno das ações (botão comprar) - mantido estático
+        .product-item-info .product-item-inner {
+            // garante que comparador e wishlist não apareçam
+            .actions-secondary {
+                .lib-css(display, none);
+            }
+        }
+
+        // container do botão principal (adicionar ao carrinho)
+        .action.primary:hover,
+        .action-apply:hover {
+            .lib-css(background, #004fd6);
+            .lib-css(color, #ffffff);
+            .lib-css(border, none);
         }
     }
 }

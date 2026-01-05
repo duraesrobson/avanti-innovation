@@ -19,3 +19,31 @@
         }
     }
 }
+
+// ------------------------------
+// Mobile
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .plp-banner-wrapper {
+        .lib-css(display, flex);
+        .lib-css(justify-content, left);
+        .lib-css(align-items, center);
+        .lib-css(margin-top, 10px);
+
+        .plp-title {
+            h1 {
+                .lib-css(font-size, 20px);
+                .lib-css(font-weight, 700);
+                .lib-css(color, #000000);
+            }
+        }
+    }
+
+    .category-view {
+        display: none;
+    }
+}
