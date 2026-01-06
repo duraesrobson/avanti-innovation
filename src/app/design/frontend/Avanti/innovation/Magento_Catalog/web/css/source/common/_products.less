@@ -1,3 +1,8 @@
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common =true) {
+}
+
 //  Desktop
 //  _____________________________________________
 .media-width(@extremum, @break)
@@ -5,6 +10,34 @@
     (@extremum ="min")
     and
     (@break =@screen__m) {
+    .breadcrumbs {
+        .lib-css(display, flex);
+        .lib-css(justify-content, left);
+        .lib-css(align-items, center);
+        .lib-css(margin-top, 16px);
+
+        .items {
+            .lib-css(color, #000000);
+            .home {
+                a {
+                    .lib-css(font-size, 14px);
+                    .lib-css(color, #000000);
+                }
+
+                &::after {
+                    .lib-css(margin, 0 5px);
+                    .lib-css(color, #DDDDDD);
+                }
+            }
+
+            strong {
+                .lib-css(font-size, 14px);
+                .lib-css(font-weight, 700);
+                .lib-css(color, #000000);
+            }
+        }
+    }
+
     // configurações de layout para a página com duas colunas
     .page-layout-2columns-left {
         // container principal de conteúdo (lista de produtos)
@@ -274,6 +307,31 @@
     (@extremum = "max")
     and
     (@break = @screen__m) {
+    .breadcrumbs {
+        .lib-css(display, flex);
+        .lib-css(justify-content, left);
+        .lib-css(align-items, center);
+        .lib-css(margin-top, 16px);
+
+        .items {
+            .lib-css(color, #000000);
+            .home {
+                a {
+                    .lib-css(color, #000000);
+                }
+
+                &::after {
+                    .lib-css(margin, 0 5px);
+                }
+            }
+
+            strong {
+                .lib-css(font-weight, 600);
+                .lib-css(color, #000000);
+            }
+        }
+    }
+
     // configurações de layout para a página com duas colunas
     .page-layout-2columns-left {
         // container principal de conteúdo (lista de produtos)
@@ -281,6 +339,9 @@
             // barra de ferramentas superior (filtros rápidos e paginação)
             .toolbar-products {
                 .toolbar-amount {
+                    .lib-css(text-align, center);
+                    .lib-css(padding, 0);
+                    .lib-css(margin, 0 0 -10px);
                     .lib-css(font-size, 14px);
                 }
 
@@ -322,6 +383,8 @@
 
                 // lista de números da paginação
                 .items.pages-items {
+                    .lib-css(display, inline-block);
+                    .lib-css(padding-left, 0);
                     // estilo do número da página atual (selecionada)
                     .current {
                         .page {
@@ -335,7 +398,15 @@
                             .lib-css(align-items, center);
                             .lib-css(padding, 0);
                             .lib-css(text-align, center);
+                            .lib-css(font-size, 12px);
+                            .lib-css(color, #e2e2e2);
+                            .lib-css(font-weight, 400);
+                            .lib-css(font-size, 12px);
                         }
+                    }
+
+                    .pages {
+                        .lib-css(margin, 0);
                     }
 
                     // botões de ação da paginação (próximo/anterior)
@@ -346,7 +417,7 @@
                         .lib-css(box-shadow, none);
 
                         &::before {
-                            .lib-css(color, #ffffff);
+                            .lib-css(color, #E2E2E2);
                         }
                     }
                 }
@@ -385,7 +456,47 @@
 
         // coluna lateral onde ficam os filtros (layered navigation)
         .sidebar-main {
-            .lib-css(width, 184px);
+            // .lib-css(width, 184px);
+            .filter.active .filter-title {
+                .lib-css(border, none);
+                strong {
+                    .lib-css(font-size, 0);
+                    .lib-css(border, none);
+
+                    &::before {
+                        .lib-css(display, none);
+                    }
+
+                    &::after {
+                        .lib-css(font-size, 12px);
+                        .lib-css(color, #000000);
+                    }
+                }
+            }
+
+            .filter-title strong {
+                .lib-css(display, flex);
+                .lib-css(justify-content, center);
+                .lib-css(align-items, center);
+                .lib-css(gap, 4px);
+                .lib-css(background-color, transparent);
+                .lib-css(box-shadow, none);
+                .lib-css(font-weight, 700);
+                .lib-css(font-size, 14px);
+                .lib-css(border, 1px solid #dddddd);
+                .lib-css(border-radius, 8px);
+                .lib-css(color, #000000);
+
+                &::before {
+                    .lib-css(content, """");
+                    .lib-css(width, 17px);
+                    .lib-css(height, 14px);
+                    .lib-css(background-repeat, no-repeat);
+                    .lib-css(background-size, contain);
+                    .lib-css(background-position, center);
+                    .lib-css(background-image, url("../images/filter-icon.svg"));
+                }
+            }
 
             // container interno dos filtros
             .block-content.filter-content {
@@ -394,43 +505,28 @@
                     .lib-css(font-size, 16px);
                     .lib-css(font-weight, 700);
                     .lib-css(color, #000000);
-                    .lib-css(border-bottom, 1px solid #dddddd);
-                    .lib-css(padding-left, 0);
-                    .lib-css(padding-right, 0);
                 }
 
                 // item individual de filtro (ex: cor, tamanho)
                 .filter-options-item {
-                    .lib-css(padding-top, 0);
                     .lib-css(border-bottom, 1px solid #dddddd);
-                    .lib-css(transition, padding-top 0.2s ease);
-
-                    // estado quando o filtro está aberto/expandido
-                    &.allow.active {
-                        .lib-css(padding-top, 10px);
-                    }
                 }
 
                 // título do atributo do filtro (clicável para expandir)
                 .filter-options-title {
-                    .lib-css(font-size, 14px);
-                    .lib-css(font-weight, 700);
+                    .lib-css(font-size, 16px);
+                    .lib-css(font-weight, 400);
                     .lib-css(color, #000000);
-                    .lib-css(padding-left, 0);
-                    .lib-css(padding-right, 0);
                     .lib-css(text-transform, capitalize);
 
                     // ícone de seta do título do filtro
                     &::after {
-                        .lib-css(right, 0);
                         .lib-css(font-weight, 700);
                     }
                 }
 
                 // lista de valores dentro de um filtro
                 .filter-options-content {
-                    .lib-css(padding, 5px 0);
-
                     // link para selecionar o filtro
                     a {
                         .lib-css(font-size, 14px);
@@ -440,7 +536,35 @@
 
                     // item da lista de opções de filtro
                     li {
-                        .lib-css(margin, 0);
+                        .lib-css(margin, 14px 0);
+
+                        .checkbox-filter {
+                            .lib-css(pointer-events, auto); // colocando none, a pagina atualiza no click
+                            .lib-css(appearance, none);
+
+                            .lib-css(top, 3px);
+                            .lib-css(width, 16px);
+                            .lib-css(height, 16px);
+                            .lib-css(border, 1px solid #dddddd);
+                            .lib-css(border-radius, 4px);
+
+                            &:checked {
+                                .lib-css(border, none);
+                                .lib-css(background, @theme__color__primary);
+                            }
+
+                            // adiciona o check (V) usando um background de caractere
+                            &::after {
+                                .lib-css(content, "L"); // um "L" invertido que parece um check
+                                .lib-css(transform, scaleX(-1) rotate(-35deg));
+                                .lib-css(position, absolute);
+                                .lib-css(left, 5px);
+                                .lib-css(top, -1px);
+                                .lib-css(color, #fff);
+                                .lib-css(font-size, 12px);
+                                .lib-css(font-weight, 800);
+                            }
+                        }
                     }
                 }
             }
@@ -448,10 +572,14 @@
     }
 
     // container pai da lista de produtos em grade
+    .products {
+        .lib-css(display, flex);
+        .lib-css(justify-content, center);
+    }
     .products-grid .product-items.product-items {
         .lib-css(display, flex);
         .lib-css(flex-wrap, wrap);
-        .lib-css(margin, 0 -10px) !important;
+        .lib-css(margin, 0 -12px) !important;
 
         // remove elementos de limpeza de float nativos do magento
         &:before,
@@ -462,7 +590,7 @@
 
     // estrutura do card individual do produto (configurado para 4 colunas)
     .products-grid .product-item.product-item {
-        width: 166px;
+        .lib-css(width, 166px);
         .lib-css(margin, 0 12px 20px);
         .lib-css(border, 1px solid #dddddd);
         .lib-css(border-radius, 15px);
