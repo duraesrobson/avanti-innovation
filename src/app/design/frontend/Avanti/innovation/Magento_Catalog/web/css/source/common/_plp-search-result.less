@@ -1,0 +1,166 @@
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__m) {
+    .catalogsearch-result-index {
+
+        .message-notice {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .message-notice-top {
+                .search-title {
+                    .lib-css(font-size, 20px);
+                    .lib-css(color, #000000);
+                    .lib-css(font-weight, 700);
+                }
+
+                .search-term {
+                    .lib-css(font-size, 20px);
+                    .lib-css(font-weight, 700);
+                    .lib-css(color, @theme__color__primary);
+                }
+            }
+
+            .message-notice-bottom {
+                .lib-css(display, flex);
+                .lib-css(align-items, center);
+                .lib-css(justify-content, center);
+                .lib-css(flex-direction, row);
+                .lib-css(margin-top, 20px);
+
+                .what-text {
+                    .lib-css(font-size, 18px);
+                    .lib-css(font-weight, 700);
+                    .lib-css(color, #000000);
+                }
+
+                ul {
+                    list-style: none;
+
+                    li::before{
+                        content: "-";
+                    }
+                }
+                li {
+                    .lib-css(font-size, 14px);
+                    .lib-css(font-weight, 400);
+                    .lib-css(color, #656565);
+                }
+            }
+        }
+        .search-results-custom {
+            .search-title {
+                .lib-css(margin, 30px 0 50px);
+                .lib-css(font-size, 20px);
+                .lib-css(font-weight, 700);
+                .lib-css(color, #000000);
+            }
+
+            .search-term {
+                .lib-css(font-size, 20px);
+                .lib-css(font-weight, 700);
+                .lib-css(color, @theme__color__primary);
+            }
+        }
+        // --------------------------------------------------
+        // Layout geral (sem sidebar, main full width)
+        // --------------------------------------------------
+        .sidebar,
+        .sidebar-main,
+        .column.sidebar {
+            .lib-css(display, none);
+        }
+
+        .column.main {
+            .lib-css(width, 100%);
+            .lib-css(max-width, 100%);
+            .lib-css(padding, 0);
+        }
+
+        // container pai da lista de produtos em grade
+        .products-grid .product-items.product-items {
+            .lib-css(display, flex);
+            .lib-css(flex-wrap, wrap);
+            .lib-css(margin, 0 -20px) !important;
+        }
+
+        .products-grid .product-item.product-item {
+            text-align: center;
+            .lib-css(flex, 0 0 278px);
+            .lib-css(max-width, 278px);
+            .lib-css(margin, 0 20px 30px) !important;
+        }
+
+        // --------------------------------------------------
+        // REMOVE completamente o hover herdado do Magento
+        // --------------------------------------------------
+        .product-item-info {
+            width: 278px;
+            text-align: center;
+            &:hover,
+            &.active {
+                .lib-css(box-shadow, none);
+                .lib-css(background, #fff);
+                .lib-css(border, none);
+                .lib-css(padding, 0);
+                .lib-css(margin, 0);
+                .lib-css(z-index, auto);
+
+                .product-item-inner {
+                    .lib-css(position, static);
+                    .lib-css(display, block);
+                    .lib-css(box-shadow, none);
+                    .lib-css(background, none);
+                    .lib-css(border, none);
+                    .lib-css(margin, 0);
+                    .lib-css(padding, 0);
+                }
+            }
+        }
+
+        // --------------------------------------------------
+        // Área de ações / botão comprar
+        // --------------------------------------------------
+        .product-item-inner {
+            .lib-css(position, static);
+            .lib-css(display, block);
+            .lib-css(opacity, 1);
+            .lib-css(visibility, visible);
+            .lib-css(box-shadow, none);
+            .lib-css(clip, auto);
+            .lib-css(margin, 0);
+            .lib-css(padding, 0);
+
+            // garante que wishlist/compare não apareçam
+            .actions-secondary {
+                .lib-css(display, none);
+            }
+        }
+
+        .product-item-actions {
+            .lib-css(width, 100%);
+            .lib-css(display, block);
+            .lib-css(margin, 0);
+            .lib-css(padding, 0);
+        }
+
+        .actions-primary {
+            .lib-css(width, 100%);
+            .lib-css(display, block);
+            .lib-css(margin-top, 0);
+        }
+
+        .actions-primary .action.primary {
+            .lib-css(width, 100%);
+            .lib-css(display, block);
+            .lib-css(border-radius, 0);
+            .lib-css(margin, 0);
+        }
+    }
+}

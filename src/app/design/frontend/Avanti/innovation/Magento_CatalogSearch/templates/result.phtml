@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+// @codingStandardsIgnoreFile
+
+use Magento\CatalogSearch\Block\Result;
+
+/** @var \Magento\Search\Helper\Data $searchHelper */
+$searchHelper = $this->helper(\Magento\Search\Helper\Data::class);
+
+/** @var $block Result */
+$productList = $block->getProductListHtml();
+?>
+
+<?php if ($block->getResultCount()) : ?>
+    <?= /* @noEscape */ $block->getChildHtml('tagged_product_list_rss_link') ?>
+
+    <div class="search results search-results-custom">
+
+        <h1 class="search-title">
+            <?= __('Resultado de busca por') ?>
+            <span class="search-term">
+                "<?= $searchHelper->getEscapedQueryText() ?>"
+            </span>
+        </h1>
+
+        <?php if ($messages = $block->getNoteMessages()) : ?>
+            <div class="message notice">
+                <div>
+                    <?php foreach ($messages as $message) : ?>
+                        <?= /* @noEscape */ $message ?><br />
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?= /* @noEscape */ $productList ?>
+
+    </div>
+
+<?php else : ?>
+    <div class="message-notice">
+
+        <div class="message-notice-top">
+            <h1 class="search-title">
+                <?= __('Não encontramos resultados para') ?>
+                <span class="search-term">
+                    "<?= $searchHelper->getEscapedQueryText() ?>"
+                </span>
+            </h1>
+        </div>
+        <div class="message-notice-bottom">
+            <h1 class="what-text">
+                <?= __('O que devo fazer?') ?>
+            </h1>
+
+            <ul class="what-list">
+                <li> <?= __('Verifique os termos digitados') ?> </li>
+                <li> <?= __('Utilize sinônimos ao termo desejado') ?> </li>
+                <li> <?= __('Tente utilizar uma única palavra') ?> </li>
+                <li> <?= __('Utilize os termos genéricos na busca') ?> </li>
+            </ul>
+        </div>
+    </div>
+
+<?php endif; ?>
