@@ -6,7 +6,7 @@
     and
     (@break = @screen__m) {
     .catalogsearch-result-index {
-
+        
         .message-notice {
             display: flex;
             flex-direction: column;
@@ -38,12 +38,14 @@
                     .lib-css(font-size, 18px);
                     .lib-css(font-weight, 700);
                     .lib-css(color, #000000);
+                    .lib-css(margin, 0);
                 }
 
                 ul {
+                    margin: 0;
                     list-style: none;
 
-                    li::before{
+                    li::before {
                         content: "-";
                     }
                 }
@@ -55,6 +57,9 @@
             }
         }
         .search-results-custom {
+            dl.block {
+                .lib-visually-hidden();
+            }
             .search-title {
                 .lib-css(margin, 30px 0 50px);
                 .lib-css(font-size, 20px);
@@ -136,11 +141,6 @@
             .lib-css(clip, auto);
             .lib-css(margin, 0);
             .lib-css(padding, 0);
-
-            // garante que wishlist/compare não apareçam
-            .actions-secondary {
-                .lib-css(display, none);
-            }
         }
 
         .product-item-actions {
