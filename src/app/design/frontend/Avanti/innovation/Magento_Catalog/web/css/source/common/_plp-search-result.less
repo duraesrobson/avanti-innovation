@@ -6,12 +6,11 @@
     and
     (@break = @screen__m) {
     .catalogsearch-result-index {
-        
         .message-notice {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            .lib-css(display, flex);
+            .lib-css(flex-direction, column);
+            .lib-css(justify-content, center);
+            .lib-css(align-items, center);
 
             .message-notice-top {
                 .search-title {
@@ -42,11 +41,11 @@
                 }
 
                 ul {
-                    margin: 0;
-                    list-style: none;
+                    .lib-css(margin, 0);
+                    .lib-css(list-style, none);
 
                     li::before {
-                        content: "-";
+                        .lib-css(content, "-");
                     }
                 }
                 li {
@@ -89,78 +88,204 @@
         }
 
         // container pai da lista de produtos em grade
-        .products-grid .product-items.product-items {
+        .grid .product-items {
             .lib-css(display, flex);
             .lib-css(flex-wrap, wrap);
             .lib-css(margin, 0 -20px) !important;
         }
 
-        .products-grid .product-item.product-item {
-            text-align: center;
-            .lib-css(flex, 0 0 278px);
-            .lib-css(max-width, 278px);
+        .grid .product-item {
+            .lib-css(text-align, center);
+            .lib-css(flex, 0 0 283px);
+            .lib-css(max-width, 283px);
             .lib-css(margin, 0 20px 30px) !important;
+
+            .product-item-info {
+                .lib-css(width, 283px);
+            }
         }
 
-        // --------------------------------------------------
-        // REMOVE completamente o hover herdado do Magento
-        // --------------------------------------------------
-        .product-item-info {
-            width: 278px;
-            text-align: center;
-            &:hover,
-            &.active {
-                .lib-css(box-shadow, none);
-                .lib-css(background, #fff);
-                .lib-css(border, none);
-                .lib-css(padding, 0);
-                .lib-css(margin, 0);
-                .lib-css(z-index, auto);
+        // altera o tamanho do swatch de tamanhos do produto
+        .slider-prateleira .swatch-attribute.size .swatch-option.text {
+            .lib-css(width, 31px);
+            .lib-css(height, 31px);
+            .lib-css(min-width, 31px);
+            .lib-css(font-size, 13px);
+            .lib-css(margin-right, 15px);
+        }
 
-                .product-item-inner {
-                    .lib-css(position, static);
-                    .lib-css(display, block);
-                    .lib-css(box-shadow, none);
-                    .lib-css(background, none);
-                    .lib-css(border, none);
+        // altera o padding do botao de comprar do produto
+        .slider-prateleira .actions-primary .action.tocart.primary {
+            .lib-css(padding, 12px 28px);
+
+            // altera o tamanho do texto do botao
+            span {
+                .lib-css(font-size, 16px);
+            }
+        }
+
+        // nome do produto
+        .slider-prateleira .product-item-name {
+            a {
+                .lib-css(font-size, 17px);
+            }
+        }
+
+        // ajustes no preço do produto
+        .slider-prateleira .product-item {
+            .price-box {
+                .price {
+                    .lib-css(font-size, 17px);
+                    .lib-css(font-weight, 700);
+                }
+            }
+        }
+    }
+}
+
+// ------------------------------
+// Mobile
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .catalogsearch-result-index {
+        .breadcrumbs {
+            .lib-visually-hidden();
+        }
+
+        .columns {
+            .lib-css(padding-top, 0);
+        }
+
+        .toolbar-products .toolbar-sorter {
+            .lib-visually-hidden();
+        }
+
+        .message-notice {
+            .lib-css(display, flex);
+            .lib-css(flex-direction, column);
+            .lib-css(justify-content, center);
+            .lib-css(align-items, center);
+            .lib-css(margin-top, 24px);
+            .lib-css(gap, 24px);
+
+            .message-notice-top {
+                .search-title {
+                    .lib-css(text-align, center);
+                    .lib-css(font-size, 20px);
+                    .lib-css(color, #000000);
+                    .lib-css(font-weight, 700);
                     .lib-css(margin, 0);
+                }
+
+                .search-term {
+                    .lib-css(font-size, 20px);
+                    .lib-css(font-weight, 700);
+                    .lib-css(color, @theme__color__primary);
+                }
+            }
+
+            .message-notice-bottom {
+                .lib-css(flex-direction, column);
+                .lib-css(margin-bottom, 40px);
+                .what-text {
+                    .lib-css(text-align, center);
+                    .lib-css(font-size, 18px);
+                    .lib-css(font-weight, 700);
+                    .lib-css(color, #000000);
+                    .lib-css(margin, 0 0 5px);
+                }
+
+                ul {
                     .lib-css(padding, 0);
+                    .lib-css(margin, 0);
+                    .lib-css(list-style, none);
+
+                    li::before {
+                        .lib-css(content, "-");
+                    }
+                }
+                li {
+                    .lib-css(font-size, 14px);
+                    .lib-css(font-weight, 400);
+                    .lib-css(color, #656565);
+                    .lib-css(margin, 0);
                 }
             }
         }
 
+        // messages-notice quando tem resultados
+        .search-results-custom {
+            dl.block {
+                .lib-visually-hidden();
+            }
+            .search-title {
+                .lib-css(text-align, center);
+                .lib-css(margin, 30px 0 50px);
+                .lib-css(font-size, 16px);
+                .lib-css(font-weight, 700);
+                .lib-css(color, #000000);
+            }
+
+            .search-term {
+                .lib-css(font-size, 16px);
+                .lib-css(font-weight, 700);
+                .lib-css(color, @theme__color__primary);
+            }
+        }
         // --------------------------------------------------
-        // Área de ações / botão comprar
+        // Layout geral (sem sidebar, main full width)
         // --------------------------------------------------
-        .product-item-inner {
-            .lib-css(position, static);
-            .lib-css(display, block);
-            .lib-css(opacity, 1);
-            .lib-css(visibility, visible);
-            .lib-css(box-shadow, none);
-            .lib-css(clip, auto);
-            .lib-css(margin, 0);
+        .sidebar,
+        .sidebar-main,
+        .column.sidebar {
+            .lib-css(display, none);
+        }
+
+        .column.main {
+            .lib-css(width, 100%);
+            .lib-css(max-width, 100%);
             .lib-css(padding, 0);
         }
 
-        .product-item-actions {
-            .lib-css(width, 100%);
-            .lib-css(display, block);
-            .lib-css(margin, 0);
-            .lib-css(padding, 0);
+        // container pai da lista de produtos em grade
+        .grid .product-items {
+            .lib-css(display, flex);
+            .lib-css(flex-wrap, wrap);
+            .lib-css(margin, 0 -20px) !important;
         }
 
-        .actions-primary {
-            .lib-css(width, 100%);
-            .lib-css(display, block);
-            .lib-css(margin-top, 0);
+        // container pai da lista de produtos em grade
+        .products {
+            .lib-css(display, flex);
+            .lib-css(justify-content, center);
         }
 
-        .actions-primary .action.primary {
-            .lib-css(width, 100%);
-            .lib-css(display, block);
-            .lib-css(border-radius, 0);
-            .lib-css(margin, 0);
+        .grid .product-items.product-items {
+            .lib-css(margin, 0 -12px) !important;
+        }
+
+        // estrutura do card individual do produto
+        .grid .product-item.product-item {
+            .lib-css(width, 166px);
+            .lib-css(margin, 0 12px 20px);
+
+            // container que envolve as informações do produto
+            .product-item-info.product-item-info {
+                // previne alterações de layout e "saltos" ao passar o mouse
+                &:hover,
+                &.active {
+                    // garante que o bloco de ações não altere o fluxo no hover
+                    .product-item-inner {
+                        .actions-secondary {
+                            .lib-css(display, none);
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -45,7 +45,7 @@ $_helper = $block->getData('outputHelper');
     $pos = $block->getPositioned();
     ?>
     <!-- adiciona a classe css slider-prateleira no wrapper de products do catalogo -->
-    <div class="products wrapper slider-prateleira <?= /* @noEscape */ $viewMode ?> products-<?= /* @noEscape */ $viewMode ?>">
+    <div class="products wrapper slider-prateleira <?= /* @noEscape */ $viewMode ?>">
         <ol class="products list items product-items">
             <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
             <?php foreach ($_productCollection as $_product): ?>

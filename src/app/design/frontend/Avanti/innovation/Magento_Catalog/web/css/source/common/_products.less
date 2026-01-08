@@ -27,47 +27,16 @@
     }
 
     // container pai da lista de produtos em grade
-    .products-grid .product-items.product-items {
+    .grid .product-items {
         .lib-css(display, flex);
         .lib-css(flex-wrap, wrap);
-
-        // remove elementos de limpeza de float nativos do magento
-        &:before,
-        &:after {
-            .lib-css(display, none);
-        }
     }
 
     // estrutura do card individual do produto
-    .products-grid .product-item.product-item {
+    .grid .product-item {
         .lib-css(border, 1px solid #dddddd);
         .lib-css(border-radius, 15px);
         .lib-css(overflow, hidden);
-        .lib-css(display, flex);
-        .lib-css(flex-direction, column);
-
-        // container que envolve as informações do produto
-        .product-item-info.product-item-info {
-            .lib-css(position, relative);
-        }
-
-        // container interno das ações (botão comprar) - mantido estático
-        .product-item-info .product-item-inner {
-            // garante que comparador e wishlist não apareçam
-            .actions-secondary {
-                .lib-css(display, none);
-            }
-        }
-
-        // wrapper dos botões de ação do produto
-        .product-item-actions.product-item-actions {
-            .lib-css(display, block);
-
-            // container do botão principal (adicionar ao carrinho)
-            .actions-primary.actions-primary {
-                .lib-css(display, block);
-            }
-        }
     }
 }
 
@@ -106,53 +75,14 @@
     }
 
     // container pai da lista de produtos em grade
-    .products-grid .product-items.product-items {
-        .lib-css(margin, 0 -10px) !important;
+    .grid .product-items.product-items {
+        .lib-css(margin, 0 -10px);
     }
 
     // estrutura do card individual do produto (configurado para 4 colunas)
-    .products-grid .product-item.product-item {
+    .grid .product-item {
         .lib-css(width, calc(25% - 20px));
-        .lib-css(margin, 0 10px 30px 10px) !important;
-
-        // container que envolve as informações do produto
-        .product-item-info.product-item-info {
-            // previne alterações de layout e "saltos" ao passar o mouse
-            &:hover,
-            &.active {
-                .lib-css(box-shadow, none);
-                .lib-css(background, #fff);
-                .lib-css(border, none);
-                .lib-css(padding, 0);
-                .lib-css(margin, 0);
-                .lib-css(z-index, 1);
-
-                // garante que o bloco de ações não altere o fluxo no hover
-                .product-item-inner {
-                    .lib-css(position, static);
-                    .lib-css(display, block);
-                    .lib-css(box-shadow, none);
-                    .lib-css(background, none);
-                    .lib-css(border, none);
-                    .lib-css(margin, 0);
-                    .lib-css(padding, 0);
-                }
-            }
-        }
-
-        // container interno das ações (botão comprar) - mantido estático
-        .product-item-info .product-item-inner {
-            .lib-css(display, block);
-            .lib-css(position, static);
-            .lib-css(opacity, 1);
-            .lib-css(visibility, visible);
-            .lib-css(box-shadow, none);
-            .lib-css(width, auto);
-            .lib-css(height, auto);
-            .lib-css(padding, 0);
-            .lib-css(clip, auto);
-            .lib-css(margin, 0);
-        }
+        .lib-css(margin, 0 10px 30px 10px);
     }
 }
 // ------------------------------
@@ -179,12 +109,12 @@
         .lib-css(justify-content, center);
     }
 
-    .products-grid .product-items.product-items {
+    .grid .product-items.product-items {
         .lib-css(margin, 0 -12px) !important;
     }
 
     // estrutura do card individual do produto
-    .products-grid .product-item.product-item {
+    .grid .product-item.product-item {
         .lib-css(width, 166px);
         .lib-css(margin, 0 12px 20px);
 
