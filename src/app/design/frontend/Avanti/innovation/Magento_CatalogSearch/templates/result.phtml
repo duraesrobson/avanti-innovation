@@ -1,9 +1,6 @@
 <?php
+//  ARQUIVO RESPONSÁVEL PELA EXIBIÇÃO DOS RESULTADOS DE BUSCA
 
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
 // @codingStandardsIgnoreFile
 
 use Magento\CatalogSearch\Block\Result;
@@ -11,15 +8,21 @@ use Magento\CatalogSearch\Block\Result;
 /** @var \Magento\Search\Helper\Data $searchHelper */
 $searchHelper = $this->helper(\Magento\Search\Helper\Data::class);
 
+// bloco principal que controla a página de resultados de busca
 /** @var $block Result */
+
+// HTML da listagem de produtos retornados pela busca
 $productList = $block->getProductListHtml();
 ?>
 
 <?php if ($block->getResultCount()) : ?>
+    <!-- link RSS de produtos buscados (quando habilitado) -->
     <?= /* @noEscape */ $block->getChildHtml('tagged_product_list_rss_link') ?>
 
+    <!-- container principal dos resultados de busca -->
     <div class="search results search-results-custom">
 
+        <!-- título da página com o termo pesquisado -->
         <h1 class="search-title">
             <?= __('Resultado de busca por') ?>
             <span class="search-term">
@@ -27,6 +30,7 @@ $productList = $block->getProductListHtml();
             </span>
         </h1>
 
+        <!-- mensagens informativas do Magento (avisos, sugestões, etc) -->
         <?php if ($messages = $block->getNoteMessages()) : ?>
             <div class="message notice">
                 <div>
@@ -37,11 +41,13 @@ $productList = $block->getProductListHtml();
             </div>
         <?php endif; ?>
 
+        <!-- renderização da listagem de produtos -->
         <?= /* @noEscape */ $productList ?>
 
     </div>
 
 <?php else : ?>
+    <!-- estado vazio: nenhum resultado encontrado -->
     <div class="message-notice">
 
         <div class="message-notice-top">
@@ -52,6 +58,8 @@ $productList = $block->getProductListHtml();
                 </span>
             </h1>
         </div>
+
+        <!-- sugestões para melhorar a busca -->
         <div class="message-notice-bottom">
             <h1 class="what-text">
                 <?= __('O que devo fazer?') ?>
@@ -66,6 +74,7 @@ $productList = $block->getProductListHtml();
         </div>
     </div>
 
+    <!-- exibe um bloco CMS (prateleira de ofertas criada no PageBuilder) quando não há resultados -->
     <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('slider-prateleira-ofertas')->toHtml(); ?>
 
 <?php endif; ?>

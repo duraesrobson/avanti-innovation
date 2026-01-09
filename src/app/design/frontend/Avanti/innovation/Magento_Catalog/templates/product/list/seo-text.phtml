@@ -1,19 +1,11 @@
 <?php
-/**
-* Copyright © Magento, Inc. All rights reserved.
-* See COPYING.txt for license details.
-*/
-?>
-<?php
-// phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
-
+// ARQUIVO QUE RENDERIZA O MÓDULO SEO-TEXT
 
 /**
- * Category view template
  *
  * @var \Magento\Catalog\Block\Category\View $block
  */
- 
+
 // pega a categoria atual
 $currentCategory = $block->getCurrentCategory();
 
@@ -27,12 +19,12 @@ if ($currentCategory):
          */
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
         $filterProvider = $objectManager->get(\Magento\Cms\Model\Template\FilterProvider::class);
-        
+
         $html = $filterProvider->getBlockFilter()->filter($seoDescription);
-        ?>
+?>
         <div class="category-seo-footer">
             <?= /* @noEscape */ $html ?>
         </div>
-    <?php 
-    endif; 
+<?php
+    endif;
 endif;

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- inicia a configuração do formulario de interface -->
+<!-- ARQUIVO RESPONSÁVEL POR EXIBIR O ATRIBUTO SEO DESCRIPTION NO FORMULÁRIO DE CATEGORIA DO ADMIN -->
+
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <!-- referencia o grupo de campos de conteudo ja existente -->
     <fieldset name="content">

@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * ARQUIVO RESPONSÁVEL PELA CRIAÇÃO DO ATRIBUTO SEO DESCRIPTION
+ * NA ENTIDADE DE CATEGORIA (DATA PATCH)
+ */
+
 namespace Avanti\SeoDescription\Setup\Patch\Data;
 
 use Magento\Framework\Setup\ModuleDataSetupInterface;
@@ -56,10 +62,16 @@ class AddSeoDescriptionAttribute implements DataPatchInterface
     /**
      * define dependencias de outros patches caso existam
      */
-    public static function getDependencies() { return []; }
+    public static function getDependencies()
+    {
+        return [];
+    }
 
     /**
      * define apelidos para o patch caso necessario
      */
-    public function getAliases() { return []; }
+    public function getAliases()
+    {
+        return [];
+    }
 }

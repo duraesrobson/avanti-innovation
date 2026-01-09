@@ -1,3 +1,41 @@
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common = true) {
+    .sidebar-main {
+        // container interno dos filtros
+        .block-content.filter-content {
+            // título principal da seção de filtros
+            .filter-subtitle {
+                .lib-css(font-size, 16px);
+                .lib-css(color, #000000);
+            }
+
+            // item individual de filtro
+            .filter-options-item {
+                .lib-css(border-bottom, 1px solid #dddddd);
+            }
+
+            // título do atributo do filtro
+            .filter-options-title {
+                .lib-css(color, #000000);
+                .lib-css(text-transform, capitalize);
+
+                &::after {
+                    .lib-css(font-weight, 700);
+                }
+            }
+
+            // lista de valores
+            .filter-options-content {
+                a {
+                    .lib-css(font-size, 14px);
+                    .lib-css(font-weight, 400);
+                    .lib-css(color, #000000);
+                }
+            }
+        }
+    }
+}
 //  Desktop
 //  _____________________________________________
 .media-width(@extremum, @break)
@@ -9,15 +47,14 @@
     .page-layout-2columns-left {
         // coluna lateral onde ficam os filtros (layered navigation)
         .sidebar-main {
-            .lib-css(width, 184px);
+            .lib-css(width, 208px);
+            .lib-css(padding-right, 0);
 
             // container interno dos filtros
             .block-content.filter-content {
                 // título principal da seção de filtros
                 .filter-subtitle {
-                    .lib-css(font-size, 16px);
                     .lib-css(font-weight, 700);
-                    .lib-css(color, #000000);
                     .lib-css(border-bottom, 1px solid #dddddd);
                     .lib-css(padding-left, 0);
                     .lib-css(padding-right, 0);
@@ -26,7 +63,6 @@
                 // item individual de filtro (ex: cor, tamanho)
                 .filter-options-item {
                     .lib-css(padding-top, 0);
-                    .lib-css(border-bottom, 1px solid #dddddd);
                     .lib-css(transition, padding-top 0.2s ease);
 
                     // estado quando o filtro está aberto/expandido
@@ -39,15 +75,12 @@
                 .filter-options-title {
                     .lib-css(font-size, 14px);
                     .lib-css(font-weight, 700);
-                    .lib-css(color, #000000);
                     .lib-css(padding-left, 0);
                     .lib-css(padding-right, 0);
-                    .lib-css(text-transform, capitalize);
 
                     // ícone de seta do título do filtro
                     &::after {
                         .lib-css(right, 0);
-                        .lib-css(font-weight, 700);
                     }
                 }
 
@@ -55,17 +88,24 @@
                 .filter-options-content {
                     .lib-css(padding, 5px 0);
 
-                    // link para selecionar o filtro
-                    a {
-                        .lib-css(font-size, 14px);
-                        .lib-css(font-weight, 400);
-                        .lib-css(color, #000000);
-                    }
-
                     // item da lista de opções de filtro
                     li {
                         .lib-css(margin, 0);
                     }
+                }
+            }
+
+            // área de lista de desejos abaixo dos filtros na lateral
+            .block-wishlist {
+                .block-title strong {
+                    .lib-css(font-size, 15px);
+                }
+                .counter {
+                    .lib-css(font-size, 11px);
+                }
+
+                .actions-toolbar span {
+                    .lib-css(font-size, 14px);
                 }
             }
         }
@@ -84,24 +124,35 @@
     .page-layout-2columns-left {
         // coluna lateral onde ficam os filtros (layered navigation)
         .sidebar-main {
-            // .lib-css(width, 184px);
-            .filter.active .filter-title {
-                .lib-css(border, none);
-                strong {
-                    .lib-css(font-size, 0);
+            // remove o bloco de favoritos no mobile
+            .block-wishlist,
+            .block-reorder {
+                .lib-css(display, none);
+            }
+
+            // quando tela de filtros ativa
+            .filter.active {
+                .filter-title {
                     .lib-css(border, none);
+                    strong {
+                        .lib-css(padding-right, 16px);
+                        .lib-css(font-size, 0);
+                        .lib-css(border, none);
 
-                    &::before {
-                        .lib-css(display, none);
-                    }
+                        &::before {
+                            .lib-css(display, none);
+                        }
 
-                    &::after {
-                        .lib-css(font-size, 12px);
-                        .lib-css(color, #000000);
+                        &::after {
+                            .lib-css(font-size, 14px);
+                            .lib-css(font-weight, 900);
+                            .lib-css(color, #000000);
+                        }
                     }
                 }
             }
 
+            // título de filtros fora da tela ativada
             .filter-title strong {
                 .lib-css(display, flex);
                 .lib-css(justify-content, center);
@@ -130,69 +181,35 @@
             .block-content.filter-content {
                 // título principal da seção de filtros
                 .filter-subtitle {
-                    .lib-css(font-size, 16px);
-                    .lib-css(font-weight, 700);
-                    .lib-css(color, #000000);
+                    .lib-css(font-weight, 800);
+                    .lib-css(border, none);
+                    .lib-css(padding-left, 16px);
                 }
 
                 // item individual de filtro (ex: cor, tamanho)
                 .filter-options-item {
-                    .lib-css(border-bottom, 1px solid #dddddd);
+                    .lib-css(padding, 24px 0);
                 }
 
                 // título do atributo do filtro (clicável para expandir)
                 .filter-options-title {
                     .lib-css(font-size, 16px);
                     .lib-css(font-weight, 400);
-                    .lib-css(color, #000000);
-                    .lib-css(text-transform, capitalize);
+                    .lib-css(padding, 0 16px);
 
                     // ícone de seta do título do filtro
                     &::after {
-                        .lib-css(font-weight, 700);
+                        .lib-css(top, 0);
+                        .lib-css(right, 20px);
                     }
                 }
 
                 // lista de valores dentro de um filtro
                 .filter-options-content {
-                    // link para selecionar o filtro
-                    a {
-                        .lib-css(font-size, 14px);
-                        .lib-css(font-weight, 400);
-                        .lib-css(color, #000000);
-                    }
-
+                    .lib-css(padding, 0 16px);
                     // item da lista de opções de filtro
                     li {
                         .lib-css(margin, 14px 0);
-
-                        .checkbox-filter {
-                            .lib-css(pointer-events, auto); // colocando none, a pagina atualiza no click
-                            .lib-css(appearance, none);
-
-                            .lib-css(top, 3px);
-                            .lib-css(width, 16px);
-                            .lib-css(height, 16px);
-                            .lib-css(border, 1px solid #dddddd);
-                            .lib-css(border-radius, 4px);
-
-                            &:checked {
-                                .lib-css(border, none);
-                                .lib-css(background, @theme__color__primary);
-                            }
-
-                            // adiciona o check (V) usando um background de caractere
-                            &::after {
-                                .lib-css(content, "L"); // um "L" invertido que parece um check
-                                .lib-css(transform, scaleX(-1) rotate(-35deg));
-                                .lib-css(position, absolute);
-                                .lib-css(left, 5px);
-                                .lib-css(top, -1px);
-                                .lib-css(color, #fff);
-                                .lib-css(font-size, 12px);
-                                .lib-css(font-weight, 800);
-                            }
-                        }
                     }
                 }
             }

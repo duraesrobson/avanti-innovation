@@ -1,12 +1,17 @@
 <?php
+// ARQUIVO REFERENTE A QUANTIDADE DE PRODUTOS //
+
 /** @var \Magento\Catalog\Block\Product\ProductList\Toolbar $block */
 ?>
 
 <?php if ($block->getTotalNum()): ?>
     <p class="toolbar-amount">
         <span class="toolbar-number">
+            <!-- se o total de produtos for igual a 1 retorna resposta no singular -->
             <?php if ($block->getTotalNum() == 1): ?>
                 <?= $block->escapeHtml(__('1 produto encontrado')) ?>
+
+                <!-- ou retorna a quantidade total com texto customizado -->
             <?php else: ?>
                 <?= $block->escapeHtml(
                     __(

@@ -1,23 +1,19 @@
 <?php
-
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
+// ARQUIVO DE LÓGICA DE PREÇO 
 
 // @codingStandardsIgnoreFile
+
 /** @var \Magento\Catalog\Pricing\Render\FinalPriceBox $block */
 
 
-// Modelos de preço
+// modelos de preço
 $priceModel = $block->getPriceType('regular_price');
 $finalPriceModel = $block->getPriceType('final_price');
 $idSuffix = $block->getIdSuffix() ?: '';
 $schema = ($block->getZone() == 'item_view');
 
 
-// === Cálculos ===
+// === cálculos ===
 $regularPrice = $priceModel->getAmount()->getValue();
 $finalPrice = $finalPriceModel->getAmount()->getValue();
 $discountPercent = 0;
@@ -28,18 +24,18 @@ if ($regularPrice > 0 && $finalPrice < $regularPrice) {
 }
 
 
-// Define o preço base para o parcelamento
+// define o preço base para o parcelamento
 $parcelPriceBase = ($block->hasSpecialPrice() && $finalPrice < $regularPrice)
     ? $finalPrice
     : $regularPrice;
 
 
-// Valor e formatação da parcela (10x)
+// valor e formatação da parcela (10x)
 $installments = 10;
 $installmentValue = $parcelPriceBase / $installments;
 
 
-// 🔹 Aqui usamos o PriceHelper nativo do Magento
+// PriceHelper nativo do magento
 /** @var \Magento\Framework\Pricing\Helper\Data $priceHelper */
 $priceHelper = \Magento\Framework\App\ObjectManager::getInstance()
     ->get(\Magento\Framework\Pricing\Helper\Data::class);
@@ -52,9 +48,6 @@ $installmentFormatted = $priceHelper->currency($installmentValue, true, false);
 <div class="price-box">
     <?php if ($block->hasSpecialPrice() && $finalPrice < $regularPrice): ?>
 
-
-
-
         <span class="special-price">
             <span class="old-price">
                 <?= /* @noEscape */ $block->renderAmount($priceModel->getAmount(), [
@@ -64,7 +57,6 @@ $installmentFormatted = $priceHelper->currency($installmentValue, true, false);
                     'skip_adjustments'  => false
                 ]); ?>
 
-
             </span>
             <?= /* @noEscape */ $block->renderAmount($finalPriceModel->getAmount(), [
                 'price_id'          => $block->getPriceId('product-price-' . $idSuffix),
@@ -73,14 +65,10 @@ $installmentFormatted = $priceHelper->currency($installmentValue, true, false);
                 'schema'            => $schema
             ]); ?>
 
-
             <?php if ($discountPercent > 0): ?>
                 <span class="percent-discount"><?= $discountPercent ?>% OFF</span>
             <?php endif; ?>
         </span>
-
-
-
 
     <?php else: ?>
         <?= /* @noEscape */ $block->renderAmount($finalPriceModel->getAmount(), [
@@ -91,12 +79,10 @@ $installmentFormatted = $priceHelper->currency($installmentValue, true, false);
         ]); ?>
     <?php endif; ?>
 
-
-    <!-- Texto de parcelamento -->
+    <!-- texto de parcelamento -->
     <div class="installment-text">
         <?= __('Ou em até %1x de %2', $installments, $installmentFormatted); ?>
     </div>
-
 
     <?php if ($block->showMinimalPrice()): ?>
         <?php if ($block->getUseLinkForAsLowAs()): ?>
