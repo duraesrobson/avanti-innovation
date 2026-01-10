@@ -1,0 +1,26 @@
+<?php
+
+/** @var \Magento\Catalog\Block\Product\View $block */
+$product = $block->getProduct();
+if (!$product) {
+    return;
+}
+
+$title = (string) $product->getName();
+$url   = (string) $product->getProductUrl();
+?>
+
+<div class="product-share"
+    data-mage-init='{"js/product-share": {
+        "title": "<?= $block->escapeJs($title) ?>",
+        "url": "<?= $block->escapeJs($url) ?>"
+     }}'>
+
+    <button type="button" class="action share-native">
+        <?= $block->escapeHtml(__('Share')) ?>
+    </button>
+
+    <span class="share-feedback" style="display:none;">
+        <?= $block->escapeHtml(__('Link copied!')) ?>
+    </span>
+</div>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <!-- move o sku para aparecer antes do preço do produto -->
+        <move element="product.info.stock.sku" destination="product.info.main" before="product.info.price"/>
+        
+        <!-- referencia o bloco EXISTENTE do layout da PDP responsável pelos detalhes do produto (tabs, descrição, etc) -->
+        <referenceBlock name="product.info.details">
+            <!-- executa o método do bloco que altera o comportamento de visual -->
+            <action method="setTemplate">
+                <!-- arquivo .phtml que será usado para renderizar o bloco -->
+                <argument name="template" xsi:type="string">Magento_Catalog::product/view/details-columns.phtml</argument>
+            </action>
+        </referenceBlock>
+
+        <referenceContainer name="product.info.main">
+            <block class="Magento\Catalog\Block\Product\View" name="product.share" template="Magento_Catalog::product/view/share.phtml" after="product.info.sku"/>
+        </referenceContainer>
+
+    </body>
+</page>

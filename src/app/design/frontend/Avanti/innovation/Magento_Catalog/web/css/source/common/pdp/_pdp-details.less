@@ -1,0 +1,21 @@
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common = true) {
+    .product-details-columns {
+        .lib-css(display, flex);
+        .lib-css(gap, 24px);
+        .lib-css(width, 100%);
+    }
+
+    .product-details-columns__col {
+        .lib-css(flex, 1 1 0);
+        .lib-css(min-width, 0);
+    }
+}
+
+/* Mobile: empilha */
+@media (max-width: 768px) {
+    .product-details-columns {
+        .lib-css(display, block);
+    }
+}
