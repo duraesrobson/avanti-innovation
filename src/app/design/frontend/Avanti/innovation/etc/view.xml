@@ -14,4 +14,20 @@
            </image>
        </images>
    </media>
+
+   <vars module="Magento_Catalog">
+        <var name="gallery">
+            <!-- thumbnails em coluna -->
+            <var name="nav">thumbs</var>
+            <var name="navdir">vertical</var>
+
+            <!-- thumbnails do lado esquerdo -->
+            <var name="thumbposition">left</var>
+
+            <!-- opcionais úteis -->
+            <var name="thumbwidth">90</var>
+            <var name="thumbheight">90</var>
+            <var name="thumbmargin">10</var>
+        </var>
+    </vars>
 </view>
