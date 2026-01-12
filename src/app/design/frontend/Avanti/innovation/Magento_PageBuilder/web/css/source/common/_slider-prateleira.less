@@ -95,35 +95,14 @@
 
         // swatches de tamanho (size)
         .swatch-attribute.size {
-            .clearfix {
-                .lib-css(margin, 0);
-            }
-
-            // cada opção de tamanho
-            .swatch-option.text {
-                .flex-center();
-                .lib-css(border-radius, 50%);
-                .lib-css(padding, 0);
-
-                &[aria-checked="true"],
-                &:hover {
-                    .lib-css(background, @theme__color__primary);
-                    .lib-css(color, #ffffff);
-                    .lib-css(border, @theme__color__primary);
-                }
-            }
+            .swatch-base-structure();
+            .mixin-swatch-size(35px, 14px, 10px);
         }
 
         // swatches de cor (color)
         .swatch-attribute.color {
-            .flex-center();
-
-            .swatch-option.color {
-                .lib-css(border-radius, 50%);
-                .lib-css(padding, 0);
-                .lib-css(border, none);
-                .lib-css(box-shadow, 0 0 2px rgba(0, 0, 0, 0.2)); // destaca as cores claras
-            }
+            .swatch-base-structure();
+            .mixin-swatch-color(30px, 15px);
         }
 
         // botão principal de ação (comprar)
