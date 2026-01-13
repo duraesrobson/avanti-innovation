@@ -2,9 +2,19 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
 
+        <referenceBlock name="catalog.product.related">
+            <arguments>
+                <argument name="view_model" xsi:type="object">Magento\Catalog\ViewModel\Product\Listing\PreparePostData</argument>
+            </arguments>
+            <action method="setData">
+                <argument name="key" xsi:type="string">data-mage-init</argument>
+                <argument name="value" xsi:type="string">{"Magento_Catalog/js/related-slider": {}}</argument>
+            </action>
+        </referenceBlock>
+
         <!-- move o sku para aparecer antes do preço do produto -->
         <move element="product.info.stock.sku" destination="product.info.main" before="product.info.price"/>
-        
+
         <!-- referencia o bloco EXISTENTE do layout da PDP responsável pelos detalhes do produto (tabs, descrição, etc) -->
         <referenceBlock name="product.info.details">
             <!-- executa o método do bloco que altera o comportamento de visual -->

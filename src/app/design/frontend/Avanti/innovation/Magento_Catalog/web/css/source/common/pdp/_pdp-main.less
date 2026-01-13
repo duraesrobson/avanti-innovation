@@ -42,6 +42,23 @@
                 border-bottom: none;
                 margin-bottom: 0;
 
+                .old-price span {
+                    color: #303030;
+                    font-size: 14px;
+                    text-decoration: line-through;
+                }
+
+                .percent-discount {
+                    // .lib-visually-hidden();
+                    .lib-css(color, #fff);
+                    .lib-css(border-radius, 4px);
+                    .lib-css(background, #5ec0be);
+                    .lib-css(padding, 2px 4px);
+                    position: absolute;
+                    top: 367px;
+                    right: 460px;
+                }
+
                 .price {
                     color: @theme__color__primary;
                     font-size: 24px;

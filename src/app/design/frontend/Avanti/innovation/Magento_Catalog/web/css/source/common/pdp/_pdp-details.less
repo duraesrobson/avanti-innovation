@@ -3,13 +3,88 @@
 & when (@media-common = true) {
     .product-details-columns {
         .lib-css(display, flex);
-        .lib-css(gap, 24px);
+        .lib-css(gap, 100px);
         .lib-css(width, 100%);
     }
 
     .product-details-columns__col {
         .lib-css(flex, 1 1 0);
         .lib-css(min-width, 0);
+    }
+
+    .product-details-columns__col--left {
+        &::before {
+            content: "Detalhes";
+            font-size: 16px;
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .product.attribute.description {
+            font-size: 14px;
+            font-weight: 400;
+            color: #656565;
+            margin-top: 16px;
+        }
+    }
+
+    .product-details-columns__col--right {
+        // &::before {
+        //     content: "Mais informações";
+        //     font-size: 16px;
+        //     font-weight: 700;
+        //     color: #000000;
+        // }
+
+        .additional-attributes-wrapper.table-wrapper {
+            margin: 0;
+            table > caption {
+                display: flex;
+                justify-content: left;
+                clip: auto;
+                height: auto;
+                width: auto;
+                margin: 0 0 8px;
+                overflow: visible;
+                position: static;
+                white-space: normal;
+                font-size: 16px;
+                font-weight: 700;
+                color: #000000;
+            }
+
+            .data.table.additional-attributes {
+                width: 100%;
+                color: #656565;
+                tbody {
+                    tr {
+                        td,
+                        th {
+                            font-size: 14px;
+                            padding: 8px 16px;
+                            border-radius: 8px 0 0 8px;
+                        }
+
+                        &:nth-child(even) {
+                            td,
+                            th {
+                                background: #f5f5f5;
+                            }
+
+                            td:first-child,
+                            th:first-child {
+                                border-radius: 8px 0 0 8px;
+                            }
+
+                            td:last-child,
+                            th:last-child {
+                                border-radius: 0 8px 8px 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

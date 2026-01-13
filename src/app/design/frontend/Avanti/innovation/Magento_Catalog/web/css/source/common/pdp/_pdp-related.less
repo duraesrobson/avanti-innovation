@@ -1,0 +1,32 @@
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common = true) {
+    .catalog-product-view {
+        .products.wrapper.grid.slider-prateleira.products-related {
+            .item.product.product-item {
+                .lib-css(width, 242px);
+            }
+
+            // // wishlist
+            .product-item
+                .product-item-info
+                .product-item-inner
+                .actions-secondary {
+                .flex-center();
+                .lib-css(position, absolute);
+                .lib-css(top, 10px);
+                .lib-css(right, 5px);
+                .lib-css(z-index, 99);
+
+                // ícone de coraçao
+                .action.towishlist::before {
+                    .flex-center();
+                    .lib-css(font-size, 20px);
+                    .lib-css(width, 100%);
+                    .lib-css(height, 25px);
+                    .lib-css(color, @theme__color__primary);
+                }
+            }
+        }
+    }
+}
