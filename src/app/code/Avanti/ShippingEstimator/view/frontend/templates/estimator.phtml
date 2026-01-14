@@ -1,0 +1,33 @@
+<?php
+
+/** @var \Magento\Framework\Escaper $escaper */
+$ajaxUrl = $block->getUrl('avanti-estimator/ajax/estimate');
+?>
+<div class="shipping-estimator" data-estimator='{"ajaxUrl":"<?= $escaper->escapeUrl($ajaxUrl) ?>"}'>
+    <strong><?= $escaper->escapeHtml(__('Calculate shipping')) ?></strong>
+
+    <div class="estimate-row">
+        <div class="field cep">
+            <input type="text" class="input-text cep" placeholder="<?= $escaper->escapeHtmlAttr(__('Digite seu CEP')) ?>" />
+        </div>
+        <button type="button" class="action primary estimate">
+            <span><?= $escaper->escapeHtml(__('Estimate')) ?></span>
+        </button>
+    </div>
+
+    <div class="help-cep">
+        <a class="help-cep-pointer" href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank" rel="noopener">
+            <span><?= $escaper->escapeHtml(__("I don't know my zip code")) ?></span>
+        </a>
+    </div>
+
+    <div class="results" style="margin-top:10px;"></div>
+</div>
+
+<script type="text/x-magento-init">
+    {
+    ".shipping-estimator": {
+        "Avanti_ShippingEstimator/js/estimator": {}
+    }
+}
+</script>

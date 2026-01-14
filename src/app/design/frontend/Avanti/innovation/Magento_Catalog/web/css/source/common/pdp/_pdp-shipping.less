@@ -1,0 +1,76 @@
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common = true) {
+    .shipping-estimator {
+        .lib-css(display, flex);
+        .lib-css(flex-direction, column);
+        .lib-css(gap, 10px);
+        .lib-css(margin-top, 20px);
+
+        strong {
+            .lib-css(font-size, 14px);
+            .lib-css(font-weight, 700);
+            .lib-css(color, #25282a);
+        }
+
+        .estimate-row {
+            .lib-css(display, flex);
+            .lib-css(flex-direction, row);
+            .lib-css(align-items, center);
+            .lib-css(gap, 10px);
+
+            .field.cep {
+                input[type="text"]::placeholder {
+                    .lib-css(color, #707070);
+                    .lib-css(font-size, 12px);
+                }
+                .input-text.cep {
+                    .lib-css(border, 1px solid #dddddd);
+                    .lib-css(border-radius, 8px);
+                    .lib-css(width, 405px);
+                    .lib-css(height, 40px);
+                    .lib-css(padding, 13px);
+                }
+            }
+
+            // botão para calcular frete
+            .action.primary.estimate {
+                .lib-css(background, transparent);
+                .lib-css(border, 1px solid @theme__color__primary);
+                .lib-css(border-radius, 8px);
+                .lib-css(padding, 10px 24px);
+                .lib-css(height, 40px);
+
+                span {
+                    .lib-css(color, @theme__color__primary);
+                    .lib-css(font-size, 14px);
+                    .lib-css(font-weight, 700);
+                }
+            }
+        }
+
+        // link helper do cep
+        .help-cep {
+            .lib-css(margin-top, -5px);
+
+            .help-cep-pointer {
+                span {
+                    .lib-css(font-size, 12px);
+                    .lib-css(font-weight, 600);
+                    .lib-css(text-decoration, underline);
+                    .lib-css(color, #25282a);
+                }
+            }
+        }
+
+        .field.qty {
+            .lib-visually-hidden();
+        }
+
+        .results {
+            ul {
+                .lib-css(padding-left, 15px);
+            }
+        }
+    }
+}

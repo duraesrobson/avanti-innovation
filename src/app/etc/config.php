@@ -362,6 +362,7 @@ return [
         'Avanti_BackToTop' => 1,
         'Avanti_NewsletterExtend' => 1,
         'Avanti_SeoDescription' => 1,
+        'Avanti_ShippingEstimator' => 1,
         'PayPal_Braintree' => 1,
         'PayPal_BraintreeCustomerBalance' => 1,
         'PayPal_BraintreeGiftCard' => 1,
