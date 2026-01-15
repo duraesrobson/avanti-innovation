@@ -15,19 +15,28 @@ define([
         var $results = $el.find('.results');
 
         function getProductData() {
-            // pega productId da PDP (forma simples)
             var productId = $('input[name="product"]').val();
+            var postcode = $cep.val();
 
-            // Se tiver configurable/swatch, você pode coletar os super_attribute aqui também.
-            // Exemplo: var superAttr = {};
-            // $('[name^="super_attribute"]').each(function(){ ... });
+            // Objeto para armazenar Cor, Tamanho, etc.
+            var superAttr = {};
+
+            // Busca todos os selects ou inputs de swatches que começam com 'super_attribute'
+            $('[name^="super_attribute"]').each(function () {
+                var name = $(this).attr('name'); // Ex: super_attribute[93]
+                var id = name.match(/\[(\d+)\]/)[1]; // Extrai apenas o ID (93)
+                var value = $(this).val();
+
+                if (value) {
+                    superAttr[id] = value;
+                }
+            });
 
             return {
                 product_id: productId,
                 qty: 1,
-                postcode: $cep.val()
-                // super_attribute: superAttr,
-                // options: ...
+                postcode: postcode,
+                super_attribute: superAttr // Enviamos o objeto com as escolhas
             };
         }
 

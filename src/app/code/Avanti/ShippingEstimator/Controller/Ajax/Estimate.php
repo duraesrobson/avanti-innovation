@@ -40,14 +40,14 @@ class Estimate extends Action
         $result = $this->resultJsonFactory->create();
 
         try {
-            $productId = (int)$this->getRequest()->getParam('product_id');
-            $qty = (float)$this->getRequest()->getParam('qty', 1);
-            $postcode = (string)$this->getRequest()->getParam('postcode');
+            $params = $this->getRequest()->getParams();
+            $productId = (int)($params['product_id'] ?? 0);
+            $postcode = (string)($params['postcode'] ?? '');
 
             if (!$productId || !$postcode) {
                 return $result->setData([
                     'success' => false,
-                    'message' => 'Product and postcode are required.'
+                    'message' => __('Product ID and Postcode are required.')
                 ]);
             }
 
@@ -59,30 +59,32 @@ class Estimate extends Action
             $quote->setIsActive(false);
             $quote->setCheckoutMethod('guest');
 
-            $request = new DataObject(['qty' => $qty]);
+            // Criamos o request com TODOS os parâmetros (incluindo super_attribute)
+            $request = new DataObject($params);
             $quote->addProduct($product, $request);
 
             $shippingAddress = $quote->getShippingAddress();
             $shippingAddress->setCountryId('BR');
             $shippingAddress->setPostcode($postcode);
 
-            // para forçar o recálculo do zero
+            // Coleta as taxas
             $shippingAddress->setCollectShippingRates(true);
-            $quote->getShippingAddress()->setCollectShippingRates(true);
-
-            $shippingAddress->setCollectShippingRates(true);
-            $shippingAddress->collectShippingRates();
-
+            $quote->collectTotals();
             $rates = $shippingAddress->getAllShippingRates();
 
             $dataRates = [];
             foreach ($rates as $rate) {
+                if ($rate->getErrorMessage()) continue;
+
                 $price = (float)$rate->getPrice();
+                // 1. Formata o preço: Se for 0, vira "GRÁTIS"
+                $priceFormatted = ($price <= 0) ? 'GRÁTIS' : $this->priceHelper->currency($price, true, false);
                 $dataRates[] = [
+
                     'carrier' => $rate->getCarrier(),
                     'method'  => $rate->getMethod(),
-                    'title'   => trim($rate->getCarrierTitle() . ' - ' . $rate->getMethodTitle()),
-                    'price'   => $this->priceHelper->currency($price, true, false),
+                    'title'   => trim($rate->getCarrierTitle() . $rate->getMethodTitle()),
+                    'price'   => $priceFormatted,
                 ];
             }
 
@@ -93,7 +95,7 @@ class Estimate extends Action
         } catch (\Throwable $e) {
             return $result->setData([
                 'success' => false,
-                'message' => 'Error estimating shipping: ' . $e->getMessage()
+                'message' => __('Error: %1', $e->getMessage())
             ]);
         }
     }
