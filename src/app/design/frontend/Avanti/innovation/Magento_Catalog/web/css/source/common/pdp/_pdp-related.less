@@ -21,8 +21,10 @@
                 .lib-css(margin, 0);
             }
             .item.product.product-item {
-                .lib-css(width, 242px);
+                max-width: 242px;
+                .lib-css(width, 100%);
                 .lib-css(margin, 0);
+                box-sizing: border-box;     // Essencial para o padding não somar na largura
             }
 
             // // wishlist

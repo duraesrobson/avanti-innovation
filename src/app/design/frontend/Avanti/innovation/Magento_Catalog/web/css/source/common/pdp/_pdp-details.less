@@ -52,33 +52,52 @@
             }
 
             .data.table.additional-attributes {
+                display: table;
                 .lib-css(width, 100%);
                 .lib-css(color, #656565);
-                tbody {
-                    tr {
-                        td,
-                        th {
-                            .lib-css(font-size, 14px);
-                            .lib-css(padding, 8px 16px);
-                            .lib-css(border-radius, 8px 0 0 8px);
-                        }
 
-                        &:nth-child(even) {
-                            td,
-                            th {
-                                .lib-css(background, #f5f5f5);
-                            }
+                tbody tr {
+                    .lib-css(display, flex);
+                    .lib-css(flex-wrap, nowrap);
+                    .lib-css(align-items, center);
+                    .lib-css(padding, 8px 16px);
+                    .lib-css(margin-bottom, 4px);
+                    .lib-css(width, 100%);
+                    .lib-css(box-sizing, border-box);
+                    font-size: 14px;
 
-                            td:first-child,
-                            th:first-child {
-                                .lib-css(border-radius, 8px 0 0 8px);
-                            }
+                    // Reativa o TH e o TD na mesma linha
+                    th.label,
+                    td.data {
+                        .lib-css(display, block);
+                        .lib-css(padding, 0);
+                        .lib-css(background, transparent); // Remove o fundo individual
+                        .lib-css(border, none);
+                    }
 
-                            td:last-child,
-                            th:last-child {
-                                .lib-css(border-radius, 0 8px 8px 0);
-                            }
-                        }
+                    // Coluna da Esquerda (Título)
+                    th.label {
+                        .lib-css(flex, 0 0 30%); // ocupa 30% da largura
+                        .lib-css(font-weight, 700);
+                        .lib-css(text-align, left);
+                    }
+
+                    // coluna da direita (valor)
+                    td.data {
+                        .lib-css(flex, 1); // ocupa o restante do espaço
+                        .lib-css(text-align, left);
+                        .lib-css(color, #656565);
+                    }
+
+                    // remove o before
+                    td::before {
+                        .lib-visually-hidden();
+                    }
+
+                    // O fundo cinza e o arredondamento agora vão na LINHA (tr)
+                    &:nth-child(even) {
+                        .lib-css(background, #f5f5f5);
+                        .lib-css(border-radius, 8px);
                     }
                 }
             }
@@ -86,9 +105,32 @@
     }
 }
 
-/* Mobile: empilha */
-@media (max-width: 768px) {
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
     .product-details-columns {
         .lib-css(display, block);
+        .lib-css(margin-top, 0);
+    }
+
+    .product-details-columns__col--right {
+        margin-top: 48px;
+        .additional-attributes-wrapper.table-wrapper {
+            border: none;
+            .lib-css(margin, 0);
+
+            .data.table.additional-attributes {
+                tbody tr {
+                    // coluna da esquerda (título)
+                    th.label {
+                        .lib-css(flex, 0 0 40%); // Ocupa exatamente 40% da largura
+                    }
+                }
+            }
+        }
     }
 }
