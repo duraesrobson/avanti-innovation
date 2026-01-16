@@ -27,7 +27,7 @@
             <!-- opcionais úteis -->
             <var name="thumbwidth">90</var>
             <var name="thumbheight">90</var>
-            <var name="thumbmargin">10</var>
+            <var name="thumbmargin">15</var>
         </var>
     </vars>
 </view>

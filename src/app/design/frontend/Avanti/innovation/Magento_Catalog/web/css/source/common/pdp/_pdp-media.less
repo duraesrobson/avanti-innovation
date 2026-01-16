@@ -1,0 +1,73 @@
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common = true) {
+    .catalog-product-view {
+        .product.media {
+            .fotorama__nav-wrap {
+                .lib-css(top, 30px);
+
+                .fotorama__thumb-border {
+                    .lib-css(border, 2px solid @theme__color__primary);
+                    .lib-css(border-radius, 8px);
+                }
+
+                .fotorama__nav.fotorama__nav--thumbs {
+                    .lib-css(overflow, visible);
+
+                    .fotorama__thumb__arr {
+                        .lib-css(z-index, 999);
+                        .lib-css(display, block);
+
+                        .fotorama__thumb--icon {
+                            .lib-css(content, "");
+                            .lib-css(display, block);
+                            .lib-css(width, 18px);
+                            .lib-css(height, 18px);
+                            .lib-css(background-repeat, no-repeat);
+                            .lib-css(background-size, contain);
+                            .lib-css(background-position, center);
+                            .lib-css(background-image, url("@{baseDir}images/arrow-pdp-icon.svg"));
+                        }
+
+                        // SETA DE CIMA (Originalmente Left)
+                        &.fotorama__thumb__arr--left {
+                            .lib-css(top, -40px); // Posiciona fixo acima das fotos
+
+                            .fotorama__thumb--icon {
+                                // Gira para apontar para cima no layout vertical
+                                .lib-css(transform, rotate(180deg));
+                            }
+                        }
+
+                        // SETA DE BAIXO (Originalmente Right)
+                        &.fotorama__thumb__arr--right {
+                            .lib-css(top, 90%);
+                            .fotorama__thumb--icon {
+                                // Gira para apontar para baixo no layout vertical
+                                .lib-css(transform, rotate(0deg));
+                            }
+                        }
+
+                        // Garante que mesmo desativada (ex: primeira foto), ela apareça
+                        &.fotorama__arr--disabled {
+                            .lib-css(opacity, 0.1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .fotorama__fullscreen {
+        .fotorama__zoom-in,
+        .fotorama__zoom-out {
+            .lib-css(background-color, #323232);
+            .lib-css(color, #fff);
+        }
+
+        .fotorama__thumb-border {
+            .lib-css(border, 2px solid @theme__color__primary);
+            .lib-css(border-radius, 8px);
+        }
+    }
+}

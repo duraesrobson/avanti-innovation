@@ -43,7 +43,7 @@ class Estimate extends Action
             $params = $this->getRequest()->getParams();
             $productId = (int)($params['product_id'] ?? 0);
             $postcode = (string)($params['postcode'] ?? '');
-
+            
             if (!$productId || !$postcode) {
                 return $result->setData([
                     'success' => false,
@@ -77,8 +77,9 @@ class Estimate extends Action
                 if ($rate->getErrorMessage()) continue;
 
                 $price = (float)$rate->getPrice();
-                // 1. Formata o preço: Se for 0, vira "GRÁTIS"
+                // se o preço for 0, vira "GRÁTIS"
                 $priceFormatted = ($price <= 0) ? 'GRÁTIS' : $this->priceHelper->currency($price, true, false);
+
                 $dataRates[] = [
 
                     'carrier' => $rate->getCarrier(),

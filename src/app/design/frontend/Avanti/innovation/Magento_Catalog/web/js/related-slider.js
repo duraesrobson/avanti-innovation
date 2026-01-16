@@ -21,7 +21,7 @@ define([
                         infinite: false,        // não faz loop infinito
                         slidesToShow: 5,        // quantos slides aparecem por vez
                         slidesToScroll:5,      // quantos slides avançam por vez
-                        dots: false,            // remove os indicadores (bolinhas)
+                        dots: true,            // remove os indicadores (bolinhas)
                         arrows: true            // mostra setas de navegação
                     });
                 }

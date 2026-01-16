@@ -70,13 +70,14 @@
                     .lib-css(font-size, 14px);
                 }
             }
+
             .product-info-stock-sku {
                 .lib-css(width, 100%);
                 .lib-css(display, flex);
                 .lib-css(flex-direction, column);
-                .lib-css(gap, 16px);
-                .lib-css(margin, 8px 0 16px);
-                .lib-css(padding-left, 0);
+                .lib-css(gap, 12px);
+                .lib-css(margin, 8px 0 12px);
+                .lib-css(padding, 0);
                 .lib-css(text-align, left);
 
                 .stock.available,
@@ -85,7 +86,6 @@
                     .lib-css(align-items, center);
                     .lib-css(font-size, 12px);
                     .lib-css(font-weight, 400);
-                    .lib-css(color, @theme__color__primary);
                     .lib-css(text-transform, initial);
 
                     &::before {
@@ -94,7 +94,22 @@
                         .lib-css(height, 6px);
                         .lib-css(border-radius, 50%);
                         .lib-css(margin-right, 3px);
+                    }
+                }
+
+                .stock.available {
+                    .lib-css(color, @theme__color__primary);
+
+                    &::before {
                         .lib-css(background, @theme__color__primary);
+                    }
+                }
+
+                .stock.stock.unavailable {
+                    .lib-css(color, #FF2121);
+
+                    &::before {
+                        .lib-css(background, #FF2121);
                     }
                 }
 
@@ -114,6 +129,30 @@
                 }
             }
 
+            // ação de aviso quando produto retornar ao estoque
+            .action.alert {
+                .lib-css(display, flex);
+                .lib-css(justify-content, center);
+                .lib-css(align-items, center);
+                .lib-css(background, @theme__color__primary);
+                .lib-css(color, #dddddd);
+                .lib-css(padding, 8px);
+                .lib-css(font-size, 14px);
+                .lib-css(gap, 6px);
+                .lib-css(margin-bottom, 10px);
+
+                &::before {
+                    .lib-css(content, """");
+                    .lib-css(display, block);
+                    .lib-css(width, 16px);
+                    .lib-css(height, 16px);
+                    .lib-css(background-repeat, no-repeat);
+                    .lib-css(background-size, contain);
+                    .lib-css(background-position, center);
+                    .lib-css(background-image, url("@{baseDir}images/alert-icon.svg"));
+                }
+            }
+
             .swatch-attribute.size {
                 .swatch-base-structure();
                 .mixin-swatch-size(35px, 14px, 10px);
@@ -125,66 +164,73 @@
             }
 
             .product-options-wrapper,
-            .product-options-bottom .field.qty .label {
+            .product-add-form .field.qty .label {
                 .lib-css(font-size, 14px);
                 .lib-css(color, #000000);
                 .lib-css(font-weight, 700);
             }
 
             .product-options-wrapper .swatch-attribute-label,
-            .product-options-bottom .field.qty .label {
+            .product-add-form .field.qty .label {
                 &::after {
                     .lib-css(content, ":");
                 }
             }
 
-            .product-options-bottom {
-                .field.qty {
-                    .control.qty-stepper {
-                        button {
-                            .lib-css(padding, 0);
-                            .lib-css(background, transparent);
-                            .lib-css(color, #827d7d);
-                            .lib-css(font-size, 16px);
-                        }
+            .product-add-form {
+                .lib-css(padding, 0);
+                .box-tocart {
+                    .field.qty {
+                        .control.qty-stepper {
+                            button {
+                                .lib-css(padding, 0);
+                                .lib-css(background, transparent);
+                                .lib-css(color, #827d7d);
+                                .lib-css(font-size, 16px);
+                            }
 
-                        .input-text.qty {
-                            .lib-css(width, 46px);
-                            .lib-css(height, 36px);
-                            .lib-css(background, #f5f1f1);
-                            .lib-css(border, 1px solid #d5d0d0);
-                            .lib-css(color, #827d7d);
-                            .lib-css(font-size, 16px);
-                            .lib-css(font-weight, 700);
+                            .input-text.qty {
+                                .lib-css(width, 46px);
+                                .lib-css(height, 36px);
+                                .lib-css(background, #f5f1f1);
+                                .lib-css(border, 1px solid #d5d0d0);
+                                .lib-css(color, #827d7d);
+                                .lib-css(font-size, 16px);
+                                .lib-css(font-weight, 700);
+                            }
                         }
                     }
-                }
-                .box-tocart .action.tocart {
-                    .lib-css(width, 100%);
-                    .lib-css(border-radius, 8px);
-                    .lib-css(margin, 0);
+                    .action.tocart {
+                        .lib-css(width, 100%);
+                        .lib-css(border-radius, 8px);
+                        .lib-css(margin, 0);
+                    }
                 }
             }
-
             .product-social-links {
                 .lib-css(margin-top, -30px);
-                .action.towishlist {
+                .product-addto-links {
                     .lib-css(display, flex);
-                    .lib-css(flex-direction, row);
-                    &::before {
-                        .lib-css(content, """");
-                        .lib-css(display, block);
-                        .lib-css(width, 18px);
-                        .lib-css(background-repeat, no-repeat);
-                        .lib-css(background-size, contain);
-                        .lib-css(background-position, center);
-                        .lib-css(background-image, url("@{baseDir}images/wishlist-icon.svg"));
-                    }
-                    span {
-                        .lib-css(text-transform, none);
-                        .lib-css(color, @theme__color__primary);
-                        .lib-css(font-size, 14px);
-                        .lib-css(font-weight, 700);
+                    .lib-css(width, 100%);
+                    .lib-css(margin-top, 10px);
+                    .action.towishlist {
+                        .lib-css(display, flex);
+                        .lib-css(flex-direction, row);
+                        &::before {
+                            .lib-css(content, """");
+                            .lib-css(display, block);
+                            .lib-css(width, 18px);
+                            .lib-css(background-repeat, no-repeat);
+                            .lib-css(background-size, contain);
+                            .lib-css(background-position, center);
+                            .lib-css(background-image, url("@{baseDir}images/wishlist-icon.svg"));
+                        }
+                        span {
+                            .lib-css(text-transform, none);
+                            .lib-css(color, @theme__color__primary);
+                            .lib-css(font-size, 14px);
+                            .lib-css(font-weight, 700);
+                        }
                     }
                 }
             }

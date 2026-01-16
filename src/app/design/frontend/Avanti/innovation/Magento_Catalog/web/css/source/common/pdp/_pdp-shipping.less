@@ -1,88 +1,100 @@
 //  Common (styles-m.css)
 //  _____________________________________________
 & when (@media-common = true) {
-    .shipping-estimator {
-        .lib-css(display, flex);
-        .lib-css(flex-direction, column);
-        .lib-css(gap, 10px);
-        .lib-css(margin-top, 20px);
-
-        strong {
-            .lib-css(font-size, 14px);
-            .lib-css(font-weight, 700);
-            .lib-css(color, #25282a);
-        }
-
-        .estimate-row {
+    .catalog-product-view {
+        .shipping-estimator {
             .lib-css(display, flex);
-            .lib-css(flex-direction, row);
-            .lib-css(align-items, center);
+            .lib-css(flex-direction, column);
             .lib-css(gap, 10px);
+            .lib-css(margin-top, 20px);
 
-            .field.cep {
-                input[type="text"]::placeholder {
-                    .lib-css(color, #707070);
-                    .lib-css(font-size, 12px);
-                }
-                .input-text.cep {
-                    .lib-css(border, 1px solid #dddddd);
-                    .lib-css(border-radius, 8px);
-                    .lib-css(width, 405px);
-                    .lib-css(height, 40px);
-                    .lib-css(padding, 13px);
-                }
+            strong {
+                .lib-css(font-size, 14px);
+                .lib-css(font-weight, 700);
+                .lib-css(color, #25282a);
             }
 
-            // botão para calcular frete
-            .action.primary.estimate {
-                .lib-css(background, transparent);
-                .lib-css(border, 1px solid @theme__color__primary);
-                .lib-css(border-radius, 8px);
-                .lib-css(padding, 10px 18px);
-                .lib-css(height, 40px);
+            .estimate-row {
+                .lib-css(display, flex);
+                .lib-css(flex-direction, row);
+                .lib-css(align-items, center);
+                .lib-css(gap, 10px);
 
-                span {
-                    .lib-css(color, @theme__color__primary);
-                    .lib-css(font-size, 14px);
-                    .lib-css(font-weight, 700);
-                }
-            }
-        }
-
-        // link helper do cep
-        .help-cep {
-            .lib-css(margin-top, -5px);
-
-            .help-cep-pointer {
-                span {
-                    .lib-css(font-size, 12px);
-                    .lib-css(font-weight, 600);
-                    .lib-css(text-decoration, underline);
-                    .lib-css(color, #25282a);
-                }
-            }
-        }
-
-        .field.qty {
-            .lib-visually-hidden();
-        }
-
-        .results {
-            width: 100%;
-            ul {
-                .lib-css(list-style-type, none);
-                .lib-css(padding-left, 0);
-                li {
-                    .lib-css(font-size, 14px);
-                    .lib-css(padding, 8px 2px);
-                    .lib-css(border-radius, 8px);
-                    display: flex;
-                    justify-content: space-between;
-
-                    &:nth-child(even) {
-                        background: #f5f5f5;
+                .field.cep {
+                    input[type="text"]::placeholder {
+                        .lib-css(color, #707070);
+                        .lib-css(font-size, 12px);
+                    }
+                    .input-text.cep {
+                        .lib-css(border, 1px solid #dddddd);
+                        .lib-css(border-radius, 8px);
+                        .lib-css(width, 405px);
+                        .lib-css(height, 40px);
+                        .lib-css(padding, 13px);
                     }
                 }
+
+                // botão para calcular frete
+                .action.primary.estimate {
+                    .lib-css(background, transparent);
+                    .lib-css(border, 1px solid @theme__color__primary);
+                    .lib-css(border-radius, 8px);
+                    .lib-css(padding, 10px 18px);
+                    .lib-css(height, 40px);
+
+                    span {
+                        .lib-css(color, @theme__color__primary);
+                        .lib-css(font-size, 14px);
+                        .lib-css(font-weight, 700);
+                    }
+                }
+            }
+
+            // link helper do cep
+            .help-cep {
+                .lib-css(margin-top, -5px);
+
+                .help-cep-pointer {
+                    span {
+                        .lib-css(font-size, 12px);
+                        .lib-css(font-weight, 600);
+                        .lib-css(text-decoration, underline);
+                        .lib-css(color, #25282a);
+                    }
+                }
+            }
+
+            .field.qty {
+                .lib-visually-hidden();
+            }
+
+            .results {
+                width: 100%;
+                ul {
+                    .lib-css(list-style-type, none);
+                    .lib-css(padding-left, 0);
+                    li {
+                        .lib-css(font-size, 14px);
+                        .lib-css(padding, 8px 4px);
+                        .lib-css(border-radius, 8px);
+                        display: flex;
+                        justify-content: space-between;
+
+                        &:nth-child(even) {
+                            background: #f5f5f5;
+                        }
+
+                        span {
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+        }
+
+        &:has(.stock.unavailable) {
+            .shipping-estimator {
+                .lib-visually-hidden();
             }
         }
     }
