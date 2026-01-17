@@ -62,11 +62,104 @@
         .lib-css(justify-content, center);
         .lib-css(align-items, center);
         .lib-css(margin, 0);
+        .lib-css(z-index, 999);
 
         .action.showcart {
             // ícone do carrinho
             &::after {
                 .lib-css(background-image, url("@{baseDir}images/minicart-mobile.svg"));
+            }
+        }
+    }
+
+    .block.block-minicart.ui-dialog-content.ui-widget-content {
+        .lib-css(width, 393px);
+        .lib-css(margin, 0 -11px 0 0);
+    }
+
+    // Alvo direto no botão de fechar dentro do wrapper
+    .minicart-wrapper,
+    .minicart-wrapper.active {
+        .block-minicart {
+            .lib-css(display, flex);
+            .lib-css(flex-direction, column);
+
+            .block-content {
+                .lib-css(display, flex);
+                .lib-css(flex-direction, column);
+
+                .items-total {
+                    .lib-visually-hidden();
+                }
+
+                .minicart-items-wrapper {
+                    .lib-css(order, 1);
+                    .lib-css(flex, 1);
+                }
+
+                .subtotal {
+                    .lib-css(order, 2);
+                    .lib-css(display, flex);
+                    .lib-css(justify-content, space-between);
+                }
+
+                .actions {
+                    .lib-css(order, 3);
+                    .lib-css(display, flex);
+                    .lib-css(justify-content, center);
+
+                    .primary {
+                        .lib-css(order, 1);
+                        .lib-css(margin-bottom, 15px);
+
+                        .action.checkout {
+                        }
+                    }
+
+                    .secondary {
+                        .lib-css(order, 2);
+                    }
+                }
+            }
+            .action.close {
+                .lib-css(display, flex);
+                .lib-css(align-items, center);
+                .lib-css(justify-content, center);
+                .lib-css(width, 100%);
+                .lib-css(height, 50px);
+                .lib-css(background-color, @theme__color__primary);
+                .lib-css(color, #ffffff);
+                .lib-css(border, none);
+                .lib-css(padding, 0);
+                .lib-css(margin, 0);
+                .lib-css(position, relative);
+                .lib-css(top, auto);
+                .lib-css(right, auto);
+                .lib-css(left, 0);
+
+                // Para colocar o texto "MEU CARRINHO"
+                &::before {
+                    .lib-css(content, "MEU CARRINHO");
+                    .lib-css(font-family, inherit);
+                    .lib-css(font-weight, 700);
+                    .lib-css(font-size, 16px);
+                    .lib-css(color, #ffffff);
+                    .lib-css(text-transform, uppercase);
+                }
+
+                // Para colocar o "X" no canto direito da barra azul
+                &::after {
+                    .lib-css(content, "✕");
+                    .lib-css(position, absolute);
+                    .lib-css(right, 15px);
+                    .lib-css(font-size, 20px);
+                    .lib-css(color, #ffffff);
+                }
+
+                // Esconde o texto "Close" padrão do Magento
+                span {
+                    .lib-css(display, none);
+                }
             }
         }
     }
