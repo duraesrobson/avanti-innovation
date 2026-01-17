@@ -3,30 +3,50 @@ define([
     'slick'
 ], function ($) {
     'use strict';
-
+    // garante que o código só execute após o DOM estar carregado
     $(document).ready(function () {
+
+        // seleciona o elemento que será transformado em slider
         var $slider = $('.products-related .product-items, .products-upsell .product-items');
 
-        if ($slider.length) {
-            $slider.slick({
-                infinite: false,
-                slidesToShow: 5,        // Padrão Desktop
-                slidesToScroll: 5,      // Padrão Desktop
-                dots: true,
-                arrows: true,
-                responsive: [
-                    {
-                        // Até 767px (Mobile)
-                        breakpoint: 768, 
-                        settings: {
-                            slidesToShow: 2,   // Mostra 2 slides
-                            slidesToScroll: 2, // Move de 2 em 2
-                            arrows: false,      // Geralmente em mobile usa-se apenas dots
-                            dots: true
-                        }
-                    }
-                ]
-            });
+        // função responsável por controlar quando o Slick é iniciado ou destruído
+        function handleSlider() {
+
+            // se a largura da tela for maior ou igual a 768px (desktop)
+            if ($(window).width() >= 768) {
+
+                // só inicializa o slick se ele ainda não tiver sido iniciado
+                if (!$slider.hasClass('slick-initialized')) {
+                    $slider.slick({
+                        infinite: false,        
+                        slidesToShow: 5,        
+                        slidesToScroll: 5,      
+                        dots: true,            
+                        arrows: true           
+                    });
+                }
+
+            } else {
+
+                // se for mobile e o Slick estiver ativo
+                if (!$slider.hasClass('slick-initialized')) {
+                    $slider.slick({
+                        infinite: false,
+                        slidesToShow: 2,       
+                        slidesToScroll: 2,
+                        variableWidth: true,   // permite variação de width
+                        dots: true,
+                        arrows: false,
+                        centerMode: false      // garante que comece alinhado à esquerda
+                    });
+                }
+            }
         }
+
+        // executa a verificação assim que a página carrega
+        handleSlider();
+
+        // reexecuta a verificação sempre que a tela for redimensionada
+        $(window).on('resize', handleSlider);
     });
 });

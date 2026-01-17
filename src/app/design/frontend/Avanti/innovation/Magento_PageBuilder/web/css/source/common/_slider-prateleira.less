@@ -97,13 +97,14 @@
         // swatches de tamanho (size)
         .swatch-attribute.size {
             .swatch-base-structure();
-            .mixin-swatch-size(35px, 14px, 10px);
+            .swatch-attribute-options.clearfix {
+                .lib-css(margin-top, 0);
+            }
         }
 
         // swatches de cor (color)
         .swatch-attribute.color {
             .swatch-base-structure();
-            .mixin-swatch-color(30px, 15px);
         }
 
         // botão principal de ação (comprar)
@@ -171,7 +172,7 @@
         // ajustes no preço do produto
         .product-item {
             .price-box {
-                .lib-css(margin, 12px 0 19px 0);
+                .lib-css(margin, 12px 0);
 
                 .old-price {
                     .price {
@@ -208,31 +209,13 @@
 
         // swatches de tamanho (size)
         .swatch-attribute.size {
+            .mixin-swatch-size(27px, 11px, 15px);
             .lib-css(margin-bottom, 15px);
-
-            .swatch-option.text {
-                .lib-css(width, 27px);
-                .lib-css(height, 27px);
-                .lib-css(min-width, 27px);
-                .lib-css(color, #707070);
-                .lib-css(border, 1px solid #707070);
-                .lib-css(font-size, 11px);
-                .lib-css(font-weight, 700);
-                .lib-css(margin-right, 12px);
-
-                &:last-child {
-                    .lib-css(margin-right, 0);
-                }
-            }
         }
 
         // swatches de cor (color)
         .swatch-attribute.color {
-            .swatch-option.color {
-                .lib-css(width, 20px);
-                .lib-css(height, 20px);
-                .lib-css(min-width, 20px);
-            }
+            .mixin-swatch-color(20px, 15px);
 
             .swatch-attribute-options.clearfix {
                 .lib-css(margin-left, 10px);
@@ -335,30 +318,12 @@
     // swatches de tamanho (size)
     .swatch-attribute.size {
         .lib-css(margin-bottom, 8px);
-
-        .swatch-option.text {
-            .lib-css(width, 19px);
-            .lib-css(height, 19px);
-            .lib-css(min-width, 19px);
-            .lib-css(color, #707070);
-            .lib-css(border-color, #707070);
-            .lib-css(font-size, 8px);
-            .lib-css(font-weight, 700);
-            .lib-css(margin-right, 7px);
-
-            &:last-child {
-                .lib-css(margin-right, 0);
-            }
-        }
+        .mixin-swatch-size(19px, 8px, 10px);
     }
 
     // swatches de cor (color)
     .swatch-attribute.color {
-        .swatch-option.color {
-            .lib-css(width, 14px);
-            .lib-css(height, 14px);
-            .lib-css(min-width, 14px);
-        }
+        .mixin-swatch-color(14px, 11px);
 
         .swatch-attribute-options.clearfix {
             .lib-css(margin-left, 10px);

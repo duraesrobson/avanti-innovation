@@ -1,10 +1,8 @@
 //  Common (styles-m.css)
 //  _____________________________________________
-& when (@media-common = true) {
+& when (@media-common =true) {
     .catalog-product-view {
         .block.related {
-            .lib-css(margin-top, 82px);
-
             .block-title.title {
                 .lib-css(margin, 0 0 -10px);
                 .lib-css(font-size, 20px);
@@ -15,16 +13,32 @@
                 }
             }
         }
+    }
+}
+
+// ------------------------------
+// desktop
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__m) {
+    .catalog-product-view {
+        .block.related {
+            .lib-css(margin-top, 82px);
+
+        }
         .products.wrapper.grid.slider-prateleira {
             .slick-slider {
                 .lib-css(padding, 0);
                 .lib-css(margin, 0);
             }
             .item.product.product-item {
-                max-width: 242px;
+                .lib-css(max-width, 242px);
                 .lib-css(width, 100%);
                 .lib-css(margin, 0);
-                box-sizing: border-box;     // Essencial para o padding não somar na largura
+                .lib-css(box-sizing, border-box); // para o padding não somar na largura
             }
 
             // // wishlist
@@ -43,6 +57,34 @@
                     .lib-css(height, 25px);
                     .lib-css(color, @theme__color__primary);
                 }
+            }
+        }
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .block.related {
+        .lib-css(margin-top, 50px);
+
+        .slider-prateleira {
+            .lib-css(display, block); // garante que o container apareça
+
+            .slick-track {
+                .lib-css(display, flex); // garante que os cards fiquem em linha
+            }
+
+            .slick-slide {
+                .lib-css(width, 169px); // largura de cada card
+            }
+
+            .slick-dots {
+                .lib-css(margin-top, 0);
             }
         }
     }

@@ -1,11 +1,11 @@
 // Mixin Base para estrutura comum (Reset e Flex)
 .swatch-base-structure() {
     .swatch-attribute-options {
-        display: flex;
-        align-items: center;
+        .lib-css(display, flex);
+        .lib-css(align-items, center);
         .clearfix {
-            display: none;
-        } // Remove floats do Magento
+            .lib-visually-hidden();
+        }
     }
 }
 
@@ -28,7 +28,7 @@
         .lib-css(background, #EDEDED);
 
         &:last-child {
-            margin-right: 0;
+            .lib-css(margin-right, 0);
         }
 
         &[aria-checked="true"],

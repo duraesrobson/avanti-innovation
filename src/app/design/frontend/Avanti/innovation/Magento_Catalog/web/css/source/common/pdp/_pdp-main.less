@@ -130,27 +130,30 @@
                 }
             }
 
-            // ação de aviso quando produto retornar ao estoque
-            .action.alert {
-                .lib-css(display, flex);
-                .lib-css(justify-content, center);
-                .lib-css(align-items, center);
-                .lib-css(background, @theme__color__primary);
-                .lib-css(color, #dddddd);
-                .lib-css(padding, 8px);
-                .lib-css(font-size, 14px);
-                .lib-css(gap, 6px);
-                .lib-css(margin-bottom, 10px);
+            .product.alert {
+                .lib-css(margin-bottom, 50px); // adiciona essa margem pro container de wishlist aparecer no main quando tem aviso
+                // ação de aviso quando produto retornar ao estoque
+                .action.alert {
+                    .lib-css(display, flex);
+                    .lib-css(justify-content, center);
+                    .lib-css(align-items, center);
+                    .lib-css(background, @theme__color__primary);
+                    .lib-css(color, #dddddd);
+                    .lib-css(padding, 8px);
+                    .lib-css(font-size, 14px);
+                    .lib-css(gap, 6px);
+                    .lib-css(margin-bottom, 10px);
 
-                &::before {
-                    .lib-css(content, """");
-                    .lib-css(display, block);
-                    .lib-css(width, 16px);
-                    .lib-css(height, 16px);
-                    .lib-css(background-repeat, no-repeat);
-                    .lib-css(background-size, contain);
-                    .lib-css(background-position, center);
-                    .lib-css(background-image, url("@{baseDir}images/alert-icon.svg"));
+                    &::before {
+                        .lib-css(content, """");
+                        .lib-css(display, block);
+                        .lib-css(width, 16px);
+                        .lib-css(height, 16px);
+                        .lib-css(background-repeat, no-repeat);
+                        .lib-css(background-size, contain);
+                        .lib-css(background-position, center);
+                        .lib-css(background-image, url("@{baseDir}images/alert-icon.svg"));
+                    }
                 }
             }
 
@@ -202,9 +205,9 @@
                         }
                     }
                     .action.tocart {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
+                        .lib-css(display, flex);
+                        .lib-css(align-items, center);
+                        .lib-css(justify-content, center);
                         .lib-css(width, 100%);
                         .lib-css(border-radius, 8px);
                         .lib-css(margin, 0);
@@ -216,7 +219,6 @@
                 .product-addto-links {
                     .lib-css(display, flex);
                     .lib-css(width, 100%);
-                    .lib-css(margin-top, 10px);
                     .action.towishlist {
                         .lib-css(display, flex);
                         .lib-css(flex-direction, row);
@@ -274,7 +276,7 @@
                 .mixin-swatch-size(27px, 11px, 15px);
 
                 .swatch-attribute-options.clearfix {
-                    margin: 24px 0;
+                    .lib-css(margin, 24px 0);
                 }
             }
 
@@ -283,23 +285,24 @@
                 .mixin-swatch-color(20px, 15px);
 
                 .swatch-attribute-options.clearfix {
-                    margin: 24px 0;
+                    .lib-css(margin, 24px 0);
                 }
             }
 
             .product-options-bottom {
                 .action.primary.tocart {
-                    height: 48px;
+                    .lib-css(height, 48px);
 
                     span {
-                        font-size: 16px;
-                        font-weight: 700;
+                        .lib-css(font-size, 16px);
+                        .lib-css(font-weight, 700);
                     }
                 }
             }
         }
 
         .product.media {
+            // adiciona borda e muda tamanho da foto mostrada no mobile
             .fotorama__wrap .fotorama__stage {
                 border: 1px solid #e2e2e2;
                 width: 357px !important;
@@ -307,7 +310,7 @@
             }
             .fotorama__nav--dots {
                 .fotorama__nav__frame {
-                    // Estilo do ponto desativado (opcional)
+                    // ponto desativado 
                     .fotorama__dot {
                         width: 8px;
                         height: 8px;
@@ -315,28 +318,13 @@
                         border: none;
                     }
 
-                    // Estilo do ponto ATIVO
+                    //  ponto ATIVO
                     &.fotorama__active {
                         .fotorama__dot {
-                            background-color: @theme__color__primary; // Sua cor azul
+                            background-color: @theme__color__primary; 
                         }
                     }
                 }
-
-                // .fotorama__nav__frame .fotorama__nav__frame--dot .fotorama__active {
-                //     .fotorama__dot {
-                //         background-color: @theme__color__primary;
-                //         border: none;
-                //     }
-                // }
-                // .fotorama__nav__frame--dot {
-                //     .fotorama__dot {
-                //         width: 8px;
-                //         height: 8px;
-                //         background-color: #c6c6c6;
-                //         border: none;
-                //     }
-                // }
             }
         }
     }
