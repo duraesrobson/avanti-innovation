@@ -8,12 +8,6 @@
             .lib-css(gap, 10px);
             .lib-css(margin-top, 20px);
 
-            strong {
-                .lib-css(font-size, 14px);
-                .lib-css(font-weight, 700);
-                .lib-css(color, #25282a);
-            }
-
             .estimate-row {
                 .lib-css(display, flex);
                 .lib-css(flex-direction, row);
@@ -69,23 +63,31 @@
             }
 
             .results {
-                width: 100%;
+                .lib-css(width, 100%);
                 ul {
+                    .lib-css(font-size, 14px);
+                    .lib-css(font-weight, 700);
+                    .lib-css(color, #25282a);
                     .lib-css(list-style-type, none);
                     .lib-css(padding-left, 0);
                     li {
                         .lib-css(font-size, 14px);
                         .lib-css(padding, 8px 4px);
                         .lib-css(border-radius, 8px);
-                        display: flex;
-                        justify-content: space-between;
+                        .lib-css(display, flex);
+                        .lib-css(justify-content, space-between);
+                        .lib-css(color, #25282a);
 
                         &:nth-child(even) {
-                            background: #f5f5f5;
+                            .lib-css(background, #f5f5f5);
                         }
 
                         span {
-                            font-weight: 700;
+                            .lib-css(font-weight, 700);
+                        }
+
+                        .frete-gratis {
+                            .lib-css(color, #06ba06);
                         }
                     }
                 }
@@ -116,38 +118,15 @@
                     }
                 }
             }
-            
+
             .field.qty {
                 .lib-visually-hidden();
             }
 
-            .results {
-                width: 100%;
-                ul {
-                    .lib-css(list-style-type, none);
-                    .lib-css(padding-left, 0);
-                    li {
-                        .lib-css(font-size, 14px);
-                        .lib-css(padding, 8px 4px);
-                        .lib-css(border-radius, 8px);
-                        display: flex;
-                        justify-content: space-between;
-
-                        &:nth-child(even) {
-                            background: #f5f5f5;
-                        }
-
-                        span {
-                            font-weight: 700;
-                        }
-                    }
+            &:has(.stock.unavailable) {
+                .shipping-estimator {
+                    .lib-visually-hidden();
                 }
-            }
-        }
-
-        &:has(.stock.unavailable) {
-            .shipping-estimator {
-                .lib-visually-hidden();
             }
         }
     }
