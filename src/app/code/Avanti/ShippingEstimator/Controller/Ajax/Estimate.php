@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Controller responsável por processar a requisição AJAX e retornar as taxas de frete estimadas para o produto.
+ */
 namespace Avanti\ShippingEstimator\Controller\Ajax;
 
 use Magento\Framework\App\Action\Action;

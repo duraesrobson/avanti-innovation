@@ -3,25 +3,25 @@
 //  _____________________________________________
 & when (@media-common =true) {
     .qty-stepper {
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        margin: 8px 0;
+        .lib-css(display, inline-flex);
+        .lib-css(align-items, center);
+        .lib-css(gap, 4px);
+        .lib-css(margin, 8px 0);
     }
 
     .qty-stepper .qty {
-        width: 70px;
-        text-align: center;
+        .lib-css(width, 70px);
+        .lib-css(text-align, center);
     }
 
     .qty-stepper .action {
-        width: 34px;
-        height: 34px;
-        padding: 0;
-        text-align: center;
+        .lib-css(width, 34px);
+        .lib-css(height, 34px);
+        .lib-css(padding, 0);
+        .lib-css(text-align, center);
     }
     .plp-configurable-message {
-        margin: 8px 0;
+        .lib-css(margin, 8px 0);
     }
 }
 
@@ -34,17 +34,17 @@
     and
     (@break =@screen__m) {
     .qty-stepper .qty {
-        width: 56px;
-        border: 1px solid #DDDDDD;
-        font-size: 16px;
-        border-radius: 2px;
+        .lib-css(width, 56px);
+        .lib-css(border, 1px solid #DDDDDD);
+        .lib-css(font-size, 16px);
+        .lib-css(border-radius, 2px);
     }
 
     .qty-stepper .action {
-        width: 9px;
-        height: 25px;
-        background: transparent;
-        color: #000000;
+        .lib-css(width, 9px);
+        .lib-css(height, 25px);
+        .lib-css(background, transparent);
+        .lib-css(color, #000000);
         .lib-css(font-size, 17px);
         .lib-css(font-weight, 700);
     }
@@ -59,18 +59,18 @@
     and
     (@break =@screen__m) {
         .qty-stepper .action {
-        width: 9px;
-        height: 25px;
-        background: transparent;
-        color: #000000;
+        .lib-css(width, 9px);
+        .lib-css(height, 25px);
+        .lib-css(background, transparent);
+        .lib-css(color, #000000);
         .lib-css(font-size, 17px);
         .lib-css(font-weight, 700);
     }
 
     .qty-stepper .qty {
-        width: 56px;
-        border: 1px solid #DDDDDD;
-        font-size: 16px;
-        border-radius: 2px;
+        .lib-css(width, 56px);
+        .lib-css(border, 1px solid #DDDDDD);
+        .lib-css(font-size, 16px);
+        .lib-css(border-radius, 2px);
     }
 }
