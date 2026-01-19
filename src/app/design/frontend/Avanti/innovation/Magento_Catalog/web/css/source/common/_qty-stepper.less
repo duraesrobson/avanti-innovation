@@ -1,0 +1,76 @@
+//
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common =true) {
+    .qty-stepper {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        margin: 8px 0;
+    }
+
+    .qty-stepper .qty {
+        width: 70px;
+        text-align: center;
+    }
+
+    .qty-stepper .action {
+        width: 34px;
+        height: 34px;
+        padding: 0;
+        text-align: center;
+    }
+    .plp-configurable-message {
+        margin: 8px 0;
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum ="max")
+    and
+    (@break =@screen__m) {
+    .qty-stepper .qty {
+        width: 56px;
+        border: 1px solid #DDDDDD;
+        font-size: 16px;
+        border-radius: 2px;
+    }
+
+    .qty-stepper .action {
+        width: 9px;
+        height: 25px;
+        background: transparent;
+        color: #000000;
+        .lib-css(font-size, 17px);
+        .lib-css(font-weight, 700);
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum ="min")
+    and
+    (@break =@screen__m) {
+        .qty-stepper .action {
+        width: 9px;
+        height: 25px;
+        background: transparent;
+        color: #000000;
+        .lib-css(font-size, 17px);
+        .lib-css(font-weight, 700);
+    }
+
+    .qty-stepper .qty {
+        width: 56px;
+        border: 1px solid #DDDDDD;
+        font-size: 16px;
+        border-radius: 2px;
+    }
+}

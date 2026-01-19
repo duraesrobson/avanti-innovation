@@ -73,10 +73,11 @@
     }
 
     .block.block-minicart.ui-dialog-content.ui-widget-content {
-        .lib-css(width, 100vw);
+        .lib-css(width, 395px);
         .lib-css(margin, 0 -10px 0 0);
         .lib-css(border, none);
         .lib-css(margin-top, 10px);
+        .lib-css(padding, 25px 0);
     }
 
     // Alvo direto no botão de fechar dentro do wrapper
@@ -105,12 +106,11 @@
                     .lib-css(display, flex);
                     .lib-css(align-items, center);
                     .lib-css(justify-content, center);
-                    .lib-css(width, 100vw);
+                    .lib-css(width, auto);
                     .lib-css(height, 50px);
                     .lib-css(background-color, @theme__color__primary);
                     .lib-css(color, #ffffff);
                     .lib-css(position, relative);
-                    .lib-css(left, -20px);
 
                     // Para colocar o texto "MEU CARRINHO"
                     &::before {
@@ -145,6 +145,7 @@
                     .lib-css(order, 1);
                     .lib-css(flex, 1);
                     .lib-css(border, none);
+                    .lib-css(margin, 0);
 
                     .minicart-items {
                         .action.delete::before {
@@ -199,11 +200,20 @@
                             .lib-css(gap, 8px);
                             .lib-css(position, relative);
 
+                            .label {
+                                .lib-css(font-size, 14px);
+                                .lib-css(color, #000000);
+                            }
+
+                            // botão de atualizar quantidade
                             .update-cart-item {
                                 .lib-css(background, @theme__color__primary);
                                 .lib-css(color, #ffffff);
                                 .lib-css(font-size, 14px);
                                 .lib-css(font-weight, 700);
+                                .lib-css(width, 126px);
+                                .lib-css(height, 37px);
+                                .lib-css(border-radius, 2px);
                             }
                         }
 
@@ -224,7 +234,7 @@
                     .lib-css(align-items, center);
                     .lib-css(box-shadow, 0 -5px 10px rgba(0, 0, 0, 0.05));
 
-                    .lib-css(margin, 0 -20px);
+                    .lib-css(margin, 0);
                     .lib-css(padding, 40px 20px 0);
 
                     .label::after {
@@ -245,7 +255,6 @@
 
                     .primary {
                         .lib-css(order, 1);
-                        .lib-css(width, 100%);
                         .lib-css(margin, 0);
 
                         .action.edit {
@@ -257,6 +266,7 @@
                             .lib-css(font-size, 16px);
                             .lib-css(font-weight, 700);
                             .lib-css(border-radius, 8px);
+                            .lib-css(width, 363px);
                         }
                     }
 
@@ -267,17 +277,21 @@
 
                         .action.delete {
                             .flex-center();
+                            .lib-css(width, 20px);
+                            .lib-css(height, 20px);
 
                             &::after {
-                                    .lib-css(content, """");
-                                    .lib-css(display, block);
-                                    .lib-css(width, 16px);
-                                    .lib-css(height, 16px);
-                                    .lib-css(background-repeat, no-repeat);
-                                    .lib-css(background-size, contain);
-                                    .lib-css(background-position, center);
-                                    .lib-css(background-image, url("@{baseDir}images/delete-icon.svg"));
-                                }
+                                .lib-css(content, """");
+                                .lib-css(display, block);
+                                .lib-css(width, 16px);
+                                .lib-css(height, 16px);
+                                .lib-css(background-repeat, no-repeat);
+                                .lib-css(background-size, contain);
+                                .lib-css(background-position, center);
+                                .lib-css(background-image, url("@{baseDir}images/delete-icon.svg"));
+                                .lib-css(position, absolute);
+                                .lib-css(top, 20px);
+                            }
                         }
                     }
                 }
@@ -298,6 +312,234 @@
         // Ícone do carrinho
         &::after {
             .lib-css(background-image, url("@{baseDir}images/minicart-desktop.svg"));
+        }
+    }
+
+    .block.block-minicart.ui-dialog-content.ui-widget-content {
+        .lib-css(width, 395px);
+        .lib-css(margin, 0 -10px 0 0);
+        .lib-css(border, none);
+        .lib-css(margin-top, 10px);
+        .lib-css(padding, 25px 0);
+    }
+
+    // Alvo direto no botão de fechar dentro do wrapper
+    .minicart-wrapper,
+    .minicart-wrapper.active {
+        .block-minicart {
+            .lib-css(display, flex);
+            .lib-css(flex-direction, column);
+
+            &::after {
+                .lib-css(right, 23px);
+                .lib-css(top, -6px);
+            }
+
+            &::before {
+                .lib-css(right, 24px);
+                .lib-css(top, -4px);
+            }
+
+            .block-content {
+                .lib-css(display, flex);
+                .lib-css(flex-direction, column);
+
+                // parte do botão com titulo e X para fechar o dialog
+                .action.close {
+                    .lib-css(display, flex);
+                    .lib-css(align-items, center);
+                    .lib-css(justify-content, center);
+                    .lib-css(width, auto);
+                    .lib-css(height, 50px);
+                    .lib-css(background-color, @theme__color__primary);
+                    .lib-css(color, #ffffff);
+                    .lib-css(position, relative);
+                    // .lib-css(left, -20px);
+
+                    // Para colocar o texto "MEU CARRINHO"
+                    &::before {
+                        .lib-css(content, "MEU CARRINHO");
+                        font-family: inherit;
+                        .lib-css(font-weight, 700);
+                        .lib-css(font-size, 16px);
+                        .lib-css(color, #ffffff);
+                        .lib-css(text-transform, uppercase);
+                    }
+
+                    // Para colocar o "X" no canto direito da barra azul
+                    &::after {
+                        .lib-css(content, "✕");
+                        .lib-css(position, absolute);
+                        .lib-css(right, 23px);
+                        .lib-css(font-size, 20px);
+                        .lib-css(color, #ffffff);
+                    }
+
+                    // Esconde o texto "Close" padrão do Magento
+                    span {
+                        .lib-css(display, none);
+                    }
+                }
+
+                .items-total {
+                    .lib-visually-hidden();
+                }
+
+                .minicart-items-wrapper {
+                    .lib-css(order, 1);
+                    .lib-css(flex, 1);
+                    .lib-css(border, none);
+                    .lib-css(margin, 0);
+
+                    .minicart-items {
+                        .action.delete::before {
+                            .lib-css(content, """");
+                        }
+                        .product-item-name {
+                            a {
+                                .lib-css(color, #000000);
+                                .lib-css(font-size, 14px);
+                            }
+                        }
+
+                        // container da imagem do produto no minicart
+                        .product-image-container {
+                            .lib-css(width, 90px) !important;
+                        }
+
+                        // detalhes do produto
+                        .product.options {
+                            .toggle {
+                                .lib-css(display, flex);
+                                .lib-css(align-items, center);
+                                .lib-css(font-size, 13px);
+
+                                &::after {
+                                    .lib-css(content, """");
+                                    .lib-css(display, block);
+                                    .lib-css(width, 12px);
+                                    .lib-css(height, 7px);
+                                    .lib-css(background-repeat, no-repeat);
+                                    .lib-css(background-size, contain);
+                                    .lib-css(background-position, center);
+                                    .lib-css(background-image, url("@{baseDir}images/arrow-options.svg"));
+                                    .lib-css(transition, transform 0.2s ease);
+                                }
+                            }
+
+                            // ESTADO ABERTO (Quando a div pai tem a classe .active)
+                            &.active {
+                                .toggle {
+                                    &::after {
+                                        // Rotaciona a seta em 180 graus
+                                        .lib-css(transform, rotate(180deg));
+                                    }
+                                }
+                            }
+                        }
+
+                        .product-item-details .details-qty {
+                            .lib-css(display, flex);
+                            .lib-css(align-items, center);
+                            .lib-css(gap, 8px);
+                            .lib-css(position, relative);
+
+                            .label {
+                                .lib-css(font-size, 14px);
+                                .lib-css(color, #000000);
+                            }
+
+                            // botão de atualizar quantidade
+                            .update-cart-item {
+                                .lib-css(background, @theme__color__primary);
+                                .lib-css(color, #ffffff);
+                                .lib-css(font-size, 14px);
+                                .lib-css(font-weight, 700);
+                                .lib-css(width, 126px);
+                                .lib-css(height, 37px);
+                                .lib-css(border-radius, 2px);
+                            }
+                        }
+
+                        .product-item-pricing {
+                            .price {
+                                .lib-css(color, #000000);
+                                .lib-css(font-size, 16px);
+                                .lib-css(font-weight, 900);
+                            }
+                        }
+                    }
+                }
+
+                .subtotal {
+                    .lib-css(order, 2);
+                    .lib-css(display, flex);
+                    .lib-css(justify-content, space-between);
+                    .lib-css(align-items, center);
+                    .lib-css(box-shadow, 0 -5px 10px rgba(0, 0, 0, 0.05));
+
+                    .lib-css(margin, 0);
+                    .lib-css(padding, 40px 20px 0);
+
+                    .label::after {
+                        .lib-css(content, """");
+                    }
+
+                    span {
+                        .lib-css(font-size, 14px);
+                        .lib-css(font-weight, 400);
+                        .lib-css(color, #000000);
+                    }
+                }
+
+                .actions {
+                    .lib-css(order, 3);
+                    .lib-css(display, flex);
+                    .lib-css(justify-content, center);
+
+                    .primary {
+                        .lib-css(order, 1);
+                        .lib-css(margin, 0);
+
+                        .action.edit {
+                            .lib-visually-hidden();
+                        }
+                        .action.primary.checkout {
+                            .flex-center();
+                            .lib-css(height, 48px);
+                            .lib-css(font-size, 16px);
+                            .lib-css(font-weight, 700);
+                            .lib-css(border-radius, 8px);
+                            .lib-css(width, 363px);
+                        }
+                    }
+
+                    .secondary {
+                        .lib-css(order, 2);
+                        .lib-css(font-size, 16px);
+                        .lib-css(font-weight, 700);
+
+                        .action.delete {
+                            .flex-center();
+                            .lib-css(width, 20px);
+                            .lib-css(height, 20px);
+
+                            &::after {
+                                .lib-css(content, """");
+                                .lib-css(display, block);
+                                .lib-css(width, 16px);
+                                .lib-css(height, 16px);
+                                .lib-css(background-repeat, no-repeat);
+                                .lib-css(background-size, contain);
+                                .lib-css(background-position, center);
+                                .lib-css(background-image, url("@{baseDir}images/delete-icon.svg"));
+                                .lib-css(position, absolute);
+                                .lib-css(top, 20px);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

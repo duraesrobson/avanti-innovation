@@ -80,7 +80,6 @@
 
             <div class="product-item-pricing">
                 <!-- ko if: canApplyMsrp -->
-
                 <div class="details-map">
                     <span class="label" data-bind="i18n: 'Price'"></span>
                     <span
@@ -89,94 +88,105 @@
                     ></span>
                 </div>
                 <!-- /ko -->
+
                 <!-- ko ifnot: canApplyMsrp -->
                 <!-- ko foreach: $parent.getRegion('priceSidebar') -->
                 <!-- ko template: {name: getTemplate(), data: item.product_price, as: 'price'} --><!-- /ko -->
                 <!-- /ko -->
                 <!-- /ko -->
 
+                <!-- wrapper de qty stepper do minicart -->
                 <div class="details-qty qty">
                     <label
                         class="label"
-                        data-bind="i18n: 'Qty', attr: {
-                           for: 'cart-item-'+item_id+'-qty'}"
+                        data-bind="i18n: 'Qty',
+               attr: { for: 'cart-item-'+item_id+'-qty' }"
                     ></label>
 
-                    <!-- botão de diminuir qty -->
-                    <button
-                        type="button"
-                        class="action-qty minus"
-                        data-bind="click: function() {
-        var currentQty = parseInt(ko.unwrap($data.qty));
-        if (currentQty > 1) { 
-            var newVal = currentQty - 1;
-            // Se for função, chama como função. Se não, atribui valor.
-            typeof $data.qty === 'function' ? $data.qty(newVal) : $data.qty = newVal;
-        }
-    }"
-                    >
-                        -
-                    </button>
+                    <div class="control qty-stepper">
+                        <button
+                            type="button"
+                            class="action qty-minus"
+                            data-bind="click: function(data, event) {
+                    var $ = require('jquery');
+                    var input = $(event.currentTarget).siblings('input');
+                    var currentVal = parseInt(input.val(), 10) || 1;
+                    if (currentVal > 1) {
+                        input.val(currentVal - 1).trigger('change');
+                        qty(currentVal - 1);
+                    }
+                }"
+                        >
+                            -
+                        </button>
 
-                    <input
-                        data-bind="attr: {
-                           id: 'cart-item-'+item_id+'-qty',
-                           'data-cart-item': item_id,
-                           'data-item-qty': qty,
-                           'data-cart-item-id': product_sku
-                           }, value: qty"
-                        type="number"
-                        min="0"
-                        size="4"
-                        class="item-qty cart-item-qty"
-                    />
+                        <input
+                            type="number"
+                            min="1"
+                            class="input-text qty"
+                            data-bind="
+                    value: qty,
+                    valueUpdate: 'afterkeydown',
+                    attr: {
+                        id: 'cart-item-'+item_id+'-qty',
+                        'data-cart-item': item_id,
+                        'data-cart-item-id': product_sku
+                    }
+                "
+                        />
 
-                    <!-- botão de adicionar qty -->
-                    <button
-                        type="button"
-                        class="action-qty plus"
-                        data-bind="click: function() {
-        var currentQty = parseInt(ko.unwrap($data.qty));
-        var newVal = currentQty + 1;
-        typeof $data.qty === 'function' ? $data.qty(newVal) : $data.qty = newVal;
-    }"
-                    >
-                        +
-                    </button>
+                        <button
+                            type="button"
+                            class="action qty-plus"
+                            data-bind="click: function(data, event) {
+                    var $ = require('jquery');
+                    var input = $(event.currentTarget).siblings('input');
+                    var currentVal = parseInt(input.val(), 10) || 0;
+                    input.val(currentVal + 1).trigger('change');
+                    qty(currentVal + 1);
+                }"
+                        >
+                            +
+                        </button>
 
-                    <button
-                        data-bind="attr: {
+                        <button
+                            data-bind="attr: {
                            id: 'update-cart-item-'+item_id,
                            'data-cart-item': item_id,
                            title: $t('Update')
                            }"
-                        class="update-cart-item"
-                    >
-                        <span data-bind="i18n: 'Update'"></span>
-                    </button>
-                    <div class="product actions">
-                        <!-- ko if: is_visible_in_site_visibility -->
-                        <div class="primary">
-                            <a
-                                data-bind="attr: {href: configure_url, title: $t('Edit item')}"
-                                class="action edit"
-                            >
-                                <span data-bind="i18n: 'Edit'"></span>
-                            </a>
-                        </div>
-                        <!-- /ko -->
-                        <div class="secondary">
-                            <a
-                                href="#"
-                                data-bind="attr: {'data-cart-item': item_id, title: $t('Remove item')}"
-                                class="action delete"
-                            >
-                                <span data-bind="i18n: 'Remove'"></span>
-                            </a>
+                            class="update-cart-item"
+                        >
+                            <span data-bind="i18n: 'Update'"></span>
+                        </button>
+
+                        <div class="product actions">
+                            <!-- ko if: is_visible_in_site_visibility -->
+                            <div class="primary">
+                                <a
+                                    class="action edit"
+                                    data-bind="attr: {href: configure_url, title: $t('Edit item')}"
+                                >
+                                    <span data-bind="i18n: 'Edit'"></span>
+                                </a>
+                            </div>
+                            <!-- /ko -->
+                            <div class="secondary">
+                                <a
+                                    href="#"
+                                    class="action delete"
+                                    data-bind="attr: {'data-cart-item': item_id, title: $t('Remove item')}"
+                                >
+                                    <span data-bind="i18n: 'Remove'"></span>
+                                </a>
+                            </div>
                         </div>
                     </div>
+                    <!-- control qty-stepper -->
                 </div>
+                <!-- details-qty -->
             </div>
+            <!-- product-item-pricing -->
         </div>
     </div>
     <div class="message notice" if="$data.message">
