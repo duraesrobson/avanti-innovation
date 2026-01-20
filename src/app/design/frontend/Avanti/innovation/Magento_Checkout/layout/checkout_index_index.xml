@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <body>
+        <!-- remove o container da newsletter criado no default -->
+        <referenceContainer name="footer.newsletter" remove="true"/>
+
+         <!-- wrapper do footer do checkout -->
+        <referenceContainer name="before.body.end">
+            <container name="checkout.footer.wrapper"
+                       htmlTag="div"
+                       htmlClass="checkout-footer-wrapper"
+                       before="-">
+
+                <!-- coluna esquerda: CMS Block -->
+                <block class="Magento\Cms\Block\Block"
+                       name="checkout.footer.text">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer_checkout</argument>
+                    </arguments>
+                </block>
+
+                <!-- coluna direita: logos de pagamento -->
+                <block class="Magento\Framework\View\Element\Template"
+                       name="checkout.footer.flags"
+                       template="Magento_Theme::html/flags-cards.phtml"/>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

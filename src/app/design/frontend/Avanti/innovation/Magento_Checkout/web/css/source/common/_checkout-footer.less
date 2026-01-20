@@ -1,0 +1,84 @@
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common =true) {
+    .checkout-footer-wrapper {
+        .lib-css(display, flex);
+        .lib-css(justify-content, center);
+        .lib-css(align-items, center);
+        .lib-css(background, #F5F5F5);
+    }
+
+    .footer-text-checkout {
+        h4 {
+            .lib-css(font-size, 14px);
+            .lib-css(margin-bottom, 13px);
+            .lib-css(color, #000);
+            .lib-css(margin-top, 0);
+        }
+
+        ul {
+            .lib-css(padding, 0);
+            .lib-css(list-style, none);
+            .lib-css(margin, 0);
+
+            li {
+                .lib-css(margin, 0);
+            }
+        }
+    }
+
+    // wrapper das bandeiras e cartões
+    .flags-cards-wrapper {
+        .lib-css(display, flex);
+        .lib-css(flex-direction, row);
+        .lib-css(flex-wrap, wrap);
+        .lib-css(align-items, center);
+        .lib-css(justify-content, center);
+    }
+}
+
+// ------------------------------
+// Desktop
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum ="min")
+    and
+    (@break =@screen__m) {
+    .checkout-footer-wrapper {
+        .lib-css(flex-direction, row);
+        .lib-css(padding, 60px 200px);
+        .lib-css(gap, 120px);
+    }
+
+    // wrapper das bandeiras e cartões
+    .flags-cards-wrapper {
+        .lib-css(padding-top, 0);
+        .lib-css(gap, 30px);
+    }
+}
+
+// ------------------------------
+// Mobile
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .checkout-footer-wrapper {
+        .lib-css(flex-direction, column);
+    }
+
+    .footer-text-checkout {
+        .lib-css(padding, 40px 40px 0);
+        .lib-css(text-align, center);
+    }
+
+    // wrapper das bandeiras/cartões mobile
+    .flags-cards-wrapper {
+        .lib-css(gap, 35px);
+        .lib-css(row-gap, 25px);
+        .lib-css(padding, 40px 46px);
+    }
+}
