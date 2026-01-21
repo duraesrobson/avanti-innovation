@@ -1,0 +1,151 @@
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common =true) {
+    .opc-wrapper {
+        .shipping-address-item,
+        .checkout-shipping-address a {
+            .lib-css(font-weight, 700);
+            .lib-css(color, #333333);
+        }
+
+        .checkout-shipping-address {
+            .step-title {
+                .lib-css(font-weight, 700);
+                .lib-css(color, #333333);
+                .lib-css(margin-bottom, 20px);
+                .lib-css(border, none);
+            }
+
+            .shipping-address-item.selected-item {
+                .lib-css(border, 1px solid #d9d9d9);
+                .lib-css(margin-bottom, 25px);
+            }
+            .new-address-popup {
+                .action.action-show-popup {
+                    .lib-css(background, @theme__color__primary);
+                    .lib-css(border-radius, 6px);
+                    .lib-css(font-size, 16px);
+                    .lib-css(font-weight, 700);
+                }
+            }
+        }
+        .checkout-shipping-method {
+            .step-title {
+                .lib-css(font-size, 20px);
+                .lib-css(font-weight, 700);
+                .lib-css(color, #333);
+                .lib-css(border, none);
+            }
+            .form.methods-shipping {
+                .lib-css(margin, 0);
+                .lib-css(padding, 0);
+                .lib-css(background, transparent);
+                .lib-css(border, none);
+                .lib-css(font-size, 15px);
+                .lib-css(color, #333333);
+                .lib-css(font-weight, 700);
+
+                .actions-toolbar {
+                    .lib-css(margin-top, 20px);
+
+                    .button.action.continue.primary {
+                        .lib-css(border-radius, 8px);
+                        .lib-css(font-weight, 700);
+                        .lib-css(padding, 14px 24px);
+                    }
+                }
+            }
+
+            table {
+                span {
+                    .lib-css(font-weight, 700);
+                }
+                tbody {
+                    .col-price {
+                        .lib-css(padding-right, 20px);
+                    }
+                    tr {
+                        .lib-css(border-bottom, 2px solid #000000);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ------------------------------
+// Desktop
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum ="min")
+    and
+    (@break =@screen__m) {
+    .opc-wrapper {
+        .shipping-address-item,
+        .checkout-shipping-address a {
+            .lib-css(font-size, 16px);
+        }
+
+        .checkout-shipping-address {
+            .step-title {
+                .lib-css(font-size, 24px);
+            }
+
+            .new-address-popup {
+                .action.action-show-popup {
+                    .lib-css(width, 198px);
+                }
+            }
+        }
+        .checkout-shipping-method {
+            .form.methods-shipping {
+                .actions-toolbar {
+                    .button.action.continue.primary {
+                        .lib-css(font-size, 24px);
+                        .lib-css(width, 283px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ------------------------------
+// Mobile
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .opc-wrapper {
+        .checkout-shipping-address,
+        .checkout-shipping-address a {
+            .lib-css(font-size, 14px);
+        }
+
+        .checkout-shipping-address {
+            .step-title {
+                .lib-css(font-size, 20px);
+            }
+
+            .shipping-address-item.selected-item {
+                .lib-css(font-size, 14px);
+            }
+        }
+        .checkout-shipping-method {
+            .step-title {
+                .lib-css(margin-bottom, 15px);
+            }
+            .form.methods-shipping {
+                .actions-toolbar {
+                    .button.action.continue.primary {
+                        .lib-css(font-size, 20px);
+                        .lib-css(text-transform, uppercase);
+                    }
+                }
+            }
+        }
+    }
+}
