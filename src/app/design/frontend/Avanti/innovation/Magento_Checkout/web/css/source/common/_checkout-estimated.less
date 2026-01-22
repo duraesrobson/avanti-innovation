@@ -1,0 +1,64 @@
+// Mobile
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .opc-estimated-wrapper {
+        .lib-css(border, none);
+        .lib-css(background, @theme__color__primary);
+        .lib-css(color, #EDEDED);
+        .lib-css(display, flex);
+        .lib-css(align-items, center);
+        .lib-css(margin, 50px -15px);
+
+        .estimated-block {
+            .lib-css(font-size, 16px);
+            .estimated-label {
+                .lib-css(font-weight, 700);
+            }
+            .estimated-price {
+                .lib-css(font-weight, 400);
+            }
+        }
+
+        .minicart-wrapper {
+            .lib-css(left, 110px);
+            .lib-css(transform, none);
+            .lib-css(gap, 6px);
+
+            &::before {
+                .lib-css(content, "Total de Itens");
+                .lib-css(color, #EDEDED);
+                .lib-css(font-size, 16px);
+            }
+            .action.showcart {
+                .lib-css(background-image, none);
+                .lib-css(width, 35px);
+                .lib-css(height, 35px);
+
+                &::after {
+                    .lib-css(background-image, none);
+                }
+
+                .counter.qty {
+                    .lib-css(background, #EDEDED);
+                    .lib-css(width, 35px);
+                    .lib-css(height, 35px);
+                    .lib-css(padding, 0);
+                    .lib-css(margin, 0);
+                    .lib-css(position, inherit);
+                    .lib-css(top, 0);
+                    .lib-css(right, 0);
+                    .lib-css(color, @theme__color__primary);
+                    .lib-css(font-size, 16px);
+
+                    .counter-number {
+                        .lib-css(text-shadow, none);
+                    }
+                }
+            }
+        }
+    }
+}
