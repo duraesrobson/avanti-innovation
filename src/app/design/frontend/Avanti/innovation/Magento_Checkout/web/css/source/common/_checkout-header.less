@@ -7,6 +7,11 @@
     and
     (@break = @screen__m) {
     .page-layout-checkout {
+
+        // remove os itens do header pro mobile 
+        .custom-checkout-header-steps.mobile {
+         .lib-visually-hidden();   
+        }
         
         .page-header {
             .lib-css(box-shadow, 0 4px 8px -4px rgba(0, 0, 0, 0.16));
@@ -113,7 +118,7 @@
     (@break = @screen__m) {
     .page-layout-checkout {
 
-        // remove os itens do header pro mobile 
+        // remove os itens do header pro desktop
         .custom-checkout-header-steps.desktop, .flag-compra-segura {
          .lib-visually-hidden();   
         }

@@ -1,18 +1,12 @@
-// Mobile
-// ------------------------------
-.media-width(@extremum, @break)
-    when
-    (@extremum = "max")
-    and
-    (@break = @screen__m) {
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common = true) {
     .page-layout-checkout {
         .cart-container {
             .cart-summary {
                 .lib-css(background, transparent);
-                .lib-css(padding, 30px);
                 .lib-css(border, 1px solid #c9c9c9);
                 .lib-css(border-radius, 10px);
-                .lib-css(margin, 25px 15px);
                 .lib-css(color, #787878);
                 .lib-css(font-size, 14px);
 
@@ -30,9 +24,7 @@
                         }
                     }
                     .content {
-                        // display: block;
-                        .lib-css(padding, 0);
-
+                        padding: 0;
                         form {
                             .field {
                                 label {
@@ -111,6 +103,46 @@
                         .lib-css(font-weight, 700);
                     }
                 }
+            }
+        }
+    }
+}
+
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum ="min")
+    and
+    (@break =@screen__m) {
+    .page-layout-checkout {
+        .cart-container {
+            .cart-summary {
+                .lib-css(padding, 20px);
+
+                .summary.title {
+                    .lib-css(font-size, 18px);
+                    .lib-css(font-weight, 700);
+                    .lib-css(color, #3B3B3B);
+                    .lib-css(margin-bottom, 15px);
+                }
+            }
+        }
+    }
+}
+
+// Mobile
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .page-layout-checkout {
+        .cart-container {
+            .cart-summary {
+                .lib-css(padding, 30px);
+                .lib-css(margin, 25px 15px);
             }
         }
     }
