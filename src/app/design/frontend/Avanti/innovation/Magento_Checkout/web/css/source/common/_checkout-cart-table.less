@@ -1,0 +1,162 @@
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum ="min")
+    and
+    (@break =@screen__m) {
+    
+}
+// Mobile
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .page-layout-checkout {
+        .cart.table-wrapper {
+            .lib-css(border, none);
+
+            table {
+                .col.item {
+                    .lib-css(padding, 15px 15px 0 110px);
+                    .lib-css(height, 89px);
+
+                    .product-item-photo {
+                        .lib-css(max-width, 89px);
+                    }
+
+                    .product-item-details {
+                        .product-item-name a {
+                            .lib-css(position, absolute);
+                            .lib-css(top, 50%);
+                            .lib-css(color, #000000);
+                            .lib-css(font-size, 14px);
+                        }
+
+                        .item-options {
+                            .lib-visually-hidden();
+                        }
+                    }
+                }
+
+                .item-info {
+                    .lib-css(color, #000000);
+                    .lib-css(font-size, 14px);
+
+                    .col.qty[data-th]::before,
+                    .col.price[data-th]::before,
+                    .col.subtotal[data-th]::before,
+                    .col.msrp[data-th]::before {
+                        .lib-css(font-weight, 400);
+                    }
+
+                    .col.price .price-excluding-tax .price,
+                    .col.subtotal .price-excluding-tax .price {
+                        .lib-css(font-size, 16px);
+                        .lib-css(font-weight, 900);
+                        .lib-css(color, #000000);
+                    }
+
+                    .col.price {
+                        .lib-css(padding-left, 40px);
+                    }
+
+                    .col.qty {
+                        .input-text {
+                            .lib-css(height, 30px);
+                            .lib-css(width, 56px);
+                            .lib-css(border, 1px solid #dddddd);
+                            .lib-css(border-radius, 2px);
+                            .lib-css(color, #303030);
+                        }
+                    }
+                }
+
+                .item-actions td {
+                    .lib-css(padding, 11px 50px 0 11px);
+                }
+
+                .item-actions {
+                    .actions-toolbar {
+                        .lib-css(display, flex);
+                        .lib-css(align-items, center);
+
+                        .action.action-towishlist {
+                            .lib-css(padding-left, 30px);
+
+                            &::before {
+                                .lib-css(color, @theme__color__primary);
+                            }
+                        }
+                        .action.action-edit::before {
+                            .lib-css(content, """");
+                            .lib-css(display, block);
+                            .lib-css(width, 14px);
+                            .lib-css(height, 14px);
+                            .lib-css(background-repeat, no-repeat);
+                            .lib-css(background-size, contain);
+                            .lib-css(background-position, center);
+                            .lib-css(background-image, url("@{baseDir}images/edit-icon.svg"));
+                        }
+
+                        .action.action-delete::before {
+                            .lib-css(content, """");
+                            .lib-css(display, block);
+                            .lib-css(width, 16px);
+                            .lib-css(height, 16px);
+                            .lib-css(background-repeat, no-repeat);
+                            .lib-css(background-size, contain);
+                            .lib-css(background-position, center);
+                            .lib-css(background-image, url("@{baseDir}images/delete-icon-black.svg"));
+                        }
+                    }
+                }
+            }
+        }
+
+        .cart.main.actions {
+            .lib-css(padding, 0 15px);
+            button {
+                .lib-css(width, 100%);
+                .lib-css(font-size, 16px);
+                .lib-css(font-weight, 700);
+                .lib-css(text-transform, uppercase);
+                .lib-css(background, @theme__color__primary);
+                .lib-css(color, #ffffff);
+                .lib-css(border-radius, 8px);
+                .lib-css(padding, 14px 24px);
+            }
+        }
+
+        .cart-discount {
+            .lib-css(border, none);
+            .lib-css(padding, 90px 15px);
+
+            .block.discount {
+                .title {
+                    strong {
+                        .lib-css(color, #353535);
+                        .lib-css(font-size, 14px);
+                        .lib-css(font-weight, 500);
+                    }
+                }
+
+                .content {
+                    .lib-css(display, block);
+
+                    input[type="text"] {
+                        .lib-css(border, 1px solid #A9A9A9);
+                    }
+
+                    button span {
+                        .lib-css(text-transform, uppercase);
+                        .lib-css(font-size, 13px);
+                        .lib-css(font-weight, 500);
+                    }
+                }
+            }
+        }
+    }
+}
