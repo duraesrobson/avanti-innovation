@@ -1,0 +1,117 @@
+// Mobile
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .page-layout-checkout {
+        .cart-container {
+            .cart-summary {
+                .lib-css(background, transparent);
+                .lib-css(padding, 30px);
+                .lib-css(border, 1px solid #c9c9c9);
+                .lib-css(border-radius, 10px);
+                .lib-css(margin, 25px 15px);
+                .lib-css(color, #787878);
+                .lib-css(font-size, 14px);
+
+                .block.shipping {
+                    .title {
+                        .lib-css(padding, 0);
+                        strong {
+                            .lib-css(font-size, 16px);
+                            .lib-css(color, #3b3b3b);
+                            .lib-css(font-weight, 400);
+                        }
+
+                        &::after {
+                            .lib-css(content, """");
+                        }
+                    }
+                    .content {
+                        // display: block;
+                        .lib-css(padding, 0);
+
+                        form {
+                            .field {
+                                label {
+                                    .lib-css(font-weight, 700);
+                                    .lib-css(color, #3b3b3b);
+                                }
+
+                                .control {
+                                    select,
+                                    .input-text {
+                                        .lib-css(border, 1px solid #9d9d9d);
+                                        .lib-css(color, #787878);
+                                    }
+
+                                    select {
+                                        .lib-css(background, transparent url("@{baseDir}images/arrow-down-cart.svg") no-repeat 98% 50%);
+                                    }
+
+                                    .input-text::placeholder {
+                                        .lib-css(color, #787878);
+                                    }
+                                }
+                            }
+
+                            .item-title {
+                                .lib-css(color, #3b3b3b);
+                            }
+
+                            .radio {
+                                .lib-css(margin-top, 3px);
+                                .lib-css(accent-color, #727272);
+                            }
+                        }
+                    }
+                }
+
+                .cart-totals {
+                    .lib-css(padding, 0);
+
+                    table {
+                        th {
+                            .lib-css(padding, 8px 0);
+                        }
+
+                        td {
+                            .lib-css(padding, 8px 0 8px 14px);
+                        }
+
+                        .grand.totals {
+                            .lib-css(font-size, 18px);
+                            .lib-css(color, #3d3d3d);
+
+                            strong {
+                                .lib-css(font-weight, 700);
+                            }
+                        }
+                    }
+                }
+
+                .checkout.methods.items.checkout-methods-items {
+                    .lib-css(padding, 0);
+
+                    // botão de ação checkout
+                    .action.primary.checkout {
+                        .lib-css(font-size, 16px);
+                        .lib-css(font-weight, 700);
+                        .lib-css(text-transform, uppercase);
+                        .lib-css(border-radius, 8px);
+                    }
+
+                    // link para vários endereços
+                    .action.multicheckout {
+                        .lib-css(color, #3b3b3b);
+                        .lib-css(font-size, 13px);
+                        .lib-css(text-decoration, underline);
+                        .lib-css(font-weight, 700);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -13,13 +13,13 @@ define([
             this.isShippingActive = ko.observable(false);
             this.isPaymentActive = ko.observable(false);
 
-            // CART (fora do checkout SPA)
+            // cart (fora do checkout SPA)
             if (window.location.pathname.indexOf('/checkout/cart') !== -1) {
                 this.isCartActive(true);
                 return this;
             }
 
-            // KO REATIVO (ESSE É O PULO DO GATO)
+            // ko reativo
             ko.computed(function () {
                 const index = stepNavigator.getActiveItemIndex();
 
