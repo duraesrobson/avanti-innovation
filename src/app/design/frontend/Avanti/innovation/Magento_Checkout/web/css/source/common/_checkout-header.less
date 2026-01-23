@@ -1,0 +1,218 @@
+// ------------------------------
+// Desktop
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__m) {
+    .page-layout-checkout {
+        
+        .page-header {
+            .lib-css(box-shadow, 0 4px 8px -4px rgba(0, 0, 0, 0.16));
+            .lib-css(margin-bottom, 120px);
+        }
+
+        .header.content {
+            .lib-css(display, flex);
+            .lib-css(flex-direction, row);
+
+            .logo {
+                .lib-css(flex, 0 0 auto);
+            }
+
+            .custom-checkout-header-steps {
+                .lib-css(flex, 1);
+                .lib-css(display, flex);
+                .lib-css(justify-content, center);
+            }
+
+            .checkout-steps-list {
+                .lib-css(display, flex);
+                .lib-css(gap, 40px);
+                .lib-css(list-style, none);
+                .lib-css(padding, 0);
+                .lib-css(margin, 0);
+
+                .step-item {
+                    .lib-css(position, relative);
+                    .lib-css(display, flex);
+                    .lib-css(flex-direction, column);
+                    .lib-css(align-items, center);
+                    .lib-css(margin, 0);
+                    .lib-css(font-size, 12px);
+                    .lib-css(font-weight, 700);
+                    .lib-css(color, #303030);
+                    .lib-css(gap, 8px);
+                    .lib-css(cursor, pointer);
+
+                    span {
+                        .flex-center();
+                        .lib-css(position, relative);
+                        .lib-css(width, 24px);
+                        .lib-css(height, 24px);
+                        .lib-css(color, #ffffff);
+                        .lib-css(background, #656565);
+                        .lib-css(border-radius, 50%);
+
+                        /* TRAVESSÃO */
+                        &::after {
+                            .lib-css(content, """");
+                            .lib-css(position, absolute);
+                            .lib-css(right, -50px); // metade do padding
+                            .lib-css(width, 40px); // comprimento do traço
+                            .lib-css(height, 1px);
+                            .lib-css(background, #dddddd);
+                        }
+                    }
+
+                    /* remove o traço do último */
+                    &:last-child {
+                        span::after {
+                            .lib-css(display, none);
+                        }
+                    }
+
+                    &.active {
+                        .lib-css(color, @theme__color__primary);
+
+                        span {
+                            .lib-css(background, @theme__color__primary);
+
+                            &::after {
+                                .lib-css(background, @theme__color__primary);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .flag-compra-segura {
+                .lib-css(display, flex);
+                .lib-css(flex-direction, row);
+                .lib-css(align-items, center);
+                .lib-css(gap, 5px);
+                .lib-css(font-size, 14px);
+                .lib-css(font-weight, 700);
+                .lib-css(color, #000000);
+
+                p {
+                    .lib-css(margin, 0);
+                }
+            }
+        }
+    }
+}
+
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .page-layout-checkout {
+
+        // remove os itens do header pro mobile 
+        .custom-checkout-header-steps.desktop, .flag-compra-segura {
+         .lib-visually-hidden();   
+        }
+
+        .page-header {
+            .lib-css(box-shadow, 0 4px 8px -4px rgba(0, 0, 0, 0.16));
+            .lib-css(margin-bottom, 20px);
+            .lib-css(padding, 0);
+            .lib-css(display, flex);
+            .lib-css(height, 70px);
+        }
+
+        .header.content {
+            .lib-css(padding, 0);
+            .lib-css(width, 100%);
+
+            .action.nav-toggle {
+                .lib-visually-hidden();
+            }
+        }
+
+        .custom-checkout-header-steps {
+            .lib-css(flex, 1);
+            .lib-css(display, flex);
+            .lib-css(justify-content, center);
+        }
+
+        .checkout-steps-list {
+            .lib-css(display, flex);
+            .lib-css(gap, 40px);
+            .lib-css(list-style, none);
+            .lib-css(padding, 0);
+            .lib-css(margin, 0);
+
+            .step-item {
+                .lib-css(position, relative);
+                .lib-css(display, flex);
+                .lib-css(flex-direction, column);
+                .lib-css(align-items, center);
+                .lib-css(margin, 0);
+                .lib-css(font-size, 12px);
+                .lib-css(font-weight, 700);
+                .lib-css(color, #303030);
+                .lib-css(gap, 8px);
+                .lib-css(cursor, pointer);
+
+                span {
+                    .flex-center();
+                    .lib-css(position, relative);
+                    .lib-css(width, 24px);
+                    .lib-css(height, 24px);
+                    .lib-css(color, #ffffff);
+                    .lib-css(background, #656565);
+                    .lib-css(border-radius, 50%);
+
+                    /* TRAVESSÃO */
+                    &::after {
+                        .lib-css(content, """");
+                        .lib-css(position, absolute);
+                        .lib-css(right, -50px); // metade do padding
+                        .lib-css(width, 40px); // comprimento do traço
+                        .lib-css(height, 1px);
+                        .lib-css(background, #dddddd);
+                    }
+                }
+
+                /* remove o traço do último */
+                &:last-child {
+                    span::after {
+                        .lib-css(display, none);
+                    }
+                }
+
+                &.active {
+                    .lib-css(color, @theme__color__primary);
+
+                    span {
+                        .lib-css(background, @theme__color__primary);
+
+                        &::after {
+                            .lib-css(background, @theme__color__primary);
+                        }
+                    }
+                }
+            }
+        }
+
+        .flag-compra-segura {
+            .lib-css(display, flex);
+            .lib-css(flex-direction, row);
+            .lib-css(align-items, center);
+            .lib-css(gap, 5px);
+            .lib-css(font-size, 14px);
+            .lib-css(font-weight, 700);
+            .lib-css(color, #000000);
+
+            p {
+                .lib-css(margin, 0);
+            }
+        }
+    }
+}

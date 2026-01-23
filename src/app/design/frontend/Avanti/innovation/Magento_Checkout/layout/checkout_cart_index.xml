@@ -1,10 +1,9 @@
 <?xml version="1.0"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="checkout" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
 
         <referenceContainer name="checkout.header.wrapper">
-            <!-- cria o bloco custom de etapas no header para o desktop -->
+            <!-- cria o bloco custom de etapas no header -->
             <block class="Magento\Framework\View\Element\Template" name="checkout.steps.desktop" template="Magento_Checkout::custom_steps.phtml">
                 <arguments>
                     <argument name="css_class" xsi:type="string">desktop</argument>
@@ -23,7 +22,7 @@
 
         <referenceContainer name="content">
             <!-- cria o bloco custom de etapas no corpo, para mobile -->
-            <block class="Magento\Framework\View\Element\Template" name="checkout.steps.mobile" template="Magento_Checkout::custom_steps.phtml" before="checkout.root">
+            <block class="Magento\Framework\View\Element\Template" name="checkout.steps.mobile" template="Magento_Checkout::custom_steps.phtml" before="checkout.cart">
                 <arguments>
                     <argument name="css_class" xsi:type="string">mobile</argument>
                 </arguments>
@@ -33,8 +32,8 @@
         <!-- remove o container da newsletter criado no default -->
         <referenceContainer name="footer.newsletter" remove="true"/>
 
+        <!-- wrapper do footer do checkout -->
         <referenceContainer name="before.body.end">
-            <!-- wrapper do footer do checkout -->
             <container name="checkout.footer.wrapper" htmlTag="div" htmlClass="checkout-footer-wrapper" before="-">
 
                 <!-- coluna esquerda: CMS Block -->

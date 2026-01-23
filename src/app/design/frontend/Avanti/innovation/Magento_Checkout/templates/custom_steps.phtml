@@ -1,0 +1,41 @@
+<?php
+$cssClass = $block->getData('css_class') ?: '';
+?>
+
+<div class="custom-checkout-header-steps <?= $block->escapeHtmlAttr($cssClass) ?>"
+    data-bind="scope: 'customCheckoutSteps'"
+    data-step-page="checkout">
+
+    <ul class="checkout-steps-list">
+        <li class="step-item step-cart"
+            data-bind="css: { active: isCartActive }, click: goToCart">
+            <span>1</span> Carrinho
+        </li>
+
+        <li class="step-item step-shipping"
+            data-bind="css: { active: isShippingActive }, click: goToShipping">
+            <span>2</span> Entrega
+        </li>
+
+        <li class="step-item step-payment"
+            data-bind="css: { active: isPaymentActive }, click: goToPayment">
+            <span>3</span> Pagamento
+        </li>
+    </ul>
+
+</div>
+
+
+<script type="text/x-magento-init">
+    {
+    ".custom-checkout-header-steps": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "customCheckoutSteps": {
+                    "component": "customCheckoutSteps"
+                }
+            }
+        }
+    }
+}
+</script>
