@@ -140,8 +140,19 @@
     (@break = @screen__m) {
     .page-layout-checkout {
         .cart-container {
+            .lib-css(position, relative);
+            .lib-css(margin-top, 70px);
+            &::before {
+                .lib-css(position, absolute);
+                .lib-css(top, -40px);
+                .lib-css(left, 35px);
+                .lib-css(content, "Carrinho de Compras");
+                .lib-css(font-size, 20px);
+                .lib-css(font-weight, 700);
+                .lib-css(color, #000000);
+            }
             .cart-summary {
-                .lib-css(padding, 30px);
+                .lib-css(padding, 27px 40px);
                 .lib-css(margin, 25px 15px);
             }
         }

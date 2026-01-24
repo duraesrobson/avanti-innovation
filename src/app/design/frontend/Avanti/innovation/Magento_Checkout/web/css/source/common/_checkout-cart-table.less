@@ -5,7 +5,195 @@
     (@extremum ="min")
     and
     (@break =@screen__m) {
-    
+    .page-layout-checkout {
+        .form.form-cart::before {
+            .lib-css(content, "Carrinho de Compras");
+            .lib-css(font-size, 24px);
+            .lib-css(font-weight, 700);
+            .lib-css(color, #000000);
+        }
+
+        .cart.table-wrapper {
+            .lib-css(border, none);
+            .lib-css(margin-top, 60px);
+
+            table {
+                thead {
+                    tr {
+                        th.col {
+                            .lib-css(color, #000000);
+                            .lib-css(background, #f5f5f5);
+                            .lib-css(border-top-left-radius, 8px);
+                            .lib-css(border-top-right-radius, 8px);
+                            .lib-css(padding-top, 10px);
+                            .lib-css(padding-bottom, 10px);
+                        }
+
+                        th.col.item {
+                            .lib-css(padding-left, 40px);
+                        }
+
+                        th.col.price,
+                        th.col.qty {
+                            .lib-css(padding-right, 25px);
+                        }
+                    }
+                }
+
+                .item-info {
+                    .lib-css(color, #000000);
+                    .lib-css(font-size, 14px);
+
+                    .col.qty[data-th]::before,
+                    .col.price[data-th]::before,
+                    .col.subtotal[data-th]::before,
+                    .col.msrp[data-th]::before {
+                        .lib-css(font-weight, 400);
+                    }
+
+                    .col.price .price-excluding-tax .price,
+                    .col.subtotal .price-excluding-tax .price {
+                        .lib-css(font-size, 16px);
+                        .lib-css(font-weight, 400);
+                        .lib-css(color, #565656);
+                    }
+
+                    .col.item {
+                        .lib-css(padding, 20px 0 0);
+
+                        .product-item-photo {
+                            .lib-css(max-width, 170px);
+                            .lib-css(padding-right, 15px);
+
+                            .product-image-container {
+                                .lib-css(width, 170px);
+                            }
+
+                            img {
+                                .lib-css(width, 100%);
+                                .lib-css(max-width, none);
+                            }
+                        }
+
+                        .product-item-details {
+                            .product-item-name a {
+                                .lib-css(color, #565656);
+                                .lib-css(font-size, 16px);
+                            }
+
+                            .item-options {
+                                .lib-css(color, #565656);
+                                .lib-css(font-size, 13px);
+
+                                dt {
+                                    .lib-css(margin-right, 5px);
+                                }
+                            }
+                        }
+                    }
+
+                    .col.price {
+                        .lib-css(padding-left, 40px);
+                    }
+
+                    .col.qty {
+                        .input-text {
+                            .lib-css(height, 37px);
+                            .lib-css(width, 62px);
+                            .lib-css(border, 1px solid #B8B8B8);
+                            .lib-css(color, #565656);
+                            .lib-css(font-size, 16px);
+                        }
+                    }
+                }
+
+                .item-actions td {
+                    .lib-css(padding, 0);
+                }
+
+                .item-actions {
+                    .actions-toolbar {
+                        .lib-css(display, flex);
+                        .lib-css(align-items, center);
+
+                        .action.action-towishlist {
+                            span {
+                                .lib-css(color, #565656);
+                                .lib-css(font-size, 14px);
+                                .lib-css(font-weight, 500);
+                            }
+                        }
+                        .action.action-edit {
+                            .lib-css(margin-right, 12px);
+
+                            &::before {
+                                .lib-css(content, """");
+                                .lib-css(display, block);
+                                .lib-css(width, 18px);
+                                .lib-css(height, 18px);
+                                .lib-css(background-repeat, no-repeat);
+                                .lib-css(background-size, contain);
+                                .lib-css(background-position, center);
+                                .lib-css(background-image, url("@{baseDir}images/edit-icon-desktop.svg"));
+                            }
+                        }
+
+                        .action.action-delete::before {
+                            .lib-css(content, """");
+                            .lib-css(display, block);
+                            .lib-css(width, 16px);
+                            .lib-css(height, 16px);
+                            .lib-css(background-repeat, no-repeat);
+                            .lib-css(background-size, contain);
+                            .lib-css(background-position, center);
+                            .lib-css(background-image, url("@{baseDir}images/delete-icon-gray.svg"));
+                        }
+                    }
+                }
+            }
+        }
+
+        .cart.main.actions {
+            .lib-css(padding-top, 20px);
+            button {
+                .lib-css(font-size, 16px);
+                .lib-css(font-weight, 700);
+                .lib-css(text-transform, uppercase);
+                .lib-css(background, @theme__color__primary);
+                .lib-css(color, #ffffff);
+                .lib-css(border-radius, 8px);
+                .lib-css(padding, 14px 24px);
+            }
+        }
+
+        .cart-discount {
+            .lib-css(border, none);
+
+            .block.discount {
+                .lib-css(display, block);
+                .title {
+                    strong {
+                        .lib-css(color, #353535);
+                        .lib-css(font-size, 14px);
+                        .lib-css(font-weight, 500);
+                    }
+                }
+
+                .content {
+
+                    input[type="text"] {
+                        .lib-css(border, 1px solid #A9A9A9);
+                    }
+
+                    button span {
+                        .lib-css(text-transform, uppercase);
+                        .lib-css(font-size, 13px);
+                        .lib-css(font-weight, 500);
+                    }
+                }
+            }
+        }
+    }
 }
 // Mobile
 // ------------------------------
