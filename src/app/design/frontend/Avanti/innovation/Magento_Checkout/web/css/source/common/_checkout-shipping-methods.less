@@ -1,14 +1,18 @@
-//  Common (styles-m.css)
+//  Comum (styles-m.css)
 //  _____________________________________________
-& when (@media-common =true) {
+& when (@media-common = true) {
+    // wrapper para as seções de envio e checkout
     .opc-wrapper {
+        // estilos para itens de endereço de envio e links
         .shipping-address-item,
         .checkout-shipping-address a {
             .lib-css(font-weight, 700);
             .lib-css(color, #333333);
         }
 
+        // estilos para a seção de endereço de envio
         .checkout-shipping-address {
+            // estilos para o título da etapa
             .step-title {
                 .lib-css(font-weight, 700);
                 .lib-css(color, #333333);
@@ -16,10 +20,13 @@
                 .lib-css(border, none);
             }
 
+            // estilos para o item de endereço de envio selecionado
             .shipping-address-item.selected-item {
                 .lib-css(border, 1px solid #d9d9d9);
                 .lib-css(margin-bottom, 25px);
             }
+
+            // estilos para o botão do popup de novo endereço
             .new-address-popup {
                 .action.action-show-popup {
                     .lib-css(background, @theme__color__primary);
@@ -29,13 +36,18 @@
                 }
             }
         }
+
+        // estilos para a seção de método de envio
         .checkout-shipping-method {
+            // estilos para o título da etapa
             .step-title {
                 .lib-css(font-size, 20px);
                 .lib-css(font-weight, 700);
                 .lib-css(color, #333);
                 .lib-css(border, none);
             }
+
+            // estilos para o formulário de métodos de envio
             .form.methods-shipping {
                 .lib-css(margin, 0);
                 .lib-css(padding, 0);
@@ -45,9 +57,11 @@
                 .lib-css(color, #333333);
                 .lib-css(font-weight, 700);
 
+                // estilos para a barra de ferramentas de ações
                 .actions-toolbar {
                     .lib-css(margin-top, 20px);
 
+                    // estilos para o botão continuar
                     .button.action.continue.primary {
                         .lib-css(border-radius, 8px);
                         .lib-css(font-weight, 700);
@@ -56,14 +70,17 @@
                 }
             }
 
+            // estilos para a tabela de métodos de envio
             table {
                 span {
                     .lib-css(font-weight, 700);
                 }
                 tbody {
+                    // estilos para a coluna de preços
                     .col-price {
                         .lib-css(padding-right, 20px);
                     }
+                    // estilos para as linhas da tabela
                     tr {
                         .lib-css(border-bottom, 2px solid #000000);
                     }
@@ -78,35 +95,86 @@
 // ------------------------------
 .media-width(@extremum, @break)
     when
-    (@extremum ="min")
+    (@extremum = "min")
     and
-    (@break =@screen__m) {
+    (@break = @screen__m) {
+    // wrapper para as seções de envio e checkout
     .opc-wrapper {
         .lib-css(padding-right, 10px);
 
+        // estilos para itens de endereço de envio e links
         .shipping-address-item,
         .checkout-shipping-address a {
             .lib-css(font-size, 16px);
         }
 
+        // estilos para a seção de endereço de envio
         .checkout-shipping-address {
+            // estilos para o título da etapa
             .step-title {
                 .lib-css(font-size, 24px);
             }
 
+            // estilos para o botão do popup de novo endereço
             .new-address-popup {
                 .action.action-show-popup {
                     .lib-css(width, 198px);
                 }
             }
         }
+
+        // estilos para a seção de método de envio
         .checkout-shipping-method {
+            // estilos para o formulário de métodos de envio
             .form.methods-shipping {
+                // estilos para a barra de ferramentas de ações
                 .actions-toolbar {
+                    // estilos para o botão continuar
                     .button.action.continue.primary {
                         .lib-css(font-size, 24px);
                         .lib-css(width, 283px);
                     }
+                }
+            }
+        }
+    }
+
+    // estilos para o wrapper de modais
+    .modals-wrapper {
+        .modal-popup.new-shipping-address-modal.modal-slide._inner-scroll._show {
+            .modal-inner-wrap {
+                .lib-css(max-height, 80%);
+                .lib-css(max-width, 900px);
+
+                .modal-content {
+                    .form.form-shipping-address {
+                        .lib-css(max-width, 100%);
+
+                        .field.street.admin__control-fields.required {
+                            .field.additional {
+                                .lib-visually-hidden();
+                            }
+                        }
+                    }
+                }
+            }
+
+            .modal-footer {
+                .lib-css(margin-top, 0);
+                .lib-css(padding-top, 0);
+                .lib-css(text-align, center);
+                .lib-css(border, none);
+
+                // estilos para o botão salvar endereço
+                .action.primary.action-save-address {
+                    .lib-css(border-radius, 8px);
+                    .lib-css(font-size, 16px);
+                    .lib-css(padding, 12px);
+                }
+
+                // estilos para o botão de esconder popup
+                .action-hide-popup span {
+                    .lib-css(font-size, 14px);
                 }
             }
         }
@@ -121,30 +189,89 @@
     (@extremum = "max")
     and
     (@break = @screen__m) {
+    // wrapper para as seções de envio e checkout
     .opc-wrapper {
+        // estilos para itens de endereço de envio e links
         .checkout-shipping-address,
         .checkout-shipping-address a {
             .lib-css(font-size, 14px);
         }
 
+        // estilos para a seção de endereço de envio
         .checkout-shipping-address {
+            // estilos para o título da etapa
             .step-title {
                 .lib-css(font-size, 20px);
             }
 
+            // estilos para o item de endereço de envio selecionado
             .shipping-address-item.selected-item {
                 .lib-css(font-size, 14px);
             }
         }
+
+        // estilos para a seção de método de envio
         .checkout-shipping-method {
+            // estilos para o título da etapa
             .step-title {
                 .lib-css(margin-bottom, 15px);
             }
+
+            // estilos para o formulário de métodos de envio
             .form.methods-shipping {
+                // estilos para a barra de ferramentas de ações
                 .actions-toolbar {
+                    // estilos para o botão continuar
                     .button.action.continue.primary {
                         .lib-css(font-size, 20px);
                         .lib-css(text-transform, uppercase);
+                    }
+                }
+            }
+        }
+    }
+
+    // estilos para o wrapper de modais
+    .modals-wrapper {
+        .modal-popup.modal-slide {
+            .lib-css(left, 0);
+        }
+
+        .modal-popup.new-shipping-address-modal.modal-slide._inner-scroll._show {
+            .lib-css(z-index, 999 ) !important;
+            .lib-css(margin, 90px 30px 200px);
+
+            .modal-inner-wrap {
+                .lib-css(max-height, 80%);
+                .lib-css(max-width, 100%);
+
+                .modal-content {
+                    .form.form-shipping-address {
+                        .lib-css(max-width, 100%);
+
+                        .field.street.admin__control-fields.required {
+                            .field.additional {
+                                .lib-visually-hidden();
+                            }
+                        }
+                    }
+                }
+
+                .modal-footer {
+                    .lib-css(margin-top, 0);
+                    .lib-css(padding-top, 0);
+                    .lib-css(text-align, center);
+
+                    // estilos para o botão salvar endereço
+                    .action.primary.action-save-address {
+                        .lib-css(border-radius, 8px);
+                        .lib-css(font-size, 16px);
+                        .lib-css(padding, 12px);
+                    }
+
+                    // estilos para o botão de esconder popup
+                    .action-hide-popup span {
+                        .lib-css(font-size, 14px);
                     }
                 }
             }
