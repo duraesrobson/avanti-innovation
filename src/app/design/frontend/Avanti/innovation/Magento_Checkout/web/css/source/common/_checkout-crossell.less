@@ -1,0 +1,138 @@
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__m) {
+    .page-layout-checkout {
+        .page-main {
+            .lib-css(padding, 0);
+        }
+
+        .block.crosssell {
+            .lib-css(width, 100%);
+            .lib-css(padding, 0);
+
+            // titulo do bloco de slider
+            .title {
+                strong {
+                    .lib-css(font-size, 20px);
+                    .lib-css(font-weight, 700);
+                    .lib-css(color, #000000);
+                }
+            }
+
+            .block-content.content .slider-prateleira {
+                .lib-css(padding-right, 20px);
+                .lib-css(margin-top, 20px);
+
+                // arrow de slide anterior
+                .slick-prev.slick-arrow {
+                    .lib-css(left, -8px);
+                }
+                // arrow de próximo slide
+                .slick-next.slick-arrow {
+                    .lib-css(right, -8px);
+                }
+                // container visível do carrossel
+                .slick-list {
+                    .lib-css(margin, 0);
+
+                    // item individual do produto
+                    .product-item {
+                        .lib-css(margin, 0);
+                    }
+                }
+
+                // slide individual do slick
+                .slick-slide {
+                    .lib-css(padding, 0 9px);
+                    .lib-css(width, 242px);
+                }
+
+                // remove wishlist
+                .product-item-actions .actions-secondary {
+                    .lib-visually-hidden();
+                }
+
+                // ajustes no preço do produto
+                .product-item {
+                    .product-item-info {
+                        .lib-css(width, 100%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+//
+// Mobile
+// _____________________________________________
+
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .page-layout-checkout {
+        .block.crosssell {
+            // titulo do bloco de slider
+            .title {
+                strong {
+                    .lib-css(font-size, 20px);
+                    .lib-css(font-weight, 700);
+                    .lib-css(color, #000000);
+                }
+            }
+
+            .block-content.content .slider-prateleira {
+                .lib-css(overflow, hidden);
+                .product-items {
+                    .lib-css(display, block);
+                }
+
+                // container visível do carrossel
+                .slick-list {
+                    .lib-css(margin, 0);
+
+                    // item individual do produto
+                    .product-item {
+                        .lib-css(margin, 0);
+                    }
+
+                    .slick-track {
+                        .lib-css(display, flex);
+                        .lib-css(flex-direction, row);
+                        .lib-css(width, auto) !important;
+                    }
+                }
+
+                // remove wishlist
+                .product-item-actions .actions-secondary {
+                    .lib-visually-hidden();
+                }
+
+                .product-item {
+                    .product-item-info {
+                        .lib-css(width, 100%);
+                    }
+                }
+                .product-items {
+
+                    .slick-list {
+                        .lib-css(overflow, visible); // Permite que o Slick calcule a área de rolagem
+                    }
+
+                    .slick-slide {
+                        .lib-css(padding, 0 9px);
+                        .lib-css(width, 167px); // O seu tamanho desejado
+                    }
+                }
+            }
+        }
+    }
+}
