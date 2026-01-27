@@ -147,8 +147,11 @@
     .page-layout-checkout {
         // controla a seção do grupo de pagamento
         .payment-group {
-            .payment-method .payment-method-title.field.choice {
-                .lib-css(margin, 0);
+            .lib-css(margin-right, 100px);
+            .payment-method {
+                .payment-method-title.field.choice {
+                    .lib-css(margin, 0);
+                }
             }
             // controla o estilo do método de pagamento ativo
             .payment-method._active {
@@ -164,6 +167,12 @@
 
                 // controla a seção do endereço de cobrança
                 .checkout-billing-address {
+                    .lib-css(padding-left, 30px);
+                    .lib-css(margin-bottom, 20px);
+                }
+
+                // campo de número do pedido, quando necessário
+                .fieldset.payment.method {
                     .lib-css(padding-left, 30px);
                 }
             }
