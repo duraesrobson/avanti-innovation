@@ -1,0 +1,104 @@
+//
+//  Common (styles-m.css)
+//  _____________________________________________
+
+& when (@media-common = true) {
+    // barra de progresso do checkout
+    .opc-progress-bar {
+        // item da barra de progresso
+        .opc-progress-bar-item {
+            &::before {
+                .lib-css(background, #d9d9d9);
+                .lib-css(border-color, #d9d9d9);
+            }
+            span {
+                .lib-css(font-size, 16px);
+                .lib-css(color, #000000);
+                .lib-css(font-weight, 400);
+
+                &::before {
+                    .lib-css(width, 42px);
+                    .lib-css(height, 42px);
+                    .lib-css(background, #d9d9d9);
+                    .lib-css(border-color, #d9d9d9);
+                }
+
+                &::after {
+                    .lib-css(font-size, 18px);
+                    .lib-css(width, 30px);
+                    .lib-css(height, 30px);
+                    .lib-css(align-content, center);
+                    .lib-css(font-weight, 700);
+                    .lib-css(border-color, #ffffff);
+                }
+            }
+
+            // estado ativo do item
+            &._active {
+                &::before {
+                    .lib-css(background, @theme__color__primary);
+                    .lib-css(border-color, @theme__color__primary);
+                }
+                span {
+                    .lib-css(font-weight, 700);
+
+                    &::before {
+                        .lib-css(background, @theme__color__primary);
+                        .lib-css(border-color, @theme__color__primary);
+                    }
+                }
+            }
+        }
+    }
+}
+
+//
+// Desktop
+// _____________________________________________
+
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__m) {
+}
+
+//
+// Mobile
+// _____________________________________________
+
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    // barra de progresso do checkout
+    .opc-progress-bar {
+        .lib-css(display, flex ) !important;
+        .lib-css(justify-content, center) !important;
+        .lib-css(margin-top, 70px) !important;
+
+        // item da barra de progresso
+        .opc-progress-bar-item {
+            &::before {
+                .lib-css(width, 179px);
+            }
+            span {
+                .lib-css(position, inherit);
+                .lib-css(font-size, 14px);
+                .lib-css(left, 23px);
+            }
+
+            // estado ativo do item
+            &._active {
+                &::before {
+                    .lib-css(width, 179px);
+                    .lib-css(left, -56px);
+                }
+                span {
+                    .lib-css(left, -23px);
+                }
+            }
+        }
+    }
+}
