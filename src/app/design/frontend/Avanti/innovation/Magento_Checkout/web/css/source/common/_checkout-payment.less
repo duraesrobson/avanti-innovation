@@ -1,12 +1,8 @@
 //
-//  Desktop
+//  Common (styles-m.css)
 //  _____________________________________________
 
-.media-width(@extremum, @break)
-    when
-    (@extremum = "min")
-    and
-    (@break = @screen__m) {
+& when (@media-common = true) {
     // controla o layout da página de checkout
     .page-layout-checkout {
         // controla a seção do grupo de pagamento
@@ -138,6 +134,42 @@
         }
     }
 }
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__m) {
+    // controla o layout da página de checkout
+    .page-layout-checkout {
+        // controla a seção do grupo de pagamento
+        .payment-group {
+            .payment-method .payment-method-title.field.choice {
+                .lib-css(margin, 0);
+            }
+            // controla o estilo do método de pagamento ativo
+            .payment-method._active {
+                .payment-method-title {
+                    .lib-css(border-bottom, 0);
+                    .lib-css(padding, 35px 0);
+                }
+
+                .payment-method-content {
+                    .lib-css(border-bottom, 1px solid #000000);
+                    .lib-css(padding, 0 0 20px 0);
+                }
+
+                // controla a seção do endereço de cobrança
+                .checkout-billing-address {
+                    .lib-css(padding-left, 30px);
+                }
+            }
+        }
+    }
+}
 
 //
 // Mobile
@@ -148,134 +180,4 @@
     (@extremum = "max")
     and
     (@break = @screen__m) {
-    // controla o layout da página de checkout
-    .page-layout-checkout {
-        // controla a seção do grupo de pagamento
-        .payment-group {
-            .lib-css(color, #333333);
-
-            // controla o estilo do título da etapa
-            .step-title {
-                .lib-css(font-size, 24px);
-                .lib-css(font-weight, 700);
-            }
-
-            // controla o estilo do método de pagamento ativo
-            .payment-method._active {
-                .payment-method-title {
-                    .lib-css(border-bottom, 0);
-                    .lib-css(padding, 35px 0);
-                }
-            }
-
-            // controla a seção do método de pagamento
-            .payment-method {
-                .payment-method-title {
-                    .lib-css(display, flex);
-                    .lib-css(border-bottom, 1px solid #000000);
-                    .lib-css(border-top, none);
-                    .lib-css(padding, 20px 0);
-                    .lib-css(margin, 0 15px);
-
-                    input[type="radio"] {
-                        .lib-css(accent-color, #333333);
-                        .lib-css(margin, 0 10px 0 0);
-                        .lib-css(width, 12px);
-                    }
-
-                    label {
-                        .lib-css(font-size, 15px);
-                        .lib-css(font-weight, 700);
-                    }
-                }
-
-                // controla a seção do endereço de cobrança
-                .checkout-billing-address {
-                    .lib-css(font-size, 14px);
-                    .lib-css(margin-bottom, 53px);
-
-                    // controla a caixa de seleção para endereço de cobrança igual ao de envio
-                    .billing-address-same-as-shipping-block {
-                        .lib-css(display, flex);
-                        .lib-css(margin-bottom, 30px);
-
-                        input[type="checkbox"] {
-                            .lib-css(appearance, none);
-                            .lib-css(-webkit-appearance, none);
-                            .lib-css(width, 15px);
-                            .lib-css(height, 15px);
-                            .lib-css(cursor, pointer);
-                            .lib-css(position, relative);
-                            .lib-css(margin, 0 8px 0 0);
-
-                            &:checked {
-                                .lib-css(background-color, @theme__color__primary);
-                                .lib-css(border-color, @theme__color__primary);
-
-                                &::after {
-                                    .lib-css(content, """");
-                                    .lib-css(display, block);
-                                    .lib-css(width, 9px);
-                                    .lib-css(height, 9px);
-                                    .lib-css(background-repeat, no-repeat);
-                                    .lib-css(background-size, contain);
-                                    .lib-css(background-position, center);
-                                    .lib-css(position, absolute);
-                                    .lib-css(top, 25%);
-                                    .lib-css(left, 25%);
-                                    .lib-css(background-image, url("@{baseDir}images/white-check-icon.svg"));
-                                }
-                            }
-                        }
-                    }
-
-                    .billing-address-details {
-                        a {
-                            .lib-css(color, #333333);
-                        }
-                    }
-                }
-
-                // controla o botão de finalizar pedido
-                .action.primary.checkout {
-                    .lib-css(border-radius, 8px);
-                    .lib-css(padding, 14px 24px);
-                    .lib-css(text-transform, uppercase);
-                    .lib-css(font-size, 20px);
-                    .lib-css(font-weight, 700);
-                }
-            }
-        }
-
-        // controla a seção de opções de pagamento
-        .payment-option {
-            .payment-option-title.field.choice {
-                .lib-css(border, none);
-                .lib-css(margin-top, 44px);
-
-                .action-toggle {
-                    span {
-                        .lib-css(color, #838383);
-                        .lib-css(font-size, 11px);
-                        .lib-css(font-weight, 700);
-                    }
-
-                    &::after {
-                        .lib-css(font-size, 12px);
-                        .lib-css(font-weight, bolder);
-                    }
-                }
-            }
-
-            .payment-option-content {
-                input[type="text"] {
-                    .lib-css(border-color, #838383);
-                }
-
-                .action.action-apply {
-                    .lib-css(text-transform, uppercase);
-                }
-            }
-        }
-    }
 }
