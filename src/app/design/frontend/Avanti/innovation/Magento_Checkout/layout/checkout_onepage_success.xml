@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="checkout" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <!-- passa a utilizar o arquivo success override -->
+    <referenceBlock name="checkout.success">
+        <action method="setTemplate">
+            <argument name="template" xsi:type="string">
+                Magento_Checkout::success.phtml
+            </argument>
+        </action>
+    </referenceBlock>
+
+    <!-- remove o container da newsletter criado no default -->
+    <referenceContainer name="footer.newsletter" remove="true"/>
+
+    <referenceContainer name="before.body.end">
+        <!-- wrapper do footer do checkout -->
+        <container name="checkout.footer.wrapper" htmlTag="div" htmlClass="checkout-footer-wrapper" before="-">
+
+            <!-- coluna esquerda: CMS Block -->
+            <block class="Magento\Cms\Block\Block" name="checkout.footer.text">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_checkout</argument>
+                </arguments>
+            </block>
+
+            <!-- coluna direita: logos de pagamento -->
+            <block class="Magento\Framework\View\Element\Template" name="checkout.footer.flags" template="Magento_Theme::html/flags-cards.phtml"/>
+        </container>
+    </referenceContainer>
+</page>

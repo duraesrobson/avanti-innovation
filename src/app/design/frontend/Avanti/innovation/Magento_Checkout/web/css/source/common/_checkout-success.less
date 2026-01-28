@@ -1,0 +1,128 @@
+//
+//  Common (styles-m.css)
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .checkout-onepage-success {
+        // controla o wrapper da página de sucesso
+        .page-wrapper {
+            min-height: auto; // ajusta a altura para remover espaços em branco
+        }
+
+        // controla o conteúdo principal da página de sucesso
+        .checkout-success {
+            .flex-center();
+            flex-direction: column;
+            .lib-css(color, #303030);
+            .lib-css(font-size, 14px);
+            .lib-css(text-align, center);
+
+            // controla a mensagem superior da página de sucesso
+            .checkout-success-top-message {
+                h2 {
+                    .lib-css(font-weight, 700);
+                    .lib-css(color, @theme__color__primary);
+                }
+            }
+
+            // controla o estilo do número do pedido
+            .order,
+            .order .order-number strong {
+                .lib-css(font-weight, 700);
+            }
+
+            a {
+                .lib-css(color, #303030); // ajusta a cor dos links
+            }
+
+            // controla o botão de continuar
+            .action.primary.continue {
+                .lib-css(border-radius, 5px);
+                .lib-css(font-size, 14px);
+                .lib-css(color, #ffffff);
+                .lib-css(margin, 25px 0 0);
+                .lib-css(font-weight, 700);
+            }
+        }
+    }
+}
+
+//
+// Desktop
+// _____________________________________________
+
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__m) {
+    .checkout-onepage-success {
+        // controla o wrapper da página de sucesso
+        .page-wrapper {
+            // controla o cabeçalho da página
+            .header.content {
+                .logo {
+                    margin-right: 0; // ajusta o espaçamento do logo
+                }
+            }
+        }
+
+        // controla o conteúdo principal da página de sucesso
+        .checkout-success {
+            .lib-css(margin-bottom, 20px);
+
+            // controla a mensagem superior da página de sucesso
+            .checkout-success-top-message {
+                .actions-toolbar.print-actions {
+                    .lib-visually-hidden(); // oculta visualmente a barra de ações no desktop
+                }
+
+                h2 {
+                    .lib-css(font-size, 21px);
+                }
+            }
+
+            // controla o texto adicional
+            .additional-text {
+                .lib-css(font-size, 13px);
+            }
+        }
+    }
+}
+
+//
+// Mobile
+// _____________________________________________
+
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .checkout-onepage-success {
+        // controla o conteúdo principal da página de sucesso
+        .checkout-success {
+            .lib-css(margin, 30px 0 20px);
+
+            // controla a mensagem superior da página de sucesso
+            .checkout-success-top-message {
+                h2 {
+                    .lib-css(font-size, 24px);
+                }
+
+                // controla o link para imprimir o recibo
+                .actions-toolbar.print-actions {
+                    .primary {
+                        .action.print {
+                            .lib-css(display, block);
+                            .lib-css(font-size, 14px);
+                            .lib-css(font-weight, 700);
+                            .lib-css(text-decoration, underline);
+                            .lib-css(color, #000000);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
