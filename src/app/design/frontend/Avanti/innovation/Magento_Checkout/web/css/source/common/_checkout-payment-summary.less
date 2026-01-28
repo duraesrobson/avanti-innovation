@@ -1,0 +1,63 @@
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common = true) {
+    // controla o layout da página de checkout
+    .page-layout-checkout {
+        // controla o bloco de resumo do checkout
+        .opc-block-summary {
+            .lib-css(background, transparent);
+            .lib-css(border, 1px solid #c9c9c9);
+            .lib-css(border-radius, 10px);
+            .lib-css(color, #333333);
+
+            // controla a tabela de totais no resumo
+            .data.table.table-totals {
+                .lib-css(border-color, #656565);
+                .lib-css(margin-top, 10px);
+
+                tr {
+                    // controla a linha de subtotais
+                    &.totals.sub {
+                        .lib-css(border-top, 10px solid transparent);
+                    }
+
+                    // controla a linha de envio excluindo impostos
+                    &.totals.shipping.excl {
+                        .value {
+                            .lib-css(border-bottom, 10px solid transparent);
+                        }
+                    }
+
+                    th {
+                        .lib-css(font-size, 16px);
+                        .lib-css(font-weight, 700);
+
+                        .value {
+                            .lib-css(font-size, 12px);
+                            .lib-css(font-weight, 400);
+                        }
+                    }
+
+                    td {
+                        .lib-css(font-size, 15px);
+                    }
+
+                    // controla a linha de totais gerais
+                    &.grand.totals {
+                        th,
+                        td {
+                            .lib-css(border-color, #656565);
+                            .lib-css(font-size, 24px);
+                            .lib-css(font-weight, 700);
+                        }
+                    }
+                }
+            }
+
+            // controla o bloco de itens no carrinho
+            .block.items-in-cart {
+                .lib-css(color, @theme__color__primary);
+            }
+        }
+    }
+}

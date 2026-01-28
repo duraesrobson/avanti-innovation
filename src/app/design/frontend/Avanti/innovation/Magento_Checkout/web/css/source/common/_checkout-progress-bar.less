@@ -73,31 +73,16 @@
     and
     (@break = @screen__m) {
     // barra de progresso do checkout
-    .opc-progress-bar {
-        .lib-css(display, flex ) !important;
-        .lib-css(justify-content, center) !important;
-        .lib-css(margin-top, 70px) !important;
+    .page-layout-checkout .opc-progress-bar {
+        .lib-css(display, flex);
+        .lib-css(margin-top, 70px);
 
         // item da barra de progresso
         .opc-progress-bar-item {
-            &::before {
-                .lib-css(width, 179px);
-            }
-            span {
-                .lib-css(position, inherit);
-                .lib-css(font-size, 14px);
-                .lib-css(left, 23px);
-            }
+            .lib-css(flex, 1);
 
-            // estado ativo do item
-            &._active {
-                &::before {
-                    .lib-css(width, 179px);
-                    .lib-css(left, -56px);
-                }
-                span {
-                    .lib-css(left, -23px);
-                }
+            span {
+                .lib-css(font-size, 14px);
             }
         }
     }
