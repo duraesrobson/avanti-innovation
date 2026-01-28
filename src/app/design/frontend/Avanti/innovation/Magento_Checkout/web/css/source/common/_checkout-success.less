@@ -6,13 +6,13 @@
     .checkout-onepage-success {
         // controla o wrapper da página de sucesso
         .page-wrapper {
-            min-height: auto; // ajusta a altura para remover espaços em branco
+            .lib-css(min-height, auto); // ajusta a altura para remover espaços em branco
         }
 
         // controla o conteúdo principal da página de sucesso
         .checkout-success {
             .flex-center();
-            flex-direction: column;
+            .lib-css(flex-direction, column);
             .lib-css(color, #303030);
             .lib-css(font-size, 14px);
             .lib-css(text-align, center);
@@ -62,7 +62,7 @@
             // controla o cabeçalho da página
             .header.content {
                 .logo {
-                    margin-right: 0; // ajusta o espaçamento do logo
+                    .lib-css(margin-right, 0); // ajusta o espaçamento do logo
                 }
             }
         }
