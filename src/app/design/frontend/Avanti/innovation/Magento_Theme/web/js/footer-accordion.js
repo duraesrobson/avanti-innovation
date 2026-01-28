@@ -31,7 +31,6 @@ define([
 
         // se não existir nenhum bloco, não faz nada
         if (!$accordions.length) {
-            console.log("footer-accordion: nenhum bloco encontrado");
             return;
         }
 
@@ -43,9 +42,6 @@ define([
 
             // se não tiver lista, retorna uma messagem no console para debug
             if (!$list.length) {
-                console.log(
-                    "footer-accordion: bloco sem <ul> logo após o <h4>"
-                );
                 return;
             }
 

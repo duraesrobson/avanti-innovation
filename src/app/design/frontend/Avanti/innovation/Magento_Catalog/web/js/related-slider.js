@@ -7,7 +7,7 @@ define([
     $(document).ready(function () {
 
         // seleciona o elemento que será transformado em slider
-        var $slider = $('.products-related .product-items, .products-upsell .product-items');
+        var $slider = $('.products-related .product-items, .products-upsell .product-items, .page-layout-checkout .products-crosssell .product-items');
 
         // função responsável por controlar quando o Slick é iniciado ou destruído
         function handleSlider() {
@@ -31,7 +31,7 @@ define([
                 // se for mobile e o Slick estiver ativo
                 if (!$slider.hasClass('slick-initialized')) {
                     $slider.slick({
-                        infinite: false,
+                        infinite: true,
                         slidesToShow: 2,       
                         slidesToScroll: 2,
                         variableWidth: true,   // permite variação de width

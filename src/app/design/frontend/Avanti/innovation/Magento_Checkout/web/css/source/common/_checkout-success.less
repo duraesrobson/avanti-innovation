@@ -73,8 +73,20 @@
 
             // controla a mensagem superior da página de sucesso
             .checkout-success-top-message {
+                // controla o link para imprimir o recibo
                 .actions-toolbar.print-actions {
-                    .lib-visually-hidden(); // oculta visualmente a barra de ações no desktop
+                    .primary {
+                        .lib-css(width, 100vw);
+                        .lib-css(margin-left, -400px);
+                        .action.print {
+                            .lib-css(display, block);
+                            .lib-css(text-align, right);
+                            .lib-css(font-size, 16px);
+                            .lib-css(font-weight, 700);
+                            .lib-css(text-decoration, underline);
+                            .lib-css(color, #000000);
+                        }
+                    }
                 }
 
                 h2 {
