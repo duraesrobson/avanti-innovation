@@ -1,0 +1,51 @@
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__m) {
+    // controla o layout da página de checkout
+    .page-layout-checkout {
+        // controla o bloco de informações de envio
+        .opc-block-shipping-information {
+            // controla as informações de envio e links
+            .shipping-information,
+            a {
+                .lib-css(color, #333333);
+                .lib-css(font-weight, 700);
+
+                // controla os elementos de envio
+                .ship-to,
+                .ship-via {
+                    .lib-css(margin-bottom, 80px);
+
+                    // controla o título das informações de envio
+                    .shipping-information-title {
+                        .lib-css(padding, 0);
+                        .lib-css(border-color, #656565);
+
+                        span {
+                            .lib-css(font-weight, 700);
+                            .lib-css(font-size, 24px);
+                        }
+
+                        // controla o ícone de edição
+                        .action-edit::before {
+                            .lib-css(content, """");
+                            .lib-css(display, block);
+                            .lib-css(width, 20px);
+                            .lib-css(height, 30px);
+                            .lib-css(background-repeat, no-repeat);
+                            .lib-css(background-size, contain);
+                            .lib-css(background-position, center);
+                            .lib-css(background-image, url("@{baseDir}images/edit-icon.svg"));
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
