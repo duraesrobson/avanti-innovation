@@ -7,7 +7,7 @@ define([
     $(document).ready(function () {
 
         // seleciona o elemento que será transformado em slider
-        var $slider = $('.product-items');
+        var $slider = $('.page-layout-checkout .product-items');
 
         // função responsável por controlar quando o Slick é iniciado ou destruído
         function handleSlider() {

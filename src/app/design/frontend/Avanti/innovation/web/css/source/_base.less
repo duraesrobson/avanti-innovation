@@ -21,6 +21,25 @@
 
 @color-form-border: #dddddd;
 
+@button__color: #ffffff;
+@button__background: @theme__color__primary;
+@button__border: 1px solid @theme__color__primary;
+
+// --- Efeito HOVER (O que você queria) ---
+@button__hover__color: #ffffff;
+@button__hover__background: darken(@theme__color__primary, 10%);
+@button__hover__border: none;
+
+// --- Efeito ACTIVE (Ao clicar) ---
+@button__active__color: #ffffff;
+@button__active__background: darken(@theme__color__primary, 20%);
+@button__active__border: none;
+
+// --- Botão PRIMARY (Geralmente o de finalizar compra) ---
+@button-primary__background: @theme__color__primary;
+@button-primary__hover__background: darken(@theme__color__primary, 15%);
+@button-primary__active__background: darken(@theme__color__primary, 25%);
+
 .slider-title() {
     font-size: 2rem;
     text-transform: uppercase;
