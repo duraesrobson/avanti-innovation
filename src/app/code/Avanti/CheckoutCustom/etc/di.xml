@@ -1,4 +1,15 @@
 <?xml version="1.0"?>
+
+<!-- 
+    Elemento raiz de configuração do DI (Dependency Injection) do Magento.
+    Esse schema garante que o XML siga as regras do Object Manager.
+-->
+
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--
+        substitui o block crosssell do carrinho do magento
+        toda vez que o core chamar o crosssell original,
+        será usada a classe customizada do módulo avanti
+    -->
     <preference for="Magento\Checkout\Block\Cart\Crosssell" type="Avanti\CheckoutCustom\Block\Cart\Crosssell" />
 </config>

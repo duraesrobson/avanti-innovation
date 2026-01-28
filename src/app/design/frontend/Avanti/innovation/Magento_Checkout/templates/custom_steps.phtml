@@ -2,21 +2,28 @@
 $cssClass = $block->getData('css_class') ?: '';
 ?>
 
+<!-- container principal dos steps do checkout -->
 <div class="custom-checkout-header-steps <?= $block->escapeHtmlAttr($cssClass) ?>"
     data-bind="scope: 'customCheckoutSteps'"
     data-step-page="checkout">
 
+    <!-- lista de steps do checkout -->
+    <!-- o data-bind ativa a classe .active nas classes! -->
     <ul class="checkout-steps-list">
+
+        <!-- step 1: carrinho -->
         <li class="step-item step-cart"
             data-bind="css: { active: isCartActive }, click: goToCart">
             <span>1</span> Carrinho
         </li>
 
+        <!-- step 2: entrega -->
         <li class="step-item step-shipping"
             data-bind="css: { active: isShippingActive }, click: goToShipping">
             <span>2</span> Entrega
         </li>
 
+        <!-- step 2: pagamento -->
         <li class="step-item step-payment"
             data-bind="css: { active: isPaymentActive }, click: goToPayment">
             <span>3</span> Pagamento
