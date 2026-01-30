@@ -1,0 +1,112 @@
+//
+// desktop
+// _____________________________________________
+
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__m) {
+    .account {
+        // controla a barra lateral principal da conta
+        .sidebar.sidebar-main {
+            .lib-css(width, 251px);
+
+            // controla o bloco de navegação colapsável
+            .block-collapsible-nav {
+                .content {
+                    .lib-css(font-size, 14px);
+                    .lib-css(color, #a4a4a4);
+                    .lib-css(border, 1px solid #bdbdbd);
+                    .lib-css(border-radius, 10px);
+                    .lib-css(background, transparent);
+                    .lib-css(box-shadow, 0px 0px 5px 0px rgba(0, 0, 0, 0.25));
+
+                    // controla os itens dentro do bloco
+                    .item {
+                        .lib-css(border, none);
+
+                        a {
+                            .lib-css(color, #a4a4a4);
+                        }
+
+                        // controla o item atual selecionado
+                        &.current strong {
+                            .lib-css(color, #dfdfdf);
+                            .lib-css(font-weight, 700);
+                            .lib-css(padding, 8px 18px 8px 15px);
+                            .lib-css(margin-bottom, 10px);
+                            .lib-css(background, @theme__color__primary);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//
+// mobile
+// _____________________________________________
+
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .account {
+        // controla o espaçamento superior da página principal
+        .page-main {
+            .lib-css(margin-top, 40px);
+
+            // controla a barra lateral principal da conta
+            .sidebar.sidebar-main {
+                // controla o bloco de navegação colapsável
+                .block-collapsible-nav {
+                    // controla o título do bloco colapsável
+                    .block-collapsible-nav-title {
+                        .lib-css(border, none);
+                        .lib-css(background, @theme__color__primary);
+                        .lib-css(color, #dfdfdf);
+
+                        &::after {
+                            .lib-css(color, #dfdfdf);
+                            .lib-css(font-weight, 900);
+                        }
+                    }
+
+                    // controla o conteúdo ativo do bloco colapsável
+                    .content.block-collapsible-nav-content.active {
+                        .lib-css(padding, 30px 0);
+                        .lib-css(background, #ffffff);
+                        .lib-css(font-size, 15px);
+                        .lib-css(box-shadow, 0px 0px 5px 0px rgba(0, 0, 0, 0.25));
+                        .lib-css(border, none);
+
+                        // controla os itens dentro do bloco
+                        .item {
+                            .lib-css(border, none);
+
+                            a {
+                                .lib-css(border, none);
+                                .lib-css(color, #a4a4a4);
+                            }
+
+                            // controla o item atual selecionado
+                            &.current strong {
+                                .lib-css(border, none);
+                                .lib-css(color, #a4a4a4);
+                                .lib-css(font-weight, 700);
+                            }
+
+                            // controla o espaçamento do delimitador
+                            .delimiter {
+                                .lib-css(margin, 20px 15px 10px);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
