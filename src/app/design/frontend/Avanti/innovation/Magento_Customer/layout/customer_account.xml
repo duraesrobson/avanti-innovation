@@ -11,5 +11,6 @@
         <!-- remove sidebar adicional -->
         <referenceBlock name="sidebar.additional" remove="true"/>
 
+
     </body>
 </page>
