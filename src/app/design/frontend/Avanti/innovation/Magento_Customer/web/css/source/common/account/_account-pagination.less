@@ -1,0 +1,187 @@
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common =true) {
+    .order-products-toolbar {
+        .toolbar-sorter {
+            select#sorter {
+                .lib-css(font-weight, 700);
+                .lib-css(color, #787878);
+                .lib-css(background, #fff url("../images/gray-select-bg.svg") no-repeat 90% center);
+                .lib-css(background-size, 13px);
+                .lib-css(border, 1px solid #005cff);
+                .lib-css(border-radius, 5px);
+            }
+        }
+
+        // botões de alternância entre visualização em grade ou lista
+        .modes-mode {
+            .lib-css(background, #d9d9d9);
+            .lib-css(border, none);
+            .lib-css(border-radius, 0);
+            .lib-css(box-shadow, none);
+
+            // estado ativo do botão de modo de exibição
+            &.active.mode-grid,
+            &.active.mode-list {
+                .lib-css(background, @theme__color__primary);
+                .lib-css(box-shadow, none);
+            }
+
+            // ícone interno do botão de modo
+            &::before {
+                .lib-css(box-shadow, none);
+                .lib-css(color, #ffffff);
+            }
+        }
+
+        // lista de números da paginação
+        .items.pages-items {
+            // estilo do número da página atual (selecionada)
+            .current {
+                .page {
+                    .lib-css(background, @theme__color__primary);
+                    .lib-css(border-radius, 50%);
+                    .lib-css(width, 27px);
+                    .lib-css(height, 27px);
+                    .lib-css(display, flex);
+                    .lib-css(justify-content, center);
+                    .lib-css(align-items, center);
+                    .lib-css(padding, 0);
+                    .lib-css(text-align, center);
+                }
+            }
+
+            // botões de ação da paginação (próximo/anterior)
+            .action {
+                .lib-css(background, @theme__color__primary);
+                .lib-css(border, none);
+                .lib-css(border-radius, 5px);
+                .lib-css(box-shadow, none);
+            }
+        }
+
+        // ícone de seta dentro do limiter-options
+        select#limiter {
+            .lib-css(background, #fff url("../images/select-bg.svg") no-repeat
+                100% center);
+        }
+
+        // seletor de quantidade de produtos por página
+        .limiter {
+            // rótulo do seletor (texto "mostrar")
+            span {
+                .lib-css(font-size, 12px);
+                .lib-css(font-weight, 700);
+                .lib-css(color, #444444);
+            }
+
+            // container do campo select
+            .control {
+                // campo dropdown de opções do limiter
+                .limiter-options {
+                    .lib-css(border, 1px solid #000000);
+                    .lib-css(border-radius, 5px);
+                    .lib-css(width, 52px);
+                    .lib-css(font-size, 12px);
+                    .lib-css(color, #444444);
+                    .lib-css(font-weight, 700);
+                    .lib-css(background-color, transparent);
+                }
+            }
+        }
+    }
+}
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum ="min")
+    and
+    (@break =@screen__m) {
+    // barra de ferramentas superior (filtros rápidos e paginação)
+    .order-products-toolbar {
+        .toolbar-amount {
+            .lib-css(font-size, 14px);
+        }
+
+        .toolbar-sorter {
+            .lib-css(font-size, 14px);
+
+            select#sorter {
+                .lib-css(font-size, 14px);
+            }
+        }
+
+        // lista de números da paginação
+        .items.pages-items {
+            // estilo do número da página atual (selecionada)
+            .current {
+                .page {
+                    .lib-css(color, #ffffff);
+                }
+            }
+
+            // botões de ação da paginação (próximo/anterior)
+            .action {
+                &::before {
+                    .lib-css(color, #ffffff);
+                }
+            }
+        }
+    }
+}
+
+// ------------------------------
+// Mobile
+// ------------------------------
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    // barra de ferramentas superior (filtros rápidos e paginação)
+    .order-products-toolbar {
+        .toolbar-amount {
+            .lib-css(text-align, center);
+            .lib-css(padding, 0);
+            .lib-css(margin, 0 0 -10px);
+            .lib-css(font-size, 14px);
+            .lib-css(color, #000000);
+        }
+
+        .toolbar-sorter {
+            .lib-css(font-size, 12px);
+            .lib-css(color, #151515);
+
+            select#sorter {
+                .lib-css(font-size, 14px);
+            }
+        }
+
+        // lista de números da paginação
+        .items.pages-items {
+            .lib-css(display, inline-block);
+            padding-top: 0;
+
+            // estilo do número da página atual (selecionada)
+            .current {
+                .page {
+                    .lib-css(color, #e2e2e2);
+                    .lib-css(font-weight, 400);
+                    .lib-css(font-size, 12px);
+                }
+            }
+
+            .pages {
+                .lib-css(margin, 0);
+            }
+
+            // botões de ação da paginação (próximo/anterior)
+            .action {
+                &::before {
+                    .lib-css(color, #E2E2E2);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <referenceContainer name="content">
+            <!-- cria e adiciona bloco de texto customizado para editar no page builder -->
+            <block class="Magento\Cms\Block\Block" name="custom_text_order_history">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">custom_text_order_history</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <!-- move o titulo pro começo do content -->
+        <move element="page.main.title" destination="content" before="-"/>
+
+        <!-- move o texto customizado após o titulo -->
+        <move element="custom_text_order_history" destination="content" after="page.main.title"/>
+    </body>
+</page>

@@ -1,0 +1,63 @@
+//
+// desktop
+// _____________________________________________
+
+.media-width(@extremum, @break)
+    when
+    (@extremum = "min")
+    and
+    (@break = @screen__m) {
+    .account {
+        .column.main {
+            .custom-text-order-history-wrapper {
+                font-size: 14px;
+                color: #656565;
+                .custom-text-order-history-title {
+                    p {
+                        font-size: 18px;
+                        font-weight: 700;
+                        color: #707070;
+                    }
+                }
+            }
+
+            // estiliza a tabela de pedidos recentes
+            .table-wrapper {
+                .lib-css(margin-top, 60px);
+                .lib-css(border-top, none);
+            }
+        }
+    }
+}
+
+//
+// mobile
+// _____________________________________________
+
+.media-width(@extremum, @break)
+    when
+    (@extremum = "max")
+    and
+    (@break = @screen__m) {
+    .account {
+        .column.main {
+            .custom-text-order-history-wrapper {
+                font-size: 14px;
+                color: #656565;
+                .custom-text-order-history-title {
+                    p {
+                        font-size: 18px;
+                        font-weight: 700;
+                        color: #707070;
+                    }
+                }
+            }
+
+            // estiliza a tabela de pedidos recentes
+            .table-wrapper {
+                .lib-css(margin-top, 25px);
+                .lib-css(border-top, none);
+            }
+        }
+    }
+}
